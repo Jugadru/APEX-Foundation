@@ -28,7 +28,8 @@ class EvidenceTests(unittest.TestCase):
 
     def test_invalid_timestamp(self):
         for invalid in ("2026-02-30T00:00:00Z","2026-11-27T24:00:00Z",
-                        "2026-11-27T00:00:60Z","2026-11-27T00:00:00+00:00",
+                        "2026-11-27T00:00:60Z","2026-11-27T00:60:00Z","2026-11-27T25:00:00Z",
+                        "2026-11-27T00:00:00+00:00","0000-11-27T00:00:00Z",
                         "2026-11-27T00:00:00.Z","2026-11-27T00:00:00.1234567890123456789Z",None):
             with self.subTest(value=invalid),self.assertRaises(ValueError):
                 e.timestamp(invalid)

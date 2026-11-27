@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Offline evidence catalog. Recorded observations are not live attestations."""
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from fractions import Fraction
 import hashlib
 import json
@@ -27,9 +27,11 @@ def timestamp(value):
     if not isinstance(value,str) or not re.fullmatch(TIME_RE,value):
         raise ValueError("expected UTC timestamp with at most 18 fractional digits")
     whole,_,digits=value[:-1].partition(".")
-    # Parse the whole second only; Python 3.10 rejects 7 fractional digits.
+    # Use explicit calendar fields, not interpreter-specific ISO normalization.
+    # datetime constructor rejects hour 24, invalid dates and leap seconds.
     # Fractions remain exact, including differences below one microsecond.
-    second=datetime.fromisoformat(whole+"+00:00")
+    second=datetime(int(whole[0:4]),int(whole[5:7]),int(whole[8:10]),
+                    int(whole[11:13]),int(whole[14:16]),int(whole[17:19]),tzinfo=timezone.utc)
     return second,Fraction(int(digits),10**len(digits)) if digits else Fraction(0)
 
 def index(doc):

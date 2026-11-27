@@ -17,3 +17,5 @@ Reconciliation validates coverage across all historical inventory sources, recom
 
 ## Minimum interpreter regression
 Candidate 431b20e2b5190c298a1b263402d15a451b901245: default Python 3.14.4 135 tests PASS; Python 3.10.22 FAIL in Evidence Center timestamp parsing before full suite. [Original CI](https://github.com/Jugadru/APEX-Foundation/actions/runs/46069436994). Corrected parsing without truncation or changing receipts, added four targeted tests, and explicitly checked out/verified the candidate SHA in both CI jobs. Fresh approval required; no prior failure overwritten.
+
+Second candidate CI 46070290387: Python 3.10.22 PASS (139 tests), Python 3.14.4 FAIL (hour 24 accepted by ISO parser). Explicit calendar construction now enforces identical strict ranges across interpreters. Both environments must pass on the new SHA.

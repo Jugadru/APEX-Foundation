@@ -20,3 +20,5 @@ Regression: persistence recovery rejects a primary from the wrong consumer scope
 
 ## Python 3.10 compatibility correction (v0.5.1)
 GitHub log timestamps can contain seven fractional digits. Python 3.10 datetime.fromisoformat rejected the original values in CI run 46069436994. Parse whole UTC seconds and compare exact fractional seconds separately (1–18 ASCII digits, no truncation); retain original text and hashes. History uses the same ordering key. Four regression tests cover precision, invalid timestamps, reversed submicrosecond markers and mixed-precision history ordering.
+
+Second candidate 0fb212722d7546a5ae876a53d5d2ab7fa54aa1c7 passed 139 tests on 3.10.22, but Python 3.14.4 normalized hour 24 rather than rejecting it. Replace ISO whole-second parsing with explicit datetime constructor fields and UTC timezone; retain all rejection assertions and add invalid minute/hour/year cases. [CI evidence](https://github.com/Jugadru/APEX-Foundation/actions/runs/46070290387).
