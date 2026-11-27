@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "OBS-001",
+      "reference_id": "REF-106",
+      "source_url": "https://github.com/TUMFTM/race-simulation",
+      "observed_on": "2026-11-26",
+      "revision": null,
+      "kind": "public_readme",
+      "finding": "README descreve simulação de estratégia de pit stops e Virtual Strategy Engineer; comparar conceitualmente com o Pit Wall existente.",
+      "license_state": "UNREVIEWED",
+      "reuse": "BLOCKED",
+      "limitations": "Página pública consultada; commit, licença aplicável, dependências, execução e compatibilidade não verificados."
+    },
+    {
+      "id": "OBS-002",
+      "reference_id": "REF-107",
+      "source_url": "https://github.com/TUMFTM/laptime-simulation",
+      "observed_on": "2026-11-26",
+      "revision": null,
+      "kind": "public_readme",
+      "finding": "README descreve modelo quasi-steady-state em Python para avaliar parâmetros veiculares, tempo de volta e consumo.",
+      "license_state": "UNREVIEWED",
+      "reuse": "BLOCKED",
+      "limitations": "Página pública consultada; commit, licença aplicável, dependências, execução e compatibilidade não verificados."
+    },
+    {
+      "id": "OBS-003",
+      "reference_id": "REF-109",
+      "source_url": "https://github.com/TUMFTM/global_racetrajectory_optimization",
+      "observed_on": "2026-11-26",
+      "revision": null,
+      "kind": "public_readme",
+      "finding": "README apresenta abordagens de otimização global de linha; estudar curvatura e tempo mínimo sem importar código.",
+      "license_state": "UNREVIEWED",
+      "reuse": "BLOCKED",
+      "limitations": "Página pública consultada; commit, licença aplicável, dependências, execução e compatibilidade não verificados."
+    },
+    {
+      "id": "OBS-004",
+      "reference_id": "REF-153",
+      "source_url": "https://github.com/godotengine/godot-demo-projects",
+      "observed_on": "2026-11-26",
+      "revision": null,
+      "kind": "public_readme",
+      "finding": "README apresenta demos oficiais e informa licença MIT para demos; versão e licenças de recursos individuais ainda não auditadas.",
+      "license_state": "UNREVIEWED",
+      "reuse": "BLOCKED",
+      "limitations": "Página pública consultada; commit, licença aplicável, dependências, execução e compatibilidade não verificados."
+    }
+  ]
+}

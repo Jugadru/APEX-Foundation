@@ -258,5 +258,72 @@
       "evidence"
     ],
     "additionalProperties": false
+  },
+  "research-observation.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "OBS-[0-9]{3,}"
+      },
+      "reference_id": {
+        "type": "string",
+        "pattern": "REF-[0-9]{3,}"
+      },
+      "source_url": {
+        "type": "string",
+        "pattern": "https://[^\\s]+"
+      },
+      "observed_on": {
+        "type": "string",
+        "pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+      },
+      "revision": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "[0-9a-f]{40}"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "public_readme"
+        ]
+      },
+      "finding": {
+        "type": "string",
+        "minLength": 1
+      },
+      "license_state": {
+        "type": "string",
+        "enum": [
+          "UNREVIEWED"
+        ]
+      },
+      "reuse": {
+        "type": "string",
+        "enum": [
+          "BLOCKED"
+        ]
+      },
+      "limitations": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "id",
+      "reference_id",
+      "source_url",
+      "observed_on",
+      "revision",
+      "kind",
+      "finding",
+      "license_state",
+      "reuse",
+      "limitations"
+    ],
+    "additionalProperties": false
   }
 }

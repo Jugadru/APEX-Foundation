@@ -15,3 +15,7 @@
 
 ## v0.1.0 — migração de repositório
 - Decisão do responsável: separar Foundation para evitar conflitos de PR. Preservar IDs, schemas, roadmap e versões. Entrypoints externos fixados ao SHA original; CI Python independente. Nenhuma funcionalidade esportiva alterada.
+
+## v0.1.1 — Knowledge Center: Research Intelligence
+- Índice offline, busca acentuada e por departamento, vínculos bidirecionais, candidatos a duplicidade, fingerprint determinístico, fila explicável, planos bloqueados, 4 observações documentais iniciais e contrato research-observation.v1. Nenhuma licença ou implementação aprovada. IDs e conteúdo histórico preservados.
+- Proteção de seis arquivos históricos por Git blob; inventário de candidatos no Core 2 por SHA e departamento, sem declarar implementação auditada.

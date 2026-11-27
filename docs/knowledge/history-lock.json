@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "source_revision": "c999d8f4062d2df07f1deae55a2252f6262596bf",
+  "files": {
+    "docs/references/references.json": "2556dc59594cfede4201c3ccfc56e6892f25d54f",
+    "docs/references/possibilities.json": "72f40cd5b876bd68c5ab0d0a7df4852d866ae2d9",
+    "docs/references/ROADMAP_HYPER.md": "1516249c923126c85d462d1131416d4ff54a2ff9",
+    "docs/references/domains.json": "5d28db6758a36b68912e547f4ac0e2db93cb025e",
+    "docs/references/BIBLIOTECA_198.md": "89d8ceaadae07cacf718cbf9ff8b00ab22047805",
+    "docs/references/CATALOGO_120.md": "7a32429d8b73b3155d0c157470d24f4902b95e24"
+  }
+}

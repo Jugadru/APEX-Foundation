@@ -113,7 +113,7 @@ def safe_entry(path):
         raise ValueError("entrypoint outside repository: " + path)
 
 def validate_registry(reg, schemas):
-    if set(reg) != {"foundation_version", "modules", "capabilities", "compatibility", "contracts"} or reg["foundation_version"] != "0.1.0":
+    if set(reg) != {"foundation_version", "modules", "capabilities", "compatibility", "contracts"} or reg["foundation_version"] not in ("0.1.0", "0.1.1"):
         raise ValueError("unsupported registry format")
     for schema in schemas.values():
         schema_check(schema)

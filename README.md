@@ -1,6 +1,6 @@
-# APEX Foundation v0.1.0
+# APEX Foundation v0.1.1
 
-Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
+Knowledge Center: Research Intelligence + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
 [Contratos e comandos](docs/foundation/README.md) · [Biblioteca de referências](docs/references/README.md) · [Migração e evidências](docs/foundation/MIGRATION.md) · [AGENTS.md](AGENTS.md)
 
@@ -21,3 +21,6 @@ python3 -m unittest discover -s tools/tests -p 'test_*.py' -v
 ```
 
 Foundation CI é independente; não substitui FAST esportivo. Sem promoção de assets nem execução automática de capacidades. Origem: PR #177; versão preservada.
+
+## Knowledge Center v0.1.1
+[Manual de pesquisa](docs/knowledge/README.md) · [Observações verificadas em páginas públicas](docs/knowledge/observations.json) · [Política](docs/knowledge/policy.json).
