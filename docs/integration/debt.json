@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "pin-core2",
+      "title": "Reconcile Core 2 inventory",
+      "owner": "core2",
+      "priority": "P0",
+      "depends_on": [],
+      "status": "NOT_RUN",
+      "acceptance": "Audit exact new SHA and native paths; review proposed pins and run exact FAST"
+    },
+    {
+      "id": "pin-hyper",
+      "title": "Reconcile Hyper inventory",
+      "owner": "hyper",
+      "priority": "P0",
+      "depends_on": [],
+      "status": "NOT_RUN",
+      "acceptance": "Audit actual independent engine and exact new SHA; verify longitudinal fixture"
+    },
+    {
+      "id": "python-minimum",
+      "title": "Verify minimum Python interpreter",
+      "owner": "foundation",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "NOT_RUN",
+      "acceptance": "Run full Foundation tests on exact supported 3.10 interpreter"
+    },
+    {
+      "id": "core2-adapter",
+      "title": "Core 2 read-only metadata adapter",
+      "owner": "core2",
+      "priority": "P0",
+      "depends_on": [
+        "pin-core2"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Reviewed native adapter and exact-SHA FAST; no sporting mutation"
+    },
+    {
+      "id": "hyper-adapter",
+      "title": "Hyper metadata adapter",
+      "owner": "hyper",
+      "priority": "P0",
+      "depends_on": [
+        "pin-hyper"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Reviewed native adapter and exact-SHA Hyper tests; no parity claim"
+    },
+    {
+      "id": "lab-evidence",
+      "title": "Native Lab evidence producer",
+      "owner": "development-lab",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "NOT_RUN",
+      "acceptance": "Use existing Lab workflow; verify receipt schema and actual artifact bytes"
+    },
+    {
+      "id": "research-rights",
+      "title": "Reference and license audit",
+      "owner": "foundation",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "NOT_RUN",
+      "acceptance": "Review reference sources and exact license/revision; no automatic reuse"
+    },
+    {
+      "id": "historical-data",
+      "title": "Historical dataset adoption",
+      "owner": "data-center",
+      "priority": "P1",
+      "depends_on": [
+        "research-rights",
+        "core2-adapter"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Verified provenance, units, era rules and native acceptance"
+    },
+    {
+      "id": "real-content",
+      "title": "Native content identity reconciliation",
+      "owner": "content-registry",
+      "priority": "P1",
+      "depends_on": [
+        "historical-data"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Map existing game IDs; resolve rights and dependency differences"
+    },
+    {
+      "id": "native-config",
+      "title": "Native configuration mapping",
+      "owner": "configuration-management",
+      "priority": "P1",
+      "depends_on": [
+        "core2-adapter",
+        "hyper-adapter"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Explicit settings mapping and consumer-specific regression"
+    },
+    {
+      "id": "native-save",
+      "title": "Native SaveGuard migration compatibility",
+      "owner": "saveguard",
+      "priority": "P0",
+      "depends_on": [
+        "core2-adapter"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Cross-revision Godot SaveGuard with exact base and candidate; no real player data"
+    },
+    {
+      "id": "native-mods",
+      "title": "Native data-only mod loader design",
+      "owner": "modding",
+      "priority": "P2",
+      "depends_on": [
+        "real-content",
+        "native-config",
+        "native-save"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Separate review, threat model, permissions, sandbox and native regression"
+    },
+    {
+      "id": "native-graphics",
+      "title": "Asset import and visual QA",
+      "owner": "asset-factory",
+      "priority": "P1",
+      "depends_on": [
+        "research-rights",
+        "core2-adapter"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Exact Blender export, Godot import and separate real GPU evidence"
+    },
+    {
+      "id": "runtime-contracts",
+      "title": "Reconcile deferred runtime contracts",
+      "owner": "core2",
+      "priority": "P1",
+      "depends_on": [
+        "core2-adapter",
+        "hyper-adapter",
+        "lab-evidence"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Reuse actual command/event/save/replay contracts; no duplicate buses"
+    },
+    {
+      "id": "release-gate",
+      "title": "Review v1.0 release readiness",
+      "owner": "release",
+      "priority": "P0",
+      "depends_on": [
+        "native-save",
+        "native-config",
+        "lab-evidence",
+        "python-minimum",
+        "runtime-contracts"
+      ],
+      "status": "BLOCKED",
+      "acceptance": "Owner review, fresh exact-SHA evidence, reproducible artifact hashes and rollback"
+    }
+  ]
+}

@@ -49,3 +49,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.4.0 — Modding Infrastructure
 [Modding manual](../modding/README.md): three additive metadata contracts, exact dependency resolution, bounded ZIP inspection, overlay preview, removal and rollback planning. No native loader.
+
+## v0.5.0 — Ecosystem Integration
+[Integration manual](../integration/README.md): four additive contracts, unified SDK, explicit offline routes, local health, repository drift, technical debt and cross-service scenario. All previous schemas preserved.

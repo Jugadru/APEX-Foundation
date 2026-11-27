@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.4.0",
+  "foundation_version": "0.5.0",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -273,6 +273,26 @@
       ],
       "entrypoints": [
         "tools/apex_evidence.py"
+      ]
+    },
+    {
+      "id": "integration-gateway",
+      "name": "Foundation Ecosystem Integration",
+      "version": "0.5.0",
+      "maturity": "experimental",
+      "state_owner": "Offline SDK, gateway and adoption planning; no native runtime authority",
+      "dependencies": [
+        "foundation",
+        "data-center",
+        "content-registry",
+        "configuration-management",
+        "persistence-management",
+        "evidence-center",
+        "modding"
+      ],
+      "entrypoints": [
+        "tools/apex_sdk.py",
+        "tools/apex.py"
       ]
     }
   ],
@@ -1321,6 +1341,114 @@
       "restrictions": [
         "No extraction, script execution, installation, file replacement, network or authorization"
       ]
+    },
+    {
+      "id": "integration.health",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "registered offline metadata"
+      ],
+      "outputs": [
+        "cross-service diagnostic or plan"
+      ],
+      "method": "python3 tools/apex.py doctor",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No remote dispatch, runtime writes, identity authentication or release authorization"
+      ]
+    },
+    {
+      "id": "integration.catalog",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "registered offline metadata"
+      ],
+      "outputs": [
+        "cross-service diagnostic or plan"
+      ],
+      "method": "python3 tools/apex.py catalog",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No remote dispatch, runtime writes, identity authentication or release authorization"
+      ]
+    },
+    {
+      "id": "integration.plan",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "registered offline metadata"
+      ],
+      "outputs": [
+        "cross-service diagnostic or plan"
+      ],
+      "method": "python3 tools/apex.py plan REPOSITORY SHA",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No remote dispatch, runtime writes, identity authentication or release authorization"
+      ]
+    },
+    {
+      "id": "integration.scenario",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "registered offline metadata"
+      ],
+      "outputs": [
+        "cross-service diagnostic or plan"
+      ],
+      "method": "python3 tools/apex.py scenario",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No remote dispatch, runtime writes, identity authentication or release authorization"
+      ]
+    },
+    {
+      "id": "integration.debt",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "registered offline metadata"
+      ],
+      "outputs": [
+        "cross-service diagnostic or plan"
+      ],
+      "method": "python3 tools/apex.py debt",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No remote dispatch, runtime writes, identity authentication or release authorization"
+      ]
+    },
+    {
+      "id": "integration.drift",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "registered offline metadata"
+      ],
+      "outputs": [
+        "cross-service diagnostic or plan"
+      ],
+      "method": "python3 tools/apex.py drift",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No remote dispatch, runtime writes, identity authentication or release authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -1444,6 +1572,15 @@
     {
       "left": "foundation",
       "left_version": "0.4.0",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Minimum target; exact interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.5.0",
       "right": "python",
       "right_version": "3.10",
       "status": "NOT_RUN",
@@ -1612,6 +1749,22 @@
     },
     {
       "id": "mod-selection.v1",
+      "status": "active"
+    },
+    {
+      "id": "integration-request.v1",
+      "status": "active"
+    },
+    {
+      "id": "integration-response.v1",
+      "status": "active"
+    },
+    {
+      "id": "integration-repository.v1",
+      "status": "active"
+    },
+    {
+      "id": "integration-debt.v1",
       "status": "active"
     }
   ]

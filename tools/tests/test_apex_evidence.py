@@ -21,14 +21,14 @@ class EvidenceTests(unittest.TestCase):
 
     def test_stats(self):
         s=self.e.stats()
-        self.assertEqual((s["receipts"],s["artifacts"],s["benchmarks"],s["notes"]),(8,1,3,2))
+        self.assertEqual((s["receipts"],s["artifacts"],s["benchmarks"],s["notes"]),(12,1,3,2))
         self.assertEqual(s["status"],"PASS")
         self.assertFalse(s["live_attestation"])
         self.assertEqual(s["fingerprint"],e.load().fingerprint)
 
     def test_history(self):
         h=self.e.history()["entries"]
-        self.assertEqual([x["test_count"] for x in h],[12,24,34,46,60,72,85,85])
+        self.assertEqual([x["test_count"] for x in h],[12,24,34,46,60,72,85,85,97,97,111,111])
         self.assertTrue(all(x["scope"]=="FOUNDATION_PYTHON_ONLY" for x in h))
 
     def test_exact_revision_gate(self):

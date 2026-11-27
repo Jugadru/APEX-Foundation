@@ -1,0 +1,12 @@
+{
+  "id": "request.example",
+  "capability": "data.convert",
+  "profile": "reader",
+  "args": [
+    "180",
+    "kmh",
+    "mps"
+  ],
+  "change": null,
+  "selection": null
+}

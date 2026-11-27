@@ -250,9 +250,9 @@ class Modding:
                 "manifest_sha256":hashlib.sha256(body).hexdigest(),"extracted":False,
                 "runtime_installed":False,"execution_authorized":False}
 
-def load():
+def load(*,registry=None):
     _,schemas=r.load_registry()
-    return Modding(k.document(ROOT/"data/modding/catalog.json",{"entries"}),schemas,content.load())
+    return Modding(k.document(ROOT/"data/modding/catalog.json",{"entries"}),schemas,content.load() if registry is None else registry)
 
 def read_zip(path):
     path=Path(path)

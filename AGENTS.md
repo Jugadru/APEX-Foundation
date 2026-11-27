@@ -19,3 +19,5 @@ Para persistência, consultar [Persistence & Migration](docs/persistence/README.
 Para evidências, consultar [Artifact & Evidence Center](docs/evidence/README.md). Exigir SHA exato, distinguir observação histórica de validação atual e nunca inferir PASS de fixture, hash ou arquivo presente. Não promover artefatos nem publicar releases automaticamente.
 
 Para mods, consultar [Modding Infrastructure](docs/modding/README.md). Validar versões, escopo, permissões e conflitos; nunca extrair ou executar pacotes, instalar mods ou modificar arquivos originais por meio desta ferramenta.
+
+Para integração, consultar [SDK](docs/integration/README.md) e [Onboarding](docs/integration/ONBOARDING.md). Gateway offline usa rotas explícitas, não executa métodos registrados, não autentica identidades. Separar saúde local de homologação nativa; nunca repinar sem auditoria.

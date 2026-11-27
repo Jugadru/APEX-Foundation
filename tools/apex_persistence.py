@@ -231,9 +231,9 @@ class Persistence:
                 "routes":len(self.routes),"fixtures":len(self.fixtures),"saveguard_pointers":len(self.inventory["paths"]),
                 "fingerprint":self.fingerprint,"native_save_verified":False,"execution_authorized":False}
 
-def load():
+def load(*,architecture=None):
     _,schemas=r.load_registry()
-    architecture=a.load()
+    architecture=a.load() if architecture is None else architecture
     return Persistence(k.document(DOCS/"routes.json",{"entries"}),
                        k.document(ROOT/"data/persistence/fixtures.json",{"entries"}),
                        k.document(DOCS/"saveguard-inventory.json",{"repository","revision","scope","paths"}),

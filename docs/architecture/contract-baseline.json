@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": "cfc4ae7bee480d922bf48c1fcba3b37cd8be658f",
+  "revision": "5cc84600b47e55cf32d2f4e5c8a6de260e69be01",
   "schemas": {
     "module.v1": {
       "type": "object",
@@ -1732,6 +1732,208 @@
         "description",
         "status",
         "scope"
+      ],
+      "additionalProperties": false
+    },
+    "mod-reference.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "mod-manifest.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+        },
+        "previous": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consumer": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "SYNTHETIC_FIXTURE"
+          ]
+        },
+        "rights": {
+          "type": "string",
+          "enum": [
+            "ORIGINAL_FIXTURE"
+          ]
+        },
+        "usage": {
+          "type": "string",
+          "enum": [
+            "TEST_ONLY"
+          ]
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "content.label.preview"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "version": {
+                "type": "string",
+                "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "uniqueItems": true
+        },
+        "overlays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "version": {
+                "type": "string",
+                "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "target",
+              "version",
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "previous",
+        "title",
+        "consumer",
+        "revision",
+        "season",
+        "origin",
+        "rights",
+        "usage",
+        "permissions",
+        "dependencies",
+        "conflicts",
+        "overlays"
+      ],
+      "additionalProperties": false
+    },
+    "mod-selection.v1": {
+      "type": "object",
+      "properties": {
+        "consumer": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "requested": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "version": {
+                "type": "string",
+                "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "consumer",
+        "revision",
+        "requested"
       ],
       "additionalProperties": false
     }

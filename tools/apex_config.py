@@ -204,10 +204,10 @@ class Config:
         return {"status":"BLOCKED","id":ident,"version":version,"consumer":consumer,"revision":revision,
                 "reasons":reasons,"runtime_applied":False,"execution_authorized":False}
 
-def load():
+def load(*,data=None,architecture=None):
     _,schemas=r.load_registry()
-    architecture=arch.load()
-    data=dc.load()
+    architecture=arch.load() if architecture is None else architecture
+    data=dc.load() if data is None else data
     return Config(k.document(DOCS/"settings.json",{"entries"}),
                   k.document(DOCS/"constraints.json",{"entries"}),
                   k.document(ROOT/"data/config/profiles.json",{"entries"}),

@@ -40,3 +40,6 @@
 
 ## v0.4.0 — Modding Infrastructure
 - Manifestos sintéticos, dependências exatas, conflitos, permissões fechadas, preview de rótulos, inspeção ZIP sem extração, remoção/rollback planejados e gate bloqueado. Registry: percurso iterativo de dependências, evitando recursão e visitas redundantes. Nenhum consumidor modificado.
+
+## v0.5.0 — Foundation Ecosystem Integration
+- SDK/CLI, política estática, contratos de requisição e resposta, diagnóstico, cenário integrado, divergência de revisões, dívida técnica e onboarding/roadmap. Quatro recibos reais adicionais. Loaders reutilizam objetos validados dentro de sessão. Nenhum consumidor modificado.
