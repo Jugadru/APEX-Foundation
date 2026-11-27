@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "modules": [
+    {
+      "id": "foundation",
+      "repository": "foundation",
+      "role": "metadata-authority",
+      "boundary": "Shared metadata; never sporting state",
+      "validation": "Foundation CI",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "core2",
+      "repository": "core2",
+      "role": "sporting-authority",
+      "boundary": "Authoritative sporting state for Core 2 only",
+      "validation": "Existing FAST and targeted sporting fixtures",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "hyper",
+      "repository": "hyper",
+      "role": "experimental-authority",
+      "boundary": "Independent longitudinal laboratory; playable Alpha 2 ZIP remains separate",
+      "validation": "Independent Hyper bounded CI; no Core 2 equivalence",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "presentation",
+      "repository": "core2",
+      "role": "read-only-consumer",
+      "boundary": "Visual state; no sporting authority",
+      "validation": "Presentation and Graphics Lab fixtures",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "engineering-lab",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "Diagnostic reports, not runtime",
+      "validation": "Existing Engineering Lab tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "development-lab",
+      "repository": "lab",
+      "role": "diagnostic",
+      "boundary": "Private static analyzer; no game code copy",
+      "validation": "Development Lab Python tests and native fixtures",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "asset-factory",
+      "repository": "foundation",
+      "role": "staging",
+      "boundary": "Original staging artifacts; promotion blocked",
+      "validation": "Asset Factory tests and native QA when authorized",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "lab-hub",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "Owner-authorized hosted diagnostic jobs",
+      "validation": "Existing Hub command receipts and tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "quality-lab",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "QA routing and evidence",
+      "validation": "Existing FAST and quality routing tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "performance-lab",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "Performance reports, not sporting authority",
+      "validation": "Existing Performance Lab tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "graphics-lab",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "Visual evidence, not GPU certification",
+      "validation": "Existing Graphics Lab tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "data-center",
+      "repository": "foundation",
+      "role": "planned",
+      "boundary": "Proposed dataset provenance only",
+      "validation": "Future dataset validation; NOT_RUN",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "saveguard",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "Cross-revision QA; no production save writer",
+      "validation": "Existing SaveGuard cross-revision fixture",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "replay",
+      "repository": "core2",
+      "role": "read-only-consumer",
+      "boundary": "Replay records; no sporting mutation",
+      "validation": "Existing replay deterministic fixture",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "release",
+      "repository": "core2",
+      "role": "diagnostic",
+      "boundary": "Verified test artifacts; no publication",
+      "validation": "Existing Release Lab tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "modding",
+      "repository": "foundation",
+      "role": "planned",
+      "boundary": "Proposed metadata; no arbitrary script execution",
+      "validation": "Future scoped modding validation; NOT_RUN",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "godot",
+      "repository": "external",
+      "role": "tool",
+      "boundary": "Engine runtime",
+      "validation": "Exact engine build and consumer tests",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "blender",
+      "repository": "external",
+      "role": "tool",
+      "boundary": "Asset creation runtime",
+      "validation": "Native export/import and visual QA",
+      "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "python",
+      "repository": "external",
+      "role": "tool",
+      "boundary": "Tool interpreter",
+      "validation": "Exact interpreter and Foundation tests",
+      "owner_state": "DECLARED_POLICY"
+    }
+  ],
+  "contracts": [
+    {
+      "id": "module.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "capability.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "compatibility.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "artifact.v1",
+      "steward": "foundation",
+      "consumers": [
+        "asset-factory",
+        "release",
+        "graphics-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "test-result.v1",
+      "steward": "foundation",
+      "consumers": [
+        "quality-lab",
+        "performance-lab",
+        "engineering-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "research-observation.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "architecture-module.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "architecture-contract.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "architecture-change.v1",
+      "steward": "foundation",
+      "consumers": [
+        "foundation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Contract registered in Foundation; consumer adoption not verified"
+    },
+    {
+      "id": "command",
+      "steward": "core2",
+      "consumers": [
+        "presentation",
+        "hyper"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "snapshot",
+      "steward": "core2",
+      "consumers": [
+        "presentation",
+        "replay",
+        "hyper"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "event",
+      "steward": "core2",
+      "consumers": [
+        "presentation",
+        "replay",
+        "hyper"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "telemetry",
+      "steward": "core2",
+      "consumers": [
+        "performance-lab",
+        "presentation",
+        "hyper"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "asset",
+      "steward": "asset-factory",
+      "consumers": [
+        "presentation",
+        "modding"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "save",
+      "steward": "core2",
+      "consumers": [
+        "saveguard",
+        "modding"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "replay",
+      "steward": "replay",
+      "consumers": [
+        "presentation",
+        "quality-lab"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "benchmark",
+      "steward": "performance-lab",
+      "consumers": [
+        "quality-lab"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "report",
+      "steward": "engineering-lab",
+      "consumers": [
+        "development-lab",
+        "quality-lab"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "job",
+      "steward": "lab-hub",
+      "consumers": [
+        "engineering-lab",
+        "release"
+      ],
+      "scope": "runtime-proposal",
+      "state": "PROPOSED_BINDING",
+      "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    }
+  ]
+}

@@ -28,3 +28,6 @@ Validate historical IDs and cross-links, schemas and registry, reject invalid in
 
 ## v0.1.1 — Knowledge Center
 See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 adds a research-observation metadata contract and research-only capabilities. Existing five schemas and compatibility entries remain intact; Python 3.10 exact compatibility is still NOT_RUN. The v0.1.0 section above documents the migrated baseline.
+
+## v0.1.2 — Architecture Intelligence
+[Architecture manual](../architecture/README.md): declared graph, ownership, pinned inventory, change impact, contract comparison and fail-closed planning gate. Runtime contracts remain deferred.
