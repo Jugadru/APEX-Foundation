@@ -1,6 +1,6 @@
-# APEX Foundation v0.1.1
+# APEX Foundation v0.1.2
 
-Knowledge Center: Research Intelligence + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
+Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
 [Contratos e comandos](docs/foundation/README.md) · [Biblioteca de referências](docs/references/README.md) · [Migração e evidências](docs/foundation/MIGRATION.md) · [AGENTS.md](AGENTS.md)
 
@@ -24,3 +24,6 @@ Foundation CI é independente; não substitui FAST esportivo. Sem promoção de 
 
 ## Knowledge Center v0.1.1
 [Manual de pesquisa](docs/knowledge/README.md) · [Observações verificadas em páginas públicas](docs/knowledge/observations.json) · [Política](docs/knowledge/policy.json).
+
+## Architecture Intelligence v0.1.2
+[Manual de arquitetura](docs/architecture/README.md) · [Responsabilidades](docs/architecture/ownership.json) · [Inventário de fontes](docs/architecture/source-inventory.json).

@@ -1,0 +1,11 @@
+{
+  "repository": "core2",
+  "base_revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+  "modules": [],
+  "contracts": [
+    "snapshot"
+  ],
+  "paths": [
+    "scripts/race_engine.gd"
+  ]
+}

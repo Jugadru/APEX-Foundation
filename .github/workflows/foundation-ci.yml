@@ -28,6 +28,11 @@ jobs:
           python3 tools/apex_knowledge.py queue --limit 20 | tee ci-results/research-queue.log
           python3 tools/apex_knowledge.py audit | tee ci-results/consumer-audit.log
           python3 tools/apex_knowledge.py plan IDEA-001 | tee ci-results/research-plan.log
+          python3 tools/apex_architecture.py validate | tee ci-results/architecture.log
+          python3 tools/apex_architecture.py graph | tee ci-results/architecture-graph.log
+          python3 tools/apex_architecture.py contract-diff | tee ci-results/contract-diff.log
+          python3 tools/apex_architecture.py impact docs/architecture/change.example.json | tee ci-results/architecture-impact.log
+          python3 tools/apex_architecture.py gate docs/architecture/change.foundation.example.json | tee ci-results/architecture-gate.log
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

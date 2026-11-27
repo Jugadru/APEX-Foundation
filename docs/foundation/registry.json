@@ -1,17 +1,18 @@
 {
-  "foundation_version": "0.1.1",
+  "foundation_version": "0.1.2",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
       "entrypoints": [
         "tools/apex_foundation.py",
         "tools/apex_foundation_registry.py",
-        "tools/apex_knowledge.py"
+        "tools/apex_knowledge.py",
+        "tools/apex_architecture.py"
       ]
     },
     {
@@ -462,6 +463,96 @@
       "restrictions": [
         "No network, runtime writes, external reuse or implementation authorization"
       ]
+    },
+    {
+      "id": "architecture.graph",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "registered architecture metadata"
+      ],
+      "outputs": [
+        "offline architecture report"
+      ],
+      "method": "python3 tools/apex_architecture.py graph",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Declared graph only; no execution, consumer writes or authorization"
+      ]
+    },
+    {
+      "id": "architecture.inspect",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "registered architecture metadata"
+      ],
+      "outputs": [
+        "offline architecture report"
+      ],
+      "method": "python3 tools/apex_architecture.py show MODULE",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Declared graph only; no execution, consumer writes or authorization"
+      ]
+    },
+    {
+      "id": "architecture.impact",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "registered architecture metadata"
+      ],
+      "outputs": [
+        "offline architecture report"
+      ],
+      "method": "python3 tools/apex_architecture.py impact MANIFEST",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Declared graph only; no execution, consumer writes or authorization"
+      ]
+    },
+    {
+      "id": "architecture.contract-diff",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "registered architecture metadata"
+      ],
+      "outputs": [
+        "offline architecture report"
+      ],
+      "method": "python3 tools/apex_architecture.py contract-diff",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Declared graph only; no execution, consumer writes or authorization"
+      ]
+    },
+    {
+      "id": "architecture.gate",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "registered architecture metadata"
+      ],
+      "outputs": [
+        "offline architecture report"
+      ],
+      "method": "python3 tools/apex_architecture.py gate MANIFEST",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Declared graph only; no execution, consumer writes or authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -527,6 +618,15 @@
       "status": "NOT_RUN",
       "evidence": "Minimum target; exact interpreter requires independent run",
       "migration": "Run Foundation CI on Python 3.10"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.1.2",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Target interpreter not tested at this version",
+      "migration": "Run exact Python version and record evidence"
     }
   ],
   "contracts": [
@@ -602,6 +702,18 @@
     },
     {
       "id": "research-observation.v1",
+      "status": "active"
+    },
+    {
+      "id": "architecture-module.v1",
+      "status": "active"
+    },
+    {
+      "id": "architecture-contract.v1",
+      "status": "active"
+    },
+    {
+      "id": "architecture-change.v1",
       "status": "active"
     }
   ]

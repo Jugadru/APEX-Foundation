@@ -1,0 +1,474 @@
+{
+  "schema": 1,
+  "repositories": [
+    {
+      "id": "core2",
+      "repository": "Jugadru/APEX-Simulation",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "scope": "Git tree presence only; file-to-module assignments are policy candidates, not verified imports",
+      "paths": [
+        {
+          "path": ".github/apex-quality-suites.json",
+          "blob_sha": "74949700fcbe227f6454f091cb2463040bd028db",
+          "modules": [
+            "quality-lab"
+          ]
+        },
+        {
+          "path": ".github/workflows/godot-setup.yml",
+          "blob_sha": "a941b1ca1be6a5d5e9b56a1e2ed6f8f642a570a9",
+          "modules": [
+            "quality-lab"
+          ]
+        },
+        {
+          "path": "AGENTS.md",
+          "blob_sha": "5b64a4347796e5d471ac5a2c4dcde9579de63862",
+          "modules": [
+            "core2",
+            "quality-lab"
+          ]
+        },
+        {
+          "path": "docs/APEX_LAB_KNOWLEDGE_INDEX.md",
+          "blob_sha": "987509befac349a38e647cd87f28d379c4de61ad",
+          "modules": [
+            "engineering-lab",
+            "quality-lab"
+          ]
+        },
+        {
+          "path": "project.godot",
+          "blob_sha": "b690ba1b45e790128f38bfbff9ffc060a50b69a6",
+          "modules": [
+            "core2",
+            "godot"
+          ]
+        },
+        {
+          "path": "scripts/apex_championship_flow.gd",
+          "blob_sha": "82ad297e043029863c6e2d0c61a093eef996028e",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/apex_garage_screen.gd",
+          "blob_sha": "067637b2d15d1c2b72e973d490887765b245c1e7",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/championship_2012.gd",
+          "blob_sha": "3275520d26e3c253afccdf4a91d1857a761bcb45",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/component_inventory_0651.gd",
+          "blob_sha": "0bf2d151cefbeb79a2d54c3c6c1dbddef7596e2d",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_aero_wake_091711.gd",
+          "blob_sha": "bd25b17d214e605eef61e0fcb7284c32583cafd9",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_driver_dynamics_0661.gd",
+          "blob_sha": "1e628765a61384a890c7080d92dbdbc2199527c0",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_driver_memory_0634.gd",
+          "blob_sha": "785b189592b75f5cbdbb838a009979b750880f93",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_driver_soul_06694.gd",
+          "blob_sha": "2cd2486895e0f9f1021e232e706cee156bf257bd",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_driver_traffic_0920.gd",
+          "blob_sha": "5da286d9d020436ca457557281bb235633eda625",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_engineer_intelligence_066913.gd",
+          "blob_sha": "6e1829682f1986e0b90ba0277a5e325612d2086a",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_independent_racecraft_091710.gd",
+          "blob_sha": "8dc73a11bd960203aede0de1e1e2ccd9a6868b3b",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_longitudinal_069.gd",
+          "blob_sha": "d00459902664f80c3e24296fe00769ffe1911bad",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_overtaking_intelligence_066912.gd",
+          "blob_sha": "97a46a11473802e82e539d105d6a88dee3a2c19f",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_pitwall_intelligence_0640.gd",
+          "blob_sha": "14b3aae924c7f1e0b16ae644a51efa2e178c9c0c",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_pitwall_strategy_0649.gd",
+          "blob_sha": "9b2c25a688d5f1c1dd76233d12a68954695be689",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_replay_0660.gd",
+          "blob_sha": "0ed92d770b783a3c8fc3e6dad65e3a4921e35685",
+          "modules": [
+            "replay"
+          ]
+        },
+        {
+          "path": "scripts/core/race_space_0655.gd",
+          "blob_sha": "d8cf4abafcb8631afe086df2fee48892339014f0",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_state_codec_0660.gd",
+          "blob_sha": "164e419c0213cd2bfd100410818fa7c7c652d4ea",
+          "modules": [
+            "core2",
+            "replay"
+          ]
+        },
+        {
+          "path": "scripts/core/race_strategy_simulator_06499.gd",
+          "blob_sha": "55adb96d000b3e3547f0c043d7b6875b660c88e9",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_team_pit_coordination_06497.gd",
+          "blob_sha": "e243f8ab62e5bd882f8f513d1ccfeb73829d969e",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_team_radio_advice_06689.gd",
+          "blob_sha": "7d853b70bde953deab56b5e134f73499ff63a75a",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/race_weather.gd",
+          "blob_sha": "dfe2f562db0024aa38209d7f48985513591f7e0d",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/racecraft_audit_0662.gd",
+          "blob_sha": "44719977e652dfa6673624c507b4fd1800e94e17",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/staff_contracts.gd",
+          "blob_sha": "65d12bcb1780c6d53bca8da8650af1a2510d8745",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/staff_market_0648.gd",
+          "blob_sha": "32c260a453a4b4e09f1d0cce23a5eff42962097c",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/core/staff_soul_0650.gd",
+          "blob_sha": "b715a87eced4756c394de39eedbfbfed88257e73",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/garage.gd",
+          "blob_sha": "427403b524a57434cb15713035fc4b008fd5dc6f",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/presentation/apex_hud_pitwall_quick_panel.gd",
+          "blob_sha": "2a65fcaae16cef046fce90ede870b2455ec72362",
+          "modules": [
+            "presentation"
+          ]
+        },
+        {
+          "path": "scripts/presentation/apex_season_preparation_09179.gd",
+          "blob_sha": "dadda040bf86de975e93960360323c27921f767a",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "scripts/race_engine.gd",
+          "blob_sha": "1700ca45655756e4a54053dbe9c229ff04a5486b",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "tools/apex_ci_tiers.py",
+          "blob_sha": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62",
+          "modules": [
+            "quality-lab"
+          ]
+        },
+        {
+          "path": "tools/apex_lab_architecture.py",
+          "blob_sha": "7928c310a30ef601debad8342544b2d61944c043",
+          "modules": [
+            "engineering-lab"
+          ]
+        },
+        {
+          "path": "tools/apex_lab_command.py",
+          "blob_sha": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a",
+          "modules": [
+            "lab-hub"
+          ]
+        },
+        {
+          "path": "tools/apex_lab_graphics.py",
+          "blob_sha": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+          "modules": [
+            "graphics-lab"
+          ]
+        },
+        {
+          "path": "tools/apex_lab_perf_report.py",
+          "blob_sha": "8ee924f35de9e09dae9215eb8d6104a8011dc894",
+          "modules": [
+            "performance-lab"
+          ]
+        },
+        {
+          "path": "tools/apex_lab_release.py",
+          "blob_sha": "a2d4f2042065dcfabb750b578deac967d36570ee",
+          "modules": [
+            "release"
+          ]
+        },
+        {
+          "path": "tools/apex_pitwall_intelligence.py",
+          "blob_sha": "bd0a2c7638ccd4f081f1354cd4a74020ddadf272",
+          "modules": [
+            "core2"
+          ]
+        },
+        {
+          "path": "tools/apex_saveguard_ci.py",
+          "blob_sha": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+          "modules": [
+            "saveguard"
+          ]
+        },
+        {
+          "path": "tools/apex_source_inventory.py",
+          "blob_sha": "1ad6c10585c9b97133d1a9eb9e78f48c8bb1f757",
+          "modules": [
+            "quality-lab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyper",
+      "repository": "Jugadru/APEX-Hyper-Engine",
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "scope": "Git tree presence only; file-to-module assignments are policy candidates, not verified imports",
+      "paths": [
+        {
+          "path": "AGENTS.md",
+          "blob_sha": "2646c32a4f0b06fd7a03ace8b440d7e179cb4f30",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "docs/MIGRATION.md",
+          "blob_sha": "7f2d54995d481d784d2d0613ab5840a131233619",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "docs/PROVENANCE.md",
+          "blob_sha": "06b59a7d7b8adee33f2f04768589fdcec3f29846",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "docs/ROADMAP.md",
+          "blob_sha": "652d229468ec08b07e22eb2b4d39221bff2fba83",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "lab/longitudinal/experimental/hyper22/longitudinal_adapter.gd",
+          "blob_sha": "b675cb382f552481bb0dab8ba9303aec61aa6148",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "lab/longitudinal/experimental/hyper22/longitudinal_primitives.gd",
+          "blob_sha": "5f61cbdbc6ab63bd322ed5b8cf8f905caaff4d17",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "lab/longitudinal/project.godot",
+          "blob_sha": "fcde760053dfb1de98036c9facde64617122825a",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "lab/longitudinal/tests/hyper22_longitudinal_adapter_test.gd",
+          "blob_sha": "4764adf5efed0b890c93ce73a9d05ed6c03d3e5f",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "README.md",
+          "blob_sha": "fd040bde75b23adb22d490d913e7e3570e687def",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "tools/import_alpha2.py",
+          "blob_sha": "32e0d82539630882b1bd15eb612c01e0849bb335",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "tools/tests/test_import_alpha2.py",
+          "blob_sha": "47eb8a9ee875c5798db87b5386578eb305117d9f",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "tools/tests/test_transfer_alpha2.py",
+          "blob_sha": "6d942187e597f24e909646ea6a9c9a3cca8d5b60",
+          "modules": [
+            "hyper"
+          ]
+        },
+        {
+          "path": "tools/transfer_alpha2.py",
+          "blob_sha": "e55090e42451886f225c92c57654025033b6b9df",
+          "modules": [
+            "hyper"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab",
+      "repository": "Jugadru/apex-godot-simulation-architect",
+      "revision": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "scope": "Git tree presence only; file-to-module assignments are policy candidates, not verified imports",
+      "paths": [
+        {
+          "path": "docs/PRIVATE_ANALYZER_BRIDGE.md",
+          "blob_sha": "af7308dcb37d8e35d9972d03abba5793a777fd0c",
+          "modules": [
+            "development-lab"
+          ]
+        },
+        {
+          "path": "docs/TECHNICAL.md",
+          "blob_sha": "7dc537d4ec9fd832be3ca2cef8656e22b8757f3f",
+          "modules": [
+            "development-lab"
+          ]
+        },
+        {
+          "path": "README.md",
+          "blob_sha": "07d35e5d094d86d3e556a5f54f010f3fe478d337",
+          "modules": [
+            "development-lab"
+          ]
+        },
+        {
+          "path": "scripts/audit_project.py",
+          "blob_sha": "4a0a268d1eadc7f9d1f79d2ba137a90116da9e4e",
+          "modules": [
+            "development-lab"
+          ]
+        },
+        {
+          "path": "SKILL.md",
+          "blob_sha": "3dfb1a9c43dbd8c395ad37ffce807290c9992b28",
+          "modules": [
+            "development-lab"
+          ]
+        },
+        {
+          "path": "tools/advanced_gdscript_analyzer.py",
+          "blob_sha": "29a9c39e061b89f9e15126b265d880a40f3155a9",
+          "modules": [
+            "development-lab"
+          ]
+        }
+      ]
+    }
+  ]
+}

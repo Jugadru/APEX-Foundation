@@ -1,0 +1,13 @@
+{
+  "repository": "foundation",
+  "base_revision": "f30c3ecafefc013173035a92482e8b273238e2d4",
+  "modules": [
+    "foundation"
+  ],
+  "contracts": [
+    "architecture-change.v1"
+  ],
+  "paths": [
+    "tools/apex_architecture.py"
+  ]
+}
