@@ -55,3 +55,5 @@
 - Closed core2-metadata.v1 contract, read-only local receiver and exact source-projection verification; seven regression tests. Consumer native evidence remains separately scoped. Historical pins preserved, no runtime authority transfer.
 
 - Corrective CI review: initial v0.6.0 workflow failed before steps, detailed annotation unavailable. Simplify cross-repository checkout to explicit anonymous Git sparse fetch of the same reviewed SHA; do not weaken acceptance or count initial run as executed tests.
+
+- Corrective review: real Core 2 main FAST and metadata artifact independently verified against exact source bytes. Receiver ignores Git replacement refs/environment overrides, blocks transports, verifies regular tree entries and handles malformed decimal reports. Four targeted tests added. Pre-step CI failures remain unresolved until observable diagnostics or successful exact candidate validation.

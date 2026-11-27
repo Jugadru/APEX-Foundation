@@ -1,6 +1,8 @@
 import copy
 import hashlib
 import json
+import os
+from unittest.mock import patch
 from pathlib import Path
 import subprocess
 import sys
@@ -107,6 +109,57 @@ class MetadataReceiverTests(unittest.TestCase):
         for raw in (b'{"a":1,"a":2}',b'{"a":NaN}'):
             with self.assertRaises(ValueError):
                 m.parse(raw)
+
+    def test_git_environment_cannot_redirect_checkout(self):
+        with patch.dict(os.environ,{"GIT_DIR":"/nonexistent/git","GIT_WORK_TREE":"/nonexistent",
+                                    "GIT_CONFIG_COUNT":"1","GIT_CONFIG_KEY_0":"core.bare",
+                                    "GIT_CONFIG_VALUE_0":"true"}):
+            self.assertTrue(self.verify()["source_bytes_verified"])
+
+    def test_replacement_ref_cannot_forge_exact_revision(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/"consumer"
+            subprocess.run(["git","clone","-q","--no-local",str(self.root),str(root)],check=True)
+            def raw_git(*args):
+                return subprocess.check_output(["git","-C",str(root),*args]).decode().strip()
+            path=root/m.PATHS[0]
+            original=path.read_bytes()
+            path.write_bytes(original+b"\n")
+            raw_git("add","data")
+            raw_git("-c","user.name=Fixture","-c","user.email=fixture@example.invalid","commit","-qm","replacement")
+            replacement=raw_git("rev-parse","HEAD")
+            raw_git("checkout","-q","--detach",self.revision)
+            raw_git("replace",self.revision,replacement)
+            expected=self.report["body"]["sources"][0]["git_blob"]
+            self.assertNotEqual(raw_git("rev-parse",self.revision+":"+m.PATHS[0]),expected)
+            self.assertEqual(m.committed_blob(root,self.revision,m.PATHS[0]),expected)
+            self.assertTrue(m.verify(self.report,self.schema,self.revision,root)["source_bytes_verified"])
+            path.write_bytes(original+b"\n")
+            forged=self.modify(lambda b:b["sources"][0].update(
+                git_blob=raw_git("rev-parse",self.revision+":"+m.PATHS[0]),
+                sha256=hashlib.sha256(path.read_bytes()).hexdigest(),size_bytes=path.stat().st_size))
+            with self.assertRaises(ValueError):
+                m.verify(forged,self.schema,self.revision,root)
+
+    def test_nonregular_git_tree_entry_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/"consumer"
+            subprocess.run(["git","clone","-q","--no-local",str(self.root),str(root)],check=True)
+            path=root/m.PATHS[0]
+            path.unlink()
+            path.symlink_to("teams.json")
+            subprocess.run(["git","-C",str(root),"add","data"],check=True)
+            subprocess.run(["git","-C",str(root),"-c","user.name=Fixture","-c","user.email=fixture@example.invalid",
+                            "commit","-qm","symlink"],check=True)
+            revision=m.git(root,"rev-parse","HEAD").decode().strip()
+            with self.assertRaisesRegex(ValueError,"regular source blob"):
+                m.committed_blob(root,revision,m.PATHS[0])
+
+    def test_decimal_report_rejected_as_invalid(self):
+        report=copy.deepcopy(self.report)
+        report["body"]["catalog"]["teams"][0]["index"]=m.Decimal("0.0")
+        with self.assertRaises(ValueError):
+            m.validate_report(report,self.schema,self.revision)
 
     def test_sdk_boundary(self):
         obj=sdk.FoundationSDK()

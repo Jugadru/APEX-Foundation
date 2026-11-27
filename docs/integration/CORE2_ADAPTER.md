@@ -11,3 +11,6 @@ python3 tools/apex.py call integration.core2-contract
 ```
 
 Explicit local file and checkout inputs are confined to the standalone verifier, not exposed through the gateway. PASS means only exact local source projection; it is not a native runtime check or a release authorization. The consumer FAST verifies native loader parity separately. A synthetically generated repository exercises negative cases without importing real historical data into Foundation. No historical pins changed. Native evidence and cross-repository CI recorded separately when actually available.
+
+## Corrective review: Git identity
+The receiver ignores inherited GIT_* overrides, disables replacement refs and network transports, and requires regular-file Git tree entries for both exact source paths. The explicit local checkout must be trusted; this is not an OS sandbox or authentication of arbitrary repositories. If objects are missing, verification fails rather than downloading them. Four added regressions cover environment redirection, replacement refs, committed symlinks and malformed decimal report values. Existing checks remain mandatory.

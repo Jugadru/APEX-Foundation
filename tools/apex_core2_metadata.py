@@ -7,6 +7,7 @@ import argparse
 from decimal import Decimal
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -42,7 +43,20 @@ def parse(raw):
                       parse_constant=bad_constant,parse_float=Decimal)
 
 def git(root,*args):
-    return subprocess.check_output(["git","-C",str(root),*args],timeout=20)
+    # Exact identity must not follow replacement refs or inherited Git overrides.
+    # Read-only verifier: no lazy fetch of missing objects, even in a partial clone.
+    env={k:v for k,v in os.environ.items() if not k.startswith("GIT_")}
+    env.update(GIT_ALLOW_PROTOCOL="",GIT_NO_LAZY_FETCH="1",GIT_OPTIONAL_LOCKS="0",
+               GIT_CONFIG_NOSYSTEM="1",GIT_CONFIG_GLOBAL=os.devnull,GIT_TERMINAL_PROMPT="0")
+    return subprocess.check_output(["git","--no-replace-objects","-C",str(root),*args],
+                                   env=env,timeout=20)
+
+def committed_blob(root,revision,path):
+    raw=git(root,"ls-tree","-z",revision,"--",path)
+    match=re.fullmatch(rb"100(?:644|755) blob ([0-9a-f]{40})\t"+re.escape(path.encode("ascii"))+rb"\x00",raw)
+    if not match:
+        raise ValueError("expected committed regular source blob")
+    return match.group(1).decode("ascii")
 
 def name(value):
     if not isinstance(value,str) or not 1<=len(value)<=160 or value!=value.strip() or any(ord(c)<32 or 127<=ord(c)<=159 for c in value):
@@ -52,7 +66,10 @@ def name(value):
 def validate_report(report,schema,expected_revision):
     if not isinstance(expected_revision,str) or not SHA.fullmatch(expected_revision):
         raise ValueError("expected exact consumer SHA")
-    registry.check(report,schema)
+    try:
+        registry.check(report,schema)
+    except TypeError as exc:
+        raise ValueError("invalid report value") from exc
     body=report["body"]
     if body["revision"]!=expected_revision or digest(body)!=report["body_sha256"]:
         raise ValueError("report revision or checksum mismatch")
@@ -88,20 +105,23 @@ def verify(report,schema,expected_revision,source_root):
         if local.parent.is_symlink():
             raise ValueError("symlink source directory")
         raw=load_bytes(local,MAX_SOURCE)
-        blob=git(root,"rev-parse","--verify",revision+":"+path).decode("ascii").strip()
+        blob=committed_blob(root,revision,path)
         actual=hashlib.sha1(b"blob "+str(len(raw)).encode("ascii")+b"\0"+raw).hexdigest()
         if blob!=actual or blob!=source["git_blob"] or len(raw)!=source["size_bytes"] or hashlib.sha256(raw).hexdigest()!=source["sha256"]:
             raise ValueError("source bytes or Git blob differ")
         values.append(parse(raw))
     season,teams=values
-    if type(season["season"]) is not int or season["season"]!=2012 or season["teams"]!=teams:
+    if (type(season) is not dict or type(teams) is not list or type(season.get("teams")) is not list or
+        type(season.get("tracks")) is not list or type(season.get("season")) is not int or
+        season["season"]!=2012 or season["teams"]!=teams):
         raise ValueError("native source roster or era mismatch")
     c=body["catalog"]
     if len(teams)!=len(c["teams"]) or len(season["tracks"])!=len(c["circuits"]):
         raise ValueError("native source dimensions mismatch")
     # Compare only the projected fields; no ratings, geometry, or sporting state are imported.
     for row,original in zip(c["teams"],teams):
-        if row["name"]!=original["name"] or len(original["drivers"])!=2:
+        if (type(original) is not dict or type(original.get("drivers")) is not list or
+            row["name"]!=original["name"] or len(original["drivers"])!=2):
             raise ValueError("native team projection mismatch")
     for row in c["drivers"]:
         if row["name"]!=teams[row["team_index"]]["drivers"][row["slot"]]["name"]:
