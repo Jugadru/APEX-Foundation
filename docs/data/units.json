@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "units": [
+    {
+      "id": "g",
+      "dimension": "mass",
+      "si": "kg",
+      "numerator": 1,
+      "denominator": 1000
+    },
+    {
+      "id": "kg",
+      "dimension": "mass",
+      "si": "kg",
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "id": "w",
+      "dimension": "power",
+      "si": "W",
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "id": "kw",
+      "dimension": "power",
+      "si": "W",
+      "numerator": 1000,
+      "denominator": 1
+    },
+    {
+      "id": "kmh",
+      "dimension": "speed",
+      "si": "m/s",
+      "numerator": 5,
+      "denominator": 18
+    },
+    {
+      "id": "mps",
+      "dimension": "speed",
+      "si": "m/s",
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "id": "ms",
+      "dimension": "time",
+      "si": "s",
+      "numerator": 1,
+      "denominator": 1000
+    },
+    {
+      "id": "s",
+      "dimension": "time",
+      "si": "s",
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "id": "permille",
+      "dimension": "ratio",
+      "si": "1",
+      "numerator": 1,
+      "denominator": 1000
+    },
+    {
+      "id": "ratio",
+      "dimension": "ratio",
+      "si": "1",
+      "numerator": 1,
+      "denominator": 1
+    }
+  ]
+}

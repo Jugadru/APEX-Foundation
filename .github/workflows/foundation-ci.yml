@@ -33,6 +33,14 @@ jobs:
           python3 tools/apex_architecture.py contract-diff | tee ci-results/contract-diff.log
           python3 tools/apex_architecture.py impact docs/architecture/change.example.json | tee ci-results/architecture-impact.log
           python3 tools/apex_architecture.py gate docs/architecture/change.foundation.example.json | tee ci-results/architecture-gate.log
+          python3 tools/apex_data_center.py validate | tee ci-results/data-center.log
+          python3 tools/apex_data_center.py diff vehicle-fixture 1.0.0 1.1.0 | tee ci-results/data-diff.log
+          python3 tools/apex_data_center.py convert 180 kmh mps | tee ci-results/data-units.log
+          set +e
+          python3 tools/apex_data_center.py gate vehicle-fixture 1.1.0 core2 9dfc18de49083260b1a9524513b415e1551fdabf > ci-results/data-gate.json
+          gate_status=$?
+          set -e
+          test "$gate_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

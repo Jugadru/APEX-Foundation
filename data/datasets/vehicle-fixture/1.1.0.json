@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "id": "fixture-a",
+      "year": 2012,
+      "technology": "v8",
+      "values": {
+        "mass_g": 655000,
+        "power_w": 500000,
+        "speed_kmh": 180
+      }
+    },
+    {
+      "id": "fixture-b",
+      "year": 2012,
+      "technology": "kers",
+      "values": {
+        "mass_g": 660000,
+        "power_w": 510000,
+        "speed_kmh": 216
+      }
+    },
+    {
+      "id": "fixture-c",
+      "year": 2012,
+      "technology": "drs",
+      "values": {
+        "mass_g": 670000,
+        "power_w": 520000,
+        "speed_kmh": 252
+      }
+    }
+  ]
+}

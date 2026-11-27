@@ -31,3 +31,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.1.2 — Architecture Intelligence
 [Architecture manual](../architecture/README.md): declared graph, ownership, pinned inventory, change impact, contract comparison and fail-closed planning gate. Runtime contracts remain deferred.
+
+## v0.2.0 — Unified Data Center
+[Data Center manual](../data/README.md): three metadata contracts, offline dataset integrity, exact unit conversion, version chain and blocked consumer gate. No production data adoption.

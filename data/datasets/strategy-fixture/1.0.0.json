@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "id": "dry-demo",
+      "year": 2012,
+      "technology": "none",
+      "values": {
+        "lap_ms": 90000,
+        "fuel_g": 40000,
+        "tyre_permille": 800
+      }
+    },
+    {
+      "id": "wet-demo",
+      "year": 2012,
+      "technology": "none",
+      "values": {
+        "lap_ms": 110000,
+        "fuel_g": 39000,
+        "tyre_permille": 600
+      }
+    }
+  ]
+}

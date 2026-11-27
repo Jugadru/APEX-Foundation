@@ -22,3 +22,6 @@
 
 ## v0.1.2 — Architecture Intelligence
 - Papéis e stewardship propostos, grafo declarado, dependências transitivas, inventário pinado de três consumidores, comparação de schemas, análise de impacto e gate sem autorização. Preserva contratos e catálogos; não altera consumidores.
+
+## v0.2.0 — Unified Data Center
+- Catálogo versionado, seis classes de proveniência, três contratos, dez unidades, conversão racional exata, hashes, política conservadora 2012, diff de registros, gate de consumidor e fixtures originais explicitamente sintéticos. Nenhuma integração esportiva.

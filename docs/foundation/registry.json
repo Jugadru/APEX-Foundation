@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.1.2",
+  "foundation_version": "0.2.0",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.1.2",
+      "version": "0.2.0",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -128,11 +128,15 @@
     {
       "id": "data-center",
       "name": "Data Center",
-      "version": null,
-      "maturity": "planned",
-      "state_owner": "Dataset provenance",
-      "dependencies": [],
-      "entrypoints": []
+      "version": "0.2.0",
+      "maturity": "experimental",
+      "state_owner": "Dataset provenance and offline validation; no runtime data authority",
+      "dependencies": [
+        "foundation"
+      ],
+      "entrypoints": [
+        "tools/apex_data_center.py"
+      ]
     },
     {
       "id": "saveguard",
@@ -553,6 +557,114 @@
       "restrictions": [
         "Declared graph only; no execution, consumer writes or authorization"
       ]
+    },
+    {
+      "id": "data.validate",
+      "module": "data-center",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned dataset metadata"
+      ],
+      "outputs": [
+        "offline validation or research report"
+      ],
+      "method": "python3 tools/apex_data_center.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, external ingestion, data promotion or execution authorization"
+      ]
+    },
+    {
+      "id": "data.inspect",
+      "module": "data-center",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned dataset metadata"
+      ],
+      "outputs": [
+        "offline validation or research report"
+      ],
+      "method": "python3 tools/apex_data_center.py show ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, external ingestion, data promotion or execution authorization"
+      ]
+    },
+    {
+      "id": "data.diff",
+      "module": "data-center",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned dataset metadata"
+      ],
+      "outputs": [
+        "offline validation or research report"
+      ],
+      "method": "python3 tools/apex_data_center.py diff ID OLD NEW",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, external ingestion, data promotion or execution authorization"
+      ]
+    },
+    {
+      "id": "data.convert",
+      "module": "data-center",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned dataset metadata"
+      ],
+      "outputs": [
+        "offline validation or research report"
+      ],
+      "method": "python3 tools/apex_data_center.py convert VALUE FROM TO",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, external ingestion, data promotion or execution authorization"
+      ]
+    },
+    {
+      "id": "data.gate",
+      "module": "data-center",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned dataset metadata"
+      ],
+      "outputs": [
+        "offline validation or research report"
+      ],
+      "method": "python3 tools/apex_data_center.py gate ID VERSION CONSUMER SHA",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, external ingestion, data promotion or execution authorization"
+      ]
+    },
+    {
+      "id": "data.query",
+      "module": "data-center",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned dataset metadata"
+      ],
+      "outputs": [
+        "offline validation or research report"
+      ],
+      "method": "python3 tools/apex_data_center.py query ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, external ingestion, data promotion or execution authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -627,6 +739,15 @@
       "status": "NOT_RUN",
       "evidence": "Target interpreter not tested at this version",
       "migration": "Run exact Python version and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.2.0",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Target interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
     }
   ],
   "contracts": [
@@ -714,6 +835,18 @@
     },
     {
       "id": "architecture-change.v1",
+      "status": "active"
+    },
+    {
+      "id": "dataset-provenance.v1",
+      "status": "active"
+    },
+    {
+      "id": "dataset-manifest.v1",
+      "status": "active"
+    },
+    {
+      "id": "dataset-consumer.v1",
       "status": "active"
     }
   ]

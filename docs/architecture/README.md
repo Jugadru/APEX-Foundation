@@ -25,3 +25,6 @@ ownership.json cobre todos os módulos e contratos. A atribuição de steward/co
 
 ## Aceite e rollback
 Cobertura total de ownership, ausência de ciclos, autoridade exclusiva, caminhos seguros, diff de schemas e impactos fail-closed; testes existentes preservados. CI local apenas, sem FULL esportivo. Reverter PR para rollback. Próxima versão: Data Center com proveniência e contratos de datasets, sem pipeline concorrente.
+
+## Atualização v0.2.0
+Baseline de schemas avançado para v0.1.2 (nove schemas preservados). Data Center passa de planejado a experimental, depende da Foundation e tem três novos contratos de metadados. O mapa de impacto reconhece docs/data, data/datasets e ferramentas do Data Center. Inventários externos continuam pinados.
