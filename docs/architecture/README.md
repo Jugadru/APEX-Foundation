@@ -31,3 +31,6 @@ Baseline de schemas avançado para v0.1.2 (nove schemas preservados). Data Cente
 
 ## Atualização v0.2.1
 Baseline avançado para v0.2.0; Content Registry experimental depende da Foundation e Data Center. Módulo declarado no repositório errado bloqueia gate; vínculos de contratos entre consumidores continuam candidatos.
+
+## Atualização v0.2.2
+Baseline avançado para v0.2.1; Configuration Management experimental depende da Foundation, Data Center e Content Registry. Nenhuma configuração aplicada no consumidor.

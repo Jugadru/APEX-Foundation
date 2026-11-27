@@ -28,3 +28,6 @@
 
 ## v0.2.1 — Content Registry
 - Identidades, versões exatas, 14 tipos, atributos e relações fechados, grafo, vínculos Data Center, fixtures e inventário de fontes, gate bloqueado. Correções: política temporal não pode perder proibições mínimas; módulo declarado fora do repositório bloqueia gate. Nenhum conteúdo histórico ou asset real importado.
+
+## v0.2.2 — Configuration Management
+- Settings tipados, flags experimentais, constraints, perfis versionados e herança exata, rastreabilidade, diff e rollback planejado, gate bloqueado. Correção Content Registry: impedir duas versões do mesmo alvo lógico na mesma relação; eliminar recomputação de closure por nó. Nenhum consumidor modificado.

@@ -160,6 +160,14 @@
       "boundary": "Content identity, relation and rights metadata; no sporting state or asset promotion",
       "validation": "Foundation content tests; consumer adoption NOT_RUN",
       "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "configuration-management",
+      "repository": "foundation",
+      "role": "metadata-authority",
+      "boundary": "Typed settings, versioned profile resolution, constraints and rollback plans only",
+      "validation": "Foundation configuration regression tests; native consumer configuration NOT_RUN",
+      "owner_state": "DECLARED_POLICY"
     }
   ],
   "contracts": [
@@ -443,6 +451,42 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Synthetic fixture metadata only; consumer adoption not verified"
+    },
+    {
+      "id": "config-setting.v1",
+      "steward": "configuration-management",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline configuration metadata; no consumer mapping or runtime application verified"
+    },
+    {
+      "id": "config-profile.v1",
+      "steward": "configuration-management",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline configuration metadata; no consumer mapping or runtime application verified"
+    },
+    {
+      "id": "config-constraint.v1",
+      "steward": "configuration-management",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline configuration metadata; no consumer mapping or runtime application verified"
     }
   ]
 }

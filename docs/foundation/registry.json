@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.2.1",
+  "foundation_version": "0.2.2",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -225,6 +225,21 @@
       ],
       "entrypoints": [
         "tools/apex_content_registry.py"
+      ]
+    },
+    {
+      "id": "configuration-management",
+      "name": "Configuration Management",
+      "version": "0.2.2",
+      "maturity": "experimental",
+      "state_owner": "Offline typed configuration metadata, never live engine configuration",
+      "dependencies": [
+        "foundation",
+        "data-center",
+        "content-registry"
+      ],
+      "entrypoints": [
+        "tools/apex_config.py"
       ]
     }
   ],
@@ -787,6 +802,114 @@
       "restrictions": [
         "No game mutation, asset import, external ingestion or execution authorization"
       ]
+    },
+    {
+      "id": "config.validate",
+      "module": "configuration-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered configuration metadata"
+      ],
+      "outputs": [
+        "offline configuration report"
+      ],
+      "method": "python3 tools/apex_config.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, environment variables, secret handling or execution authorization"
+      ]
+    },
+    {
+      "id": "config.inspect",
+      "module": "configuration-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered configuration metadata"
+      ],
+      "outputs": [
+        "offline configuration report"
+      ],
+      "method": "python3 tools/apex_config.py show ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, environment variables, secret handling or execution authorization"
+      ]
+    },
+    {
+      "id": "config.resolve",
+      "module": "configuration-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered configuration metadata"
+      ],
+      "outputs": [
+        "offline configuration report"
+      ],
+      "method": "python3 tools/apex_config.py resolve ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, environment variables, secret handling or execution authorization"
+      ]
+    },
+    {
+      "id": "config.diff",
+      "module": "configuration-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered configuration metadata"
+      ],
+      "outputs": [
+        "offline configuration report"
+      ],
+      "method": "python3 tools/apex_config.py diff ID OLD NEW",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, environment variables, secret handling or execution authorization"
+      ]
+    },
+    {
+      "id": "config.rollback",
+      "module": "configuration-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered configuration metadata"
+      ],
+      "outputs": [
+        "offline configuration report"
+      ],
+      "method": "python3 tools/apex_config.py rollback ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, environment variables, secret handling or execution authorization"
+      ]
+    },
+    {
+      "id": "config.gate",
+      "module": "configuration-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered configuration metadata"
+      ],
+      "outputs": [
+        "offline configuration report"
+      ],
+      "method": "python3 tools/apex_config.py gate ID VERSION CONSUMER SHA",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes, environment variables, secret handling or execution authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -878,6 +1001,15 @@
       "right_version": "3.10",
       "status": "NOT_RUN",
       "evidence": "Target interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.2.2",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Minimum target; exact interpreter not independently tested",
       "migration": "Test exact interpreter and record evidence"
     }
   ],
@@ -990,6 +1122,18 @@
     },
     {
       "id": "content-consumer.v1",
+      "status": "active"
+    },
+    {
+      "id": "config-setting.v1",
+      "status": "active"
+    },
+    {
+      "id": "config-profile.v1",
+      "status": "active"
+    },
+    {
+      "id": "config-constraint.v1",
       "status": "active"
     }
   ]

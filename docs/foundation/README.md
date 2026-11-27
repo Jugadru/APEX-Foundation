@@ -37,3 +37,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.2.1 — Content Registry
 [Content manual](../content/README.md): three additive contracts, versioned identities and explicit graph, dataset references and blocked consumer adoption. Previous twelve schemas remain unchanged.
+
+## v0.2.2 — Configuration Management
+[Config manual](../config/README.md): typed settings, exact profile inheritance, constraint validation, diff and rollback planning; no runtime adapter. Fifteen previous schemas preserved.
