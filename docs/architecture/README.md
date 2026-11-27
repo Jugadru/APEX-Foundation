@@ -40,3 +40,6 @@ Baseline avançado para v0.2.2; Persistence Management experimental, sem substit
 
 ## Atualização v0.3.1
 Baseline avançado para v0.3.0, Evidence Center experimental depende da Foundation; quatro novos contratos de metadados. Labs mantêm responsabilidade nativa.
+
+## Atualização v0.4.0
+Baseline avançado para v0.3.1; modding passa de planned para experimental, sem loader nativo. Validação do grafo de módulos passa a percorrer dependências iterativamente.

@@ -113,7 +113,7 @@ def safe_entry(path):
         raise ValueError("entrypoint outside repository: " + path)
 
 def validate_registry(reg, schemas):
-    if set(reg) != {"foundation_version", "modules", "capabilities", "compatibility", "contracts"} or reg["foundation_version"] not in ("0.1.0", "0.1.1", "0.1.2", "0.2.0", "0.2.1", "0.2.2", "0.3.0", "0.3.1"):
+    if set(reg) != {"foundation_version", "modules", "capabilities", "compatibility", "contracts"} or reg["foundation_version"] not in ("0.1.0", "0.1.1", "0.1.2", "0.2.0", "0.2.1", "0.2.2", "0.3.0", "0.3.1", "0.4.0"):
         raise ValueError("unsupported registry format")
     for schema in schemas.values():
         schema_check(schema)
@@ -123,17 +123,27 @@ def validate_registry(reg, schemas):
         for row in reg[key]:
             check(row, schemas[schema_id])
     modules, caps = unique(reg["modules"]), unique(reg["capabilities"])
-    def visit(mid, chain):
-        if mid in chain:
-            raise ValueError("module dependency cycle")
-        for dep in modules[mid]["dependencies"]:
+    # Visit each edge once; avoid repeated recursive traversal of shared dependencies.
+    remaining = {mid: len(row["dependencies"]) for mid, row in modules.items()}
+    dependents = {mid: [] for mid in modules}
+    for mid, row in modules.items():
+        for dep in row["dependencies"]:
             if dep not in modules:
                 raise ValueError("unknown dependency")
-            visit(dep, chain | {mid})
-    for mid, row in modules.items():
-        visit(mid, set())
+            dependents[dep].append(mid)
         for path in row["entrypoints"]:
             safe_entry(path)
+    ready = [mid for mid, count in remaining.items() if count == 0]
+    visited = 0
+    while ready:
+        mid = ready.pop()
+        visited += 1
+        for child in dependents[mid]:
+            remaining[child] -= 1
+            if remaining[child] == 0:
+                ready.append(child)
+    if visited != len(modules):
+        raise ValueError("module dependency cycle")
     for cap in caps.values():
         if cap["module"] not in modules or modules[cap["module"]]["maturity"] == "planned":
             raise ValueError("capability has no existing provider")

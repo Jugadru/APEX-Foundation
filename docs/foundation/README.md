@@ -46,3 +46,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.3.1 — Artifact & Evidence Center
 [Evidence manual](../evidence/README.md): four additive contracts, historical CI receipts, artifact.v1 reuse, synthetic matched-context comparison and blocked release gate.
+
+## v0.4.0 — Modding Infrastructure
+[Modding manual](../modding/README.md): three additive metadata contracts, exact dependency resolution, bounded ZIP inspection, overlay preview, removal and rollback planning. No native loader.

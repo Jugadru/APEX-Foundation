@@ -28,6 +28,16 @@ class RegistryTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 f.validate_registry(reg, self.schemas)
 
+    def test_deep_dependency_chain_without_recursion(self):
+        reg=copy.deepcopy(self.reg)
+        template=reg["modules"][0]
+        previous="foundation"
+        for i in range(1100):
+            ident="chain-"+str(i)
+            reg["modules"].append(dict(template,id=ident,dependencies=[previous],entrypoints=[]))
+            previous=ident
+        self.assertEqual(f.validate_registry(reg,self.schemas)["status"],"PASS")
+
     def test_upstream_entrypoints(self):
         paths = [p for m in self.reg["modules"] for p in m["entrypoints"] if p.startswith("https://")]
         self.assertTrue(paths)

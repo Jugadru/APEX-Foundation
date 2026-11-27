@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "demo.base",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Base de teste",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [],
+      "conflicts": [],
+      "overlays": [
+        {
+          "target": "team.demo",
+          "version": "1.0.0",
+          "label": "Equipe de teste"
+        }
+      ]
+    },
+    {
+      "id": "demo.driver",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Piloto de teste",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [
+        {
+          "id": "demo.base",
+          "version": "1.0.0"
+        }
+      ],
+      "conflicts": [],
+      "overlays": [
+        {
+          "target": "driver.demo",
+          "version": "1.0.0",
+          "label": "Piloto de demonstração"
+        }
+      ]
+    },
+    {
+      "id": "demo.driver",
+      "version": "1.1.0",
+      "previous": "1.0.0",
+      "title": "Piloto de teste revisado",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [
+        {
+          "id": "demo.base",
+          "version": "1.0.0"
+        }
+      ],
+      "conflicts": [],
+      "overlays": [
+        {
+          "target": "driver.demo",
+          "version": "1.1.0",
+          "label": "Piloto revisado"
+        }
+      ]
+    },
+    {
+      "id": "demo.circuit",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Circuito de teste",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [
+        {
+          "id": "demo.base",
+          "version": "1.0.0"
+        }
+      ],
+      "conflicts": [],
+      "overlays": [
+        {
+          "target": "circuit.demo",
+          "version": "1.0.0",
+          "label": "Circuito de demonstração"
+        }
+      ]
+    },
+    {
+      "id": "demo.season",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Temporada de teste",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [
+        {
+          "id": "demo.driver",
+          "version": "1.1.0"
+        },
+        {
+          "id": "demo.circuit",
+          "version": "1.0.0"
+        }
+      ],
+      "conflicts": [],
+      "overlays": [
+        {
+          "target": "season.demo",
+          "version": "1.0.0",
+          "label": "Temporada experimental"
+        }
+      ]
+    },
+    {
+      "id": "demo.rival",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Alternativa de piloto",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [
+        {
+          "id": "demo.base",
+          "version": "1.0.0"
+        }
+      ],
+      "conflicts": [
+        "demo.driver"
+      ],
+      "overlays": [
+        {
+          "target": "driver.demo",
+          "version": "1.0.0",
+          "label": "Piloto alternativo"
+        }
+      ]
+    },
+    {
+      "id": "demo.hyper",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Veículo de teste Hyper",
+      "consumer": "hyper",
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "season": 2012,
+      "origin": "SYNTHETIC_FIXTURE",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "permissions": [
+        "content.label.preview"
+      ],
+      "dependencies": [],
+      "conflicts": [],
+      "overlays": [
+        {
+          "target": "vehicle.demo",
+          "version": "1.0.0",
+          "label": "Veículo experimental"
+        }
+      ]
+    }
+  ]
+}
