@@ -11,3 +11,5 @@ Para mudanças arquiteturais, consultar [Architecture Intelligence](docs/archite
 Para datasets, consultar [Data Center](docs/data/README.md); preservar origem, revisão, unidades, política temporal e hash. Fixtures não são dados históricos. Nunca promover automaticamente para runtime.
 
 Para conteúdo, consultar [Content Registry](docs/content/README.md). Usar identidades e versões exatas, relações fechadas e direitos explícitos. Fixtures não são conteúdo jogável; assets metadata-only não são arquivos reais.
+
+Para configurações, consultar [Configuration Management](docs/config/README.md). Usar versões exatas, separar ambientes e consumidores, preservar prioridade manual; nenhum perfil autoriza aplicação em runtime.

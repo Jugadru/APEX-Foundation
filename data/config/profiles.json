@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "core2-development",
+      "consumer": "core2",
+      "environment": "development",
+      "version": "1.0.0",
+      "previous": null,
+      "parent": null,
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "overrides": [
+        {
+          "id": "diagnostics.telemetry",
+          "value": true
+        }
+      ],
+      "purpose": "Core 2 diagnostic proposal"
+    },
+    {
+      "id": "core2-development",
+      "consumer": "core2",
+      "environment": "development",
+      "version": "1.1.0",
+      "previous": "1.0.0",
+      "parent": null,
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "overrides": [
+        {
+          "id": "diagnostics.telemetry",
+          "value": true
+        },
+        {
+          "id": "diagnostics.sample-ms",
+          "value": 50
+        }
+      ],
+      "purpose": "Core 2 diagnostic proposal, sample change"
+    },
+    {
+      "id": "core2-production-candidate",
+      "consumer": "core2",
+      "environment": "production",
+      "version": "1.0.0",
+      "previous": null,
+      "parent": null,
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "season": 2012,
+      "overrides": [],
+      "purpose": "Conservative candidate only, not deployed"
+    },
+    {
+      "id": "hyper-development",
+      "consumer": "hyper",
+      "environment": "development",
+      "version": "1.0.0",
+      "previous": null,
+      "parent": null,
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "season": 2012,
+      "overrides": [
+        {
+          "id": "feature.longitudinal",
+          "value": true
+        },
+        {
+          "id": "diagnostics.telemetry",
+          "value": true
+        }
+      ],
+      "purpose": "Hyper longitudinal diagnostic proposal"
+    },
+    {
+      "id": "hyper-technical",
+      "consumer": "hyper",
+      "environment": "development",
+      "version": "1.0.0",
+      "previous": null,
+      "parent": {
+        "id": "hyper-development",
+        "version": "1.0.0"
+      },
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "season": 2012,
+      "overrides": [
+        {
+          "id": "simulation.realism",
+          "value": "technical"
+        },
+        {
+          "id": "feature.advanced-racecraft",
+          "value": true
+        }
+      ],
+      "purpose": "Derived research preset, not implemented mechanics"
+    },
+    {
+      "id": "hyper-production-candidate",
+      "consumer": "hyper",
+      "environment": "production",
+      "version": "1.0.0",
+      "previous": null,
+      "parent": null,
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "season": 2012,
+      "overrides": [],
+      "purpose": "Conservative Hyper candidate only, not deployed"
+    }
+  ]
+}

@@ -49,6 +49,15 @@ jobs:
           gate_status=$?
           set -e
           test "$gate_status" -eq 1
+          python3 tools/apex_config.py validate | tee ci-results/config.log
+          python3 tools/apex_config.py resolve hyper-technical 1.0.0 | tee ci-results/config-resolved.log
+          python3 tools/apex_config.py diff core2-development 1.0.0 1.1.0 | tee ci-results/config-diff.log
+          python3 tools/apex_config.py rollback core2-development 1.1.0 | tee ci-results/config-rollback.log
+          set +e
+          python3 tools/apex_config.py gate hyper-development 1.0.0 hyper 80faba05374355f31906a630f576036aecca4f56 > ci-results/config-gate.json
+          gate_status=$?
+          set -e
+          test "$gate_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

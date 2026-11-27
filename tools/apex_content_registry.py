@@ -83,9 +83,9 @@ class ContentRegistry:
                 target=(relation["target"],relation["version"])
                 if (role not in rules or target not in self.entries or target==key or
                     self.entries[target]["kind"]!=rules[role]["target"] or
-                    self.entries[target]["season"]!=row["season"] or (role,target) in seen):
+                    self.entries[target]["season"]!=row["season"] or (role,target[0]) in seen):
                     raise ValueError("invalid exact content relationship")
-                seen.add((role,target))
+                seen.add((role,target[0]))
                 counts[role]+=1
                 edges.add(target)
                 self.reverse[target].add(key)
@@ -192,10 +192,12 @@ class ContentRegistry:
     def graph(self,ident,version):
         key=(ident,version)
         self.entries[key]
+        dependencies=self.closure(key,self.edges)
+        selected=set(dependencies)|{key}
         return {"root":self.keyrow(key),
-                "dependencies":[self.keyrow(x) for x in self.closure(key,self.edges)],
+                "dependencies":[self.keyrow(x) for x in dependencies],
                 "dependents":[self.keyrow(x) for x in self.closure(key,self.reverse)],
-                "dependency_first_order":[self.keyrow(x) for x in self.order if x in set(self.closure(key,self.edges))|{key}],
+                "dependency_first_order":[self.keyrow(x) for x in self.order if x in selected],
                 "production_approved":False}
 
     def diff(self,ident,old,new):

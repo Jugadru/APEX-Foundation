@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "longitudinal-replay",
+      "when": {
+        "id": "feature.longitudinal",
+        "value": true
+      },
+      "requires": [
+        {
+          "id": "diagnostics.replay",
+          "value": true
+        },
+        {
+          "id": "simulation.mode",
+          "value": "deterministic"
+        }
+      ],
+      "forbids": [],
+      "description": "Longitudinal experiment requires deterministic replay"
+    },
+    {
+      "id": "racecraft-longitudinal",
+      "when": {
+        "id": "feature.advanced-racecraft",
+        "value": true
+      },
+      "requires": [
+        {
+          "id": "feature.longitudinal",
+          "value": true
+        },
+        {
+          "id": "diagnostics.telemetry",
+          "value": true
+        }
+      ],
+      "forbids": [],
+      "description": "Racecraft experiment needs longitudinal and diagnostic evidence"
+    },
+    {
+      "id": "strategy-telemetry",
+      "when": {
+        "id": "feature.strategy-preview",
+        "value": true
+      },
+      "requires": [
+        {
+          "id": "diagnostics.telemetry",
+          "value": true
+        }
+      ],
+      "forbids": [],
+      "description": "Preview needs diagnostics"
+    },
+    {
+      "id": "randomized-exploratory",
+      "when": {
+        "id": "feature.randomized-seed",
+        "value": true
+      },
+      "requires": [
+        {
+          "id": "simulation.mode",
+          "value": "exploratory"
+        }
+      ],
+      "forbids": [
+        {
+          "id": "feature.longitudinal",
+          "value": true
+        }
+      ],
+      "description": "No randomized seed in deterministic longitudinal test"
+    },
+    {
+      "id": "technical-telemetry",
+      "when": {
+        "id": "simulation.realism",
+        "value": "technical"
+      },
+      "requires": [
+        {
+          "id": "diagnostics.telemetry",
+          "value": true
+        }
+      ],
+      "forbids": [],
+      "description": "Technical preset requires telemetry diagnostics"
+    }
+  ]
+}

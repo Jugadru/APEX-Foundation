@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "simulation.seed",
+      "kind": "integer",
+      "default": 991321,
+      "minimum": 0,
+      "maximum": 2147483647,
+      "choices": [],
+      "unit": "1",
+      "experimental": false,
+      "description": "Fixture seed; not an engine binding"
+    },
+    {
+      "id": "simulation.tick-hz",
+      "kind": "integer",
+      "default": 60,
+      "minimum": 10,
+      "maximum": 240,
+      "choices": [],
+      "unit": "hz",
+      "experimental": false,
+      "description": "Candidate tick frequency, no native effect"
+    },
+    {
+      "id": "simulation.realism",
+      "kind": "enum",
+      "default": "balanced",
+      "minimum": null,
+      "maximum": null,
+      "choices": [
+        "balanced",
+        "technical"
+      ],
+      "unit": "1",
+      "experimental": false,
+      "description": "Candidate realism label"
+    },
+    {
+      "id": "simulation.mode",
+      "kind": "enum",
+      "default": "deterministic",
+      "minimum": null,
+      "maximum": null,
+      "choices": [
+        "deterministic",
+        "exploratory"
+      ],
+      "unit": "1",
+      "experimental": false,
+      "description": "Candidate repeatability policy"
+    },
+    {
+      "id": "diagnostics.replay",
+      "kind": "boolean",
+      "default": true,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": false,
+      "description": "Require replay evidence in planned experiments"
+    },
+    {
+      "id": "diagnostics.telemetry",
+      "kind": "boolean",
+      "default": false,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": false,
+      "description": "Candidate telemetry diagnostic switch"
+    },
+    {
+      "id": "feature.longitudinal",
+      "kind": "boolean",
+      "default": false,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": true,
+      "description": "Experimental Hyper longitudinal candidate"
+    },
+    {
+      "id": "feature.advanced-racecraft",
+      "kind": "boolean",
+      "default": false,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": true,
+      "description": "Experimental Hyper racecraft candidate"
+    },
+    {
+      "id": "feature.strategy-preview",
+      "kind": "boolean",
+      "default": false,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": true,
+      "description": "Experimental strategy preview candidate"
+    },
+    {
+      "id": "feature.randomized-seed",
+      "kind": "boolean",
+      "default": false,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": true,
+      "description": "Exploratory seed candidate"
+    },
+    {
+      "id": "diagnostics.sample-ms",
+      "kind": "integer",
+      "default": 100,
+      "minimum": 10,
+      "maximum": 1000,
+      "choices": [],
+      "unit": "ms",
+      "experimental": false,
+      "description": "Candidate diagnostic sampling interval"
+    },
+    {
+      "id": "safety.manual-priority",
+      "kind": "boolean",
+      "default": true,
+      "minimum": null,
+      "maximum": null,
+      "choices": [],
+      "unit": "1",
+      "experimental": false,
+      "description": "Manual commands retain authority in project policy"
+    }
+  ]
+}

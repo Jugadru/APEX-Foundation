@@ -961,5 +961,268 @@
       "reason"
     ],
     "additionalProperties": false
+  },
+  "config-setting.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "integer",
+          "boolean",
+          "enum"
+        ]
+      },
+      "default": {
+        "type": [
+          "string",
+          "integer",
+          "boolean"
+        ]
+      },
+      "minimum": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "maximum": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "choices": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      },
+      "unit": {
+        "type": "string",
+        "minLength": 1
+      },
+      "experimental": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "id",
+      "kind",
+      "default",
+      "minimum",
+      "maximum",
+      "choices",
+      "unit",
+      "experimental",
+      "description"
+    ],
+    "additionalProperties": false
+  },
+  "config-profile.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+      },
+      "previous": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+      },
+      "parent": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "additionalProperties": false
+      },
+      "consumer": {
+        "type": "string",
+        "enum": [
+          "core2",
+          "hyper"
+        ]
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "[0-9a-f]{40}"
+      },
+      "environment": {
+        "type": "string",
+        "enum": [
+          "development",
+          "production"
+        ]
+      },
+      "season": {
+        "type": "integer"
+      },
+      "overrides": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "value": {
+              "type": [
+                "string",
+                "integer",
+                "boolean"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "uniqueItems": true
+      },
+      "purpose": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "previous",
+      "parent",
+      "consumer",
+      "revision",
+      "environment",
+      "season",
+      "overrides",
+      "purpose"
+    ],
+    "additionalProperties": false
+  },
+  "config-constraint.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "when": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "value": {
+            "type": [
+              "string",
+              "integer",
+              "boolean"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "value": {
+              "type": [
+                "string",
+                "integer",
+                "boolean"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "uniqueItems": true
+      },
+      "forbids": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "value": {
+              "type": [
+                "string",
+                "integer",
+                "boolean"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "uniqueItems": true
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "id",
+      "when",
+      "requires",
+      "forbids",
+      "description"
+    ],
+    "additionalProperties": false
   }
 }

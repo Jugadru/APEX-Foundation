@@ -65,6 +65,16 @@ class ContentTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.build(cat=self.mutate("driver.demo",fn))
 
+    def test_relationship_identity_not_duplicated_across_versions(self):
+        cat=copy.deepcopy(self.catalog)
+        engine=copy.deepcopy(next(x for x in cat["entries"] if x["id"]=="component.engine"))
+        engine.update(version="1.1.0",previous="1.0.0")
+        cat["entries"].append(engine)
+        vehicle=next(x for x in cat["entries"] if x["id"]=="vehicle.demo")
+        vehicle["links"].append({"role":"component","target":"component.engine","version":"1.1.0"})
+        with self.assertRaises(ValueError):
+            self.build(cat=cat)
+
     def test_cycle(self):
         p=copy.deepcopy(self.policy)
         p["relations"]["manufacturer"]["partner"]={"target":"team","minimum":1,"maximum":1}
