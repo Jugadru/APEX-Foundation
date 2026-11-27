@@ -18,7 +18,7 @@ SCOPES={"CORE2_FAST_PUSH":"core2","HYPER_ISOLATED_LAB":"hyper",
 MARKERS={
     "CORE2_FAST_PUSH":("APEX_CI_IMPORT_PASS","APEX_LAB_TRACK_PASS","APEX_LAB_PERF_PASS"),
     "HYPER_ISOLATED_LAB":("HYPER22_LONGITUDINAL_PASS",),
-    "HYPER_GAME_FAST":("HYPER_FIXTURE",),
+    "HYPER_GAME_FAST":("HYPER22_GAME","HYPER30_GAME","HYPER304_TYRES","HYPER_MANUAL_WET","HYPER_GAME_FAST_PASS"),
     "LAB_PYTHON_310":("Create Python 3.10.22 folder","Ran 34 tests"," OK"),
     "LAB_PYTHON_313":("Ran 34 tests"," OK"),
 }
@@ -149,9 +149,12 @@ class Reconciliation:
                 raise ValueError("native excerpt size")
             if row["status"]=="PASS" and not all(any(marker in line for line in row["markers"]) for marker in MARKERS[row["scope"]]):
                 raise ValueError("missing observed native marker")
-            # In-progress game observation cannot be promoted by an edited label.
             if row["scope"]=="HYPER_GAME_FAST" and row["status"]=="PASS":
-                raise ValueError("game FAST was not completed at this observation; record a new reviewed observation")
+                for name in ("HYPER22_GAME","HYPER30_GAME","HYPER304_TYRES","HYPER_MANUAL_WET"):
+                    if not any(name in line and '"status":"PASS"' in line for line in row["markers"]):
+                        raise ValueError("missing successful game fixture excerpt")
+                if not any("HYPER_MANUAL_WET" in line and '"entry_lap":21' in line and '"service_lap":21' in line and '"no_early_pit":true' in line for line in row["markers"]):
+                    raise ValueError("missing manual pit fixture evidence")
         if scopes!=set(SCOPES):
             raise ValueError("missing native evidence scope")
         seen=set()

@@ -4,7 +4,7 @@ Observed 2026-11-27: compared full, non-truncated Git trees at exact historical 
 
 SaveGuard pointer tools/tests/test_apex_saveguard_ci.py was transcribed incorrectly in v0.3.0. Correction recorded separately and validated against the original audit observation; no change to actual consumer or revision. The observed historical mismatch is retained even after the inventory correction.
 
-Native evidence: existing Core 2 push FAST, Hyper isolated longitudinal lab and Development Lab Python regressions were observed successful at exact consumer heads. Hyper Game FAST was still running at observation time (INCONCLUSIVE). No new workflow dispatched, no FULL, no native adapter test, no release proof. Core 2 push is not a PR premerge receipt. Native CI entries store scoped excerpts, not signed attestations or actual artifact hashes. Hyper playable game candidates are new tree pointers, not a completed source audit. Existing authorities preserved.
+Native evidence: existing Core 2 push FAST, Hyper isolated longitudinal lab and Development Lab Python regressions were observed successful at exact consumer heads. Hyper Game FAST was initially observed in progress, then completed successfully at 2026-11-27T21:15:48Z; its exact job and final marker were checked, including Hyper 2.2, 3.0, tyre and manual wet-pit fixture excerpts. The final observation supersedes the initial pending state. No new workflow dispatched, no FULL, no native adapter test, no release proof. Core 2 push is not a PR premerge receipt. Native CI entries store scoped excerpts, not signed attestations or actual artifact hashes. Hyper playable game candidates are new tree pointers, not a completed source audit. Existing authorities preserved.
 
 Commands:
 ```sh

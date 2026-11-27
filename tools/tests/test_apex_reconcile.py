@@ -57,9 +57,9 @@ class ReconciliationTests(unittest.TestCase):
 
     def test_native_observations(self):
         x=self.audit.native_report()
-        self.assertEqual(x["counts"],{"INCONCLUSIVE":1,"PASS":4})
+        self.assertEqual(x["counts"],{"PASS":5})
         self.assertFalse(x["native_adapter_verified"])
-        self.assertEqual(self.audit.native["hyper-game"]["status"],"INCONCLUSIVE")
+        self.assertEqual(self.audit.native["hyper-game"]["status"],"PASS")
 
     def test_native_scope_and_marker_checks(self):
         for changes in ({"revision":"0"*40},{"markers":[]},{"scope":"HYPER_ISOLATED_LAB"},{"job_url":"https://example.org"}):
