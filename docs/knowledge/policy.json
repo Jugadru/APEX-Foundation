@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "priority_references": [
+    "REF-105",
+    "REF-107",
+    "REF-106",
+    "REF-109",
+    "REF-012",
+    "REF-119",
+    "REF-011",
+    "REF-010",
+    "REF-007",
+    "REF-039",
+    "REF-015",
+    "REF-021",
+    "REF-013",
+    "REF-003",
+    "REF-002"
+  ],
+  "departments": {
+    "physics": {
+      "domain": "vehicle_dynamics",
+      "owner_module": "core2",
+      "acceptance": "Compare baseline longitudinal and cornering behavior on fixed seeds; report units, error and runtime.",
+      "roadmap": "Hyper 2.2–2.4"
+    },
+    "racecraft": {
+      "domain": "racecraft",
+      "owner_module": "core2",
+      "acceptance": "Measure overtakes, oscillation, collisions and reproducibility; preserve solver authority.",
+      "roadmap": "Hyper 2.5–2.7"
+    },
+    "strategy": {
+      "domain": "strategy",
+      "owner_module": "core2",
+      "acceptance": "Compare fixed-seed pit and weather scenarios, including manual command priority.",
+      "roadmap": "Hyper 2.8"
+    },
+    "soul": {
+      "domain": "racecraft",
+      "owner_module": "core2",
+      "acceptance": "Check driver/staff decisions against observed state, deterministic replay and manual authority.",
+      "roadmap": "Hyper 2.9 / 3.4"
+    },
+    "factory": {
+      "domain": "engineering",
+      "owner_module": "core2",
+      "acceptance": "Measure time, inventory and financial conservation; compare existing factory workflow.",
+      "roadmap": "Hyper 3.0–3.3"
+    },
+    "universe": {
+      "domain": "career",
+      "owner_module": "core2",
+      "acceptance": "Audit season continuity, historical rules, contracts and save compatibility.",
+      "roadmap": "Hyper 3.5–4.4"
+    },
+    "quality": {
+      "domain": "quality_lab",
+      "owner_module": "quality-lab",
+      "acceptance": "Record exact SHA, baseline, repeatability, regression evidence and rollback.",
+      "roadmap": "Hyper 5.0 / transversal"
+    }
+  },
+  "score": {
+    "priority_reference": 40,
+    "has_url": 10,
+    "linked_idea": 3,
+    "linked_idea_cap": 10,
+    "documented_source": 15
+  },
+  "notice": "Prioridade heurística de investigação, não nota de qualidade, maturidade ou aprovação."
+}
