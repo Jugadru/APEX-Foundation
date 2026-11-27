@@ -49,3 +49,6 @@ Baseline avançado para v0.4.0. Integration Gateway experimental agrega metadado
 
 ## v0.5.1
 Baseline advanced to v0.5.0. Reconciliation independently records old and candidate tree identities; historical pins remain authoritative for existing fixtures. SaveGuard typo correction documented without repinning.
+
+## v0.6.0
+Baseline advanced to v0.5.1; Core 2 owns sporting runtime, integration-gateway owns metadata contract. Exact local source check does not approve sporting state or adoption.

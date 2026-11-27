@@ -21,7 +21,7 @@ import apex_reconcile as reconcile
 
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/"docs"/"integration"
-VERSION="0.5.1"
+VERSION="0.6.0"
 STATES={"PASS","FAIL","NOT_RUN","INCONCLUSIVE","BLOCKED"}
 # Static code routes. Neither manifests nor request data select Python attributes.
 # Tuple: service, method, min/max positional arguments, profile, structured field.
@@ -86,6 +86,7 @@ ROUTES={
     "integration.reconcile":("reconciliation","stats",0,0,"reader",None),
     "integration.native-evidence":("reconciliation","native_report",0,0,"reader",None),
     "integration.candidates":("reconciliation","candidate_report",0,0,"reader",None),
+    "integration.core2-contract":("sdk","core2_contract",0,0,"reader",None),
 }
 DENIED={
     "lab.request":"OWNER_HOSTED_WORKFLOW_ONLY",
@@ -95,6 +96,7 @@ DENIED={
     "graphics.inspect":"OWNER_HOSTED_WORKFLOW_ONLY",
     "release.test-build":"OWNER_HOSTED_WORKFLOW_ONLY",
     "modding.zip":"EXPLICIT_LOCAL_TOOL_ONLY",
+    "integration.core2-verify":"EXPLICIT_LOCAL_TOOL_ONLY",
 }
 NATIVE={
     "core2":["FAST exact candidate SHA","Native SaveGuard baseline/candidate","Read-only metadata mapping and regressions"],
@@ -208,6 +210,11 @@ class FoundationSDK:
                          "reason":DENIED.get(cid),"execution_authorized":False})
         return {"status":"PASS","capabilities":len(rows),"offline_routes":len(ROUTES),
                 "external_only":len(DENIED),"entries":rows,"execution_authorized":False}
+
+    def core2_contract(self):
+        return {"status":"PASS","scope":"local schema only","contract":"core2-metadata.v1",
+                "schema":deepcopy(self._schemas["core2-metadata.v1"]),"native_readiness":"BLOCKED",
+                "execution_authorized":False}
 
     def registry_report(self):
         return dict(self._registry_report,catalog=legacy.validate())

@@ -2453,5 +2453,213 @@
       "scope"
     ],
     "additionalProperties": false
+  },
+  "core2-metadata.v1": {
+    "type": "object",
+    "properties": {
+      "body": {
+        "type": "object",
+        "properties": {
+          "contract": {
+            "type": "string",
+            "enum": [
+              "core2-metadata.v1"
+            ]
+          },
+          "repository": {
+            "type": "string",
+            "enum": [
+              "Jugadru/APEX-Simulation"
+            ]
+          },
+          "revision": {
+            "type": "string",
+            "pattern": "[0-9a-f]{40}"
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "CORE2_METADATA_READ_ONLY"
+            ]
+          },
+          "authority": {
+            "type": "string",
+            "enum": [
+              "core2"
+            ]
+          },
+          "identity_scope": {
+            "type": "string",
+            "enum": [
+              "EXACT_REVISION_ONLY"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "enum": [
+                    "data/season_2012.json",
+                    "data/teams.json"
+                  ]
+                },
+                "git_blob": {
+                  "type": "string",
+                  "pattern": "[0-9a-f]{40}"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "[0-9a-f]{64}"
+                },
+                "size_bytes": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "path",
+                "git_blob",
+                "sha256",
+                "size_bytes"
+              ],
+              "additionalProperties": false
+            },
+            "uniqueItems": true
+          },
+          "catalog": {
+            "type": "object",
+            "properties": {
+              "season": {
+                "type": "integer"
+              },
+              "teams": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                },
+                "uniqueItems": true
+              },
+              "drivers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "team_index": {
+                      "type": "integer"
+                    },
+                    "slot": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "team_index",
+                    "slot",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                },
+                "uniqueItems": true
+              },
+              "circuits": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[A-Z]{3}"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "country": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "laps": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "code",
+                    "name",
+                    "country",
+                    "laps"
+                  ],
+                  "additionalProperties": false
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "season",
+              "teams",
+              "drivers",
+              "circuits"
+            ],
+            "additionalProperties": false
+          },
+          "runtime_applied": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          },
+          "execution_authorized": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          }
+        },
+        "required": [
+          "contract",
+          "repository",
+          "revision",
+          "scope",
+          "authority",
+          "identity_scope",
+          "sources",
+          "catalog",
+          "runtime_applied",
+          "execution_authorized"
+        ],
+        "additionalProperties": false
+      },
+      "body_sha256": {
+        "type": "string",
+        "pattern": "[0-9a-f]{64}"
+      }
+    },
+    "required": [
+      "body",
+      "body_sha256"
+    ],
+    "additionalProperties": false
   }
 }

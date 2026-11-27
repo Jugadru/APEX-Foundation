@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": "611c176d502f7e5585521eb8ab963dd7d8921dae",
+  "revision": "60b9fe903a5f1711e4b28152ef18a4b188c6a3ad",
   "schemas": {
     "module.v1": {
       "type": "object",
@@ -2214,6 +2214,246 @@
         "depends_on",
         "status",
         "acceptance"
+      ],
+      "additionalProperties": false
+    },
+    "source-comparison.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper",
+            "lab",
+            "core2-upstream"
+          ]
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseline": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "candidate": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "baseline_tree": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "candidate_tree": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "claims": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "string",
+                      "enum": [
+                        "architecture",
+                        "knowledge",
+                        "content",
+                        "persistence",
+                        "upstream"
+                      ]
+                    },
+                    "blob": {
+                      "type": "string",
+                      "pattern": "[0-9a-f]{40}"
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "blob"
+                  ],
+                  "additionalProperties": false
+                },
+                "uniqueItems": true
+              },
+              "baseline_blob": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "[0-9a-f]{40}"
+              },
+              "candidate_blob": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "[0-9a-f]{40}"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "UNCHANGED",
+                  "CHANGED",
+                  "MISSING",
+                  "BASELINE_MISMATCH"
+                ]
+              }
+            },
+            "required": [
+              "path",
+              "claims",
+              "baseline_blob",
+              "candidate_blob",
+              "state"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "baseline",
+        "candidate",
+        "baseline_tree",
+        "candidate_tree",
+        "paths"
+      ],
+      "additionalProperties": false
+    },
+    "native-ci-observation.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "repository": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper",
+            "lab"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "run_id": {
+          "type": "integer"
+        },
+        "job_id": {
+          "type": "integer"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "CORE2_FAST_PUSH",
+            "HYPER_ISOLATED_LAB",
+            "HYPER_GAME_FAST",
+            "LAB_PYTHON_310",
+            "LAB_PYTHON_313"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "INCONCLUSIVE",
+            "FAIL",
+            "NOT_RUN"
+          ]
+        },
+        "observed_on": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "job_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "markers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "revision",
+        "run_id",
+        "job_id",
+        "scope",
+        "status",
+        "observed_on",
+        "run_url",
+        "job_url",
+        "markers"
+      ],
+      "additionalProperties": false
+    },
+    "source-candidate.v1": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper",
+            "lab"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blob_sha": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "TREE_PRESENCE_ONLY"
+          ]
+        }
+      },
+      "required": [
+        "repository",
+        "revision",
+        "path",
+        "blob_sha",
+        "purpose",
+        "scope"
       ],
       "additionalProperties": false
     }

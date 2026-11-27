@@ -20,3 +20,6 @@ Doctor distinguishes local structure from native readiness. Scenario joins datas
 
 ## v0.5.1
 See [Revision Reconciliation](RECONCILIATION.md). Three new offline SDK routes: integration.reconcile, integration.native-evidence, integration.candidates. Doctor includes reconciliation as an eleventh local check. Native PASS remains scope-limited and never grants adapter readiness.
+
+## v0.6.0
+See [Core 2 metadata adapter](CORE2_ADAPTER.md). Schema available via SDK; explicit checkout verification is standalone and blocked through the gateway.

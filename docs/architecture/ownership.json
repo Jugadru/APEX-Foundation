@@ -744,6 +744,18 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Historical Git tree comparison and scoped native CI observation; no adapter approval"
+    },
+    {
+      "id": "core2-metadata.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "content-registry"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Read-only consumer metadata projection, exact revision identity, no runtime state transfer"
     }
   ]
 }

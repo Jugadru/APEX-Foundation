@@ -55,3 +55,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.5.1 — Revision Reconciliation
 Three additive contracts describe exact source comparisons, scoped native CI observations and candidate source pointers. See ../integration/RECONCILIATION.md. All 32 prior contracts retained.
+
+## v0.6.0
+Additive core2-metadata.v1 envelope; see ../integration/CORE2_ADAPTER.md. All 35 previous contracts retained.
