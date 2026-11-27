@@ -14,3 +14,6 @@ python3 tools/apex.py candidates
 python3 tools/apex.py plan hyper bc8c161878bbef7f1b3dd24a54711c2518736a88
 ```
 Reconciliation validates coverage across all historical inventory sources, recomputes classifications and verifies the recorded correction against the corrected current inventory. Offline report cannot re-query GitHub. Doctor checks reconciliation structure but never grants native readiness. Separate CI tests exact Python 3.10.22, alongside the existing runner interpreter; actual success is recorded in GitHub run, not self-certified by the candidate. Revert PR to roll back. Next: review Core 2 native read-only adapter in its own PR after confirming exact candidate and requirements.
+
+## Minimum interpreter regression
+Candidate 431b20e2b5190c298a1b263402d15a451b901245: default Python 3.14.4 135 tests PASS; Python 3.10.22 FAIL in Evidence Center timestamp parsing before full suite. [Original CI](https://github.com/Jugadru/APEX-Foundation/actions/runs/46069436994). Corrected parsing without truncation or changing receipts, added four targeted tests, and explicitly checked out/verified the candidate SHA in both CI jobs. Fresh approval required; no prior failure overwritten.

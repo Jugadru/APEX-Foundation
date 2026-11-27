@@ -46,3 +46,5 @@
 
 ## v0.5.1 — Revision Reconciliation
 - Compare 85 path/revision pairs, preserve original claims, correct one SaveGuard blob transcription, record native CI scopes and Hyper game candidates. Gateway exposes reconciliation, native evidence and candidates. Add separate exact Python 3.10.22 CI job. No consumer code or historical pins changed.
+
+- v0.5.1 corrective review: Python 3.10 failed parsing seven-digit fractional timestamps. Use exact fractional UTC ordering and four new regressions; both CI jobs explicitly verify checkout SHA. Preserve failed run evidence and require fresh green.
