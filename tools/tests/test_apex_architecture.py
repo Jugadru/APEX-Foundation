@@ -15,9 +15,9 @@ class ArchitectureTests(unittest.TestCase):
 
     def test_coverage(self):
         s=self.arch.stats()
-        self.assertEqual((s["modules"],s["capabilities"],s["active_contracts"],s["deferred_contracts"]),(19,25,12,10))
+        self.assertEqual((s["modules"],s["capabilities"],s["active_contracts"],s["deferred_contracts"]),(20,31,15,10))
         self.assertEqual(s["pinned_external_repositories"],3)
-        self.assertEqual(s["candidate_contract_bindings"],22)
+        self.assertEqual(s["candidate_contract_bindings"],25)
         self.assertFalse(s["runtime_verified"])
         self.assertEqual(s["fingerprint"],a.load().fingerprint)
 
@@ -61,6 +61,13 @@ class ArchitectureTests(unittest.TestCase):
         self.assertFalse(report["execution_authorized"])
         self.assertIn("asset-factory",report["impact"]["declared_downstream"])
 
+    def test_cross_repository_module_gate(self):
+        manifest=r.read(a.DOCS/"change.foundation.example.json")
+        report=self.arch.gate(dict(manifest,modules=["core2"]))
+        self.assertEqual(report["status"],"BLOCKED")
+        self.assertIn("MODULE_REPOSITORY_MISMATCH",report["reasons"])
+        self.assertEqual(report["impact"]["foreign_declared_modules"],["core2"])
+
     def test_invalid_manifest(self):
         for change in ({"extra":True},{"modules":["missing"]},{"contracts":["missing"]},{"paths":["a","a"]},
                        {"paths":[],"modules":[],"contracts":[]}):
@@ -70,7 +77,7 @@ class ArchitectureTests(unittest.TestCase):
     def test_contract_diff(self):
         report=self.arch.contract_diff()
         self.assertEqual(report["status"],"PASS")
-        self.assertEqual(sum(x["state"]=="UNCHANGED" for x in report["contracts"]),9)
+        self.assertEqual(sum(x["state"]=="UNCHANGED" for x in report["contracts"]),12)
         self.assertEqual(sum(x["state"]=="ADDED" for x in report["contracts"]),3)
         arch=copy.deepcopy(self.arch)
         arch.schemas["module.v1"]["properties"]["name"]["minLength"]=2

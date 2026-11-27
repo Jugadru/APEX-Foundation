@@ -95,7 +95,9 @@ class DataCenter:
         for name in ("allowed","blocked"):
             if type(era[name]) is not list or len(set(era[name]))!=len(era[name]) or not all(k.nonempty(x) for x in era[name]):
                 raise ValueError("invalid era technology list")
-        if not {"none","v8","kers","drs"}<=set(era["allowed"]) or set(era["allowed"])&set(era["blocked"]):
+        if (set(era["allowed"])!={"none","v8","kers","drs"} or
+            not {"v6-hybrid","mgu-h","modern-cost-cap","active-aero-2026"}<=set(era["blocked"]) or
+            set(era["allowed"])&set(era["blocked"])):
             raise ValueError("era policy conflict")
         if type(catalog["entries"]) is not list or not catalog["entries"]:
             raise ValueError("empty catalog")

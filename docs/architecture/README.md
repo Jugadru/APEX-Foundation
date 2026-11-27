@@ -28,3 +28,6 @@ Cobertura total de ownership, ausência de ciclos, autoridade exclusiva, caminho
 
 ## Atualização v0.2.0
 Baseline de schemas avançado para v0.1.2 (nove schemas preservados). Data Center passa de planejado a experimental, depende da Foundation e tem três novos contratos de metadados. O mapa de impacto reconhece docs/data, data/datasets e ferramentas do Data Center. Inventários externos continuam pinados.
+
+## Atualização v0.2.1
+Baseline avançado para v0.2.0; Content Registry experimental depende da Foundation e Data Center. Módulo declarado no repositório errado bloqueia gate; vínculos de contratos entre consumidores continuam candidatos.

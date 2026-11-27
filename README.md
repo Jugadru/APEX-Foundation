@@ -1,6 +1,6 @@
-# APEX Foundation v0.2.0
+# APEX Foundation v0.2.1
 
-Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
+Content Registry + Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
 [Contratos e comandos](docs/foundation/README.md) · [Biblioteca de referências](docs/references/README.md) · [Migração e evidências](docs/foundation/MIGRATION.md) · [AGENTS.md](AGENTS.md)
 
@@ -30,3 +30,6 @@ Foundation CI é independente; não substitui FAST esportivo. Sem promoção de 
 
 ## Unified Data Center v0.2.0
 [Manual](docs/data/README.md) · [Catálogo](docs/data/catalog.json) · [Unidades](docs/data/units.json) · [Matriz de consumidores](docs/data/consumer-matrix.json). Somente fixtures sintéticos; nenhuma adoção esportiva.
+
+## Content Registry v0.2.1
+[Manual](docs/content/README.md) · [Catálogo sintético](data/content/catalog.json) · [Política](docs/content/policy.json). Identidades, versões e vínculos; nenhuma adoção esportiva.

@@ -145,6 +145,15 @@ class DataCenterTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     self.build(catalog=catalog,root=root)
 
+    def test_era_policy_cannot_be_weakened(self):
+        for mutate in (lambda e:e["blocked"].remove("modern-cost-cap"),
+                       lambda e:(e["blocked"].remove("modern-cost-cap"),e["allowed"].append("modern-cost-cap")),
+                       lambda e:e["allowed"].append("unknown-modern")):
+            era=copy.deepcopy(self.era)
+            mutate(era)
+            with self.assertRaises(ValueError):
+                self.build(era=era)
+
     def test_schema_and_era_policy(self):
         m=self.catalog["entries"][0]
         r.check(m,self.schemas["dataset-manifest.v1"])

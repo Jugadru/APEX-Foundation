@@ -1,0 +1,586 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "manufacturer.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "manufacturer",
+      "name": "Fabricante fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "specialty",
+          "value": "engine"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "supplier.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "supplier",
+      "name": "Fornecedor fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "specialty",
+          "value": "tyres"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "team.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "team",
+      "name": "Equipe fictícia",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "classification",
+          "value": "fictional-demo"
+        }
+      ],
+      "links": [
+        {
+          "role": "manufacturer",
+          "target": "manufacturer.demo",
+          "version": "1.0.0"
+        },
+        {
+          "role": "supplier",
+          "target": "supplier.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "driver.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "driver",
+      "name": "Piloto fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "role",
+          "value": "driver"
+        }
+      ],
+      "links": [
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "driver.demo",
+      "version": "1.1.0",
+      "previous": "1.0.0",
+      "kind": "driver",
+      "name": "Piloto fictício — revisão",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "role",
+          "value": "driver"
+        }
+      ],
+      "links": [
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "staff.engineer",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "staff",
+      "name": "Staff fictício — engineer",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "role",
+          "value": "engineer"
+        }
+      ],
+      "links": [
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "staff.mechanic",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "staff",
+      "name": "Staff fictício — mechanic",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "role",
+          "value": "mechanic"
+        }
+      ],
+      "links": [
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "staff.strategist",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "staff",
+      "name": "Staff fictício — strategist",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "role",
+          "value": "strategist"
+        }
+      ],
+      "links": [
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "circuit.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "circuit",
+      "name": "Circuito fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "surface",
+          "value": "asphalt"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "layout.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "layout",
+      "name": "Traçado fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "direction",
+          "value": "clockwise"
+        }
+      ],
+      "links": [
+        {
+          "role": "circuit",
+          "target": "circuit.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "category.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "category",
+      "name": "Categoria fictícia",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "format",
+          "value": "open-wheel"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "championship.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "championship",
+      "name": "Campeonato fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "format",
+          "value": "single-season-demo"
+        }
+      ],
+      "links": [
+        {
+          "role": "category",
+          "target": "category.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "regulation.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "regulation",
+      "name": "Regulamento de teste",
+      "season": 2012,
+      "technology": "v8",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "ruleset",
+          "value": "apex-2012-demo"
+        }
+      ],
+      "links": [
+        {
+          "role": "category",
+          "target": "category.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "season.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "season",
+      "name": "Temporada de teste",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "calendar",
+          "value": "fixture-only"
+        }
+      ],
+      "links": [
+        {
+          "role": "championship",
+          "target": "championship.demo",
+          "version": "1.0.0"
+        },
+        {
+          "role": "regulation",
+          "target": "regulation.demo",
+          "version": "1.0.0"
+        },
+        {
+          "role": "layout",
+          "target": "layout.demo",
+          "version": "1.0.0"
+        },
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "component.engine",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "component",
+      "name": "Motor fictício",
+      "season": 2012,
+      "technology": "v8",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "type",
+          "value": "engine"
+        }
+      ],
+      "links": [
+        {
+          "role": "manufacturer",
+          "target": "manufacturer.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "component.tyre",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "component",
+      "name": "Pneu fictício",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "type",
+          "value": "tyre"
+        }
+      ],
+      "links": [
+        {
+          "role": "manufacturer",
+          "target": "manufacturer.demo",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "asset.portrait",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "asset",
+      "name": "Asset de teste — portrait",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "media",
+          "value": "portrait"
+        },
+        {
+          "key": "availability",
+          "value": "metadata-only"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "asset.model3d",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "asset",
+      "name": "Asset de teste — model3d",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "media",
+          "value": "model3d"
+        },
+        {
+          "key": "availability",
+          "value": "metadata-only"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "asset.texture",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "asset",
+      "name": "Asset de teste — texture",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "media",
+          "value": "texture"
+        },
+        {
+          "key": "availability",
+          "value": "metadata-only"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "asset.audio",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "asset",
+      "name": "Asset de teste — audio",
+      "season": 2012,
+      "technology": "none",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "media",
+          "value": "audio"
+        },
+        {
+          "key": "availability",
+          "value": "metadata-only"
+        }
+      ],
+      "links": [],
+      "datasets": [],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    },
+    {
+      "id": "vehicle.demo",
+      "version": "1.0.0",
+      "previous": null,
+      "kind": "vehicle",
+      "name": "Veículo fictício",
+      "season": 2012,
+      "technology": "v8",
+      "origin": "synthetic",
+      "rights": "ORIGINAL_FIXTURE",
+      "usage": "TEST_ONLY",
+      "attributes": [
+        {
+          "key": "format",
+          "value": "open-wheel"
+        }
+      ],
+      "links": [
+        {
+          "role": "team",
+          "target": "team.demo",
+          "version": "1.0.0"
+        },
+        {
+          "role": "component",
+          "target": "component.engine",
+          "version": "1.0.0"
+        },
+        {
+          "role": "component",
+          "target": "component.tyre",
+          "version": "1.0.0"
+        },
+        {
+          "role": "asset",
+          "target": "asset.model3d",
+          "version": "1.0.0"
+        },
+        {
+          "role": "asset",
+          "target": "asset.texture",
+          "version": "1.0.0"
+        }
+      ],
+      "datasets": [
+        {
+          "id": "vehicle-fixture",
+          "version": "1.1.0",
+          "record": "fixture-a"
+        }
+      ],
+      "limitations": "Invented identity or metadata fixture; not historical, playable or production-approved."
+    }
+  ]
+}

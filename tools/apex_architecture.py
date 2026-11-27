@@ -12,8 +12,8 @@ import apex_knowledge as k
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs" / "architecture"
-VERSION = "0.2.0"
-BASE = "05f7b7e8766063be560f9e0a49e46957c3cb7702"
+VERSION = "0.2.1"
+BASE = "a1e9661a63bec34b138b7fbde88679a34ba71e8a"
 REPOS = {"core2":"Jugadru/APEX-Simulation","hyper":"Jugadru/APEX-Hyper-Engine",
          "lab":"Jugadru/apex-godot-simulation-architect"}
 SCOPE = "Declared dependency graph and candidate ownership; not a runtime import graph"
@@ -197,7 +197,8 @@ class Architecture:
                 raise ValueError("unsafe change path")
             if repo=="foundation":
                 # Foundation is its own metadata repository, not a sporting runtime.
-                mids=(["data-center"] if path.startswith(("docs/data/","data/datasets/")) or path in ("tools/apex_data_center.py","tools/tests/test_apex_data_center.py") else
+                mids=(["content-registry"] if path.startswith(("docs/content/","data/content/")) or path in ("tools/apex_content_registry.py","tools/tests/test_apex_content_registry.py") else
+                      ["data-center"] if path.startswith(("docs/data/","data/datasets/")) or path in ("tools/apex_data_center.py","tools/tests/test_apex_data_center.py") else
                       ["asset-factory"] if path in ("tools/apex_asset_build.py","tools/apex_blender_scaffold.py","tools/tests/test_apex_asset_build.py") else
                       ["foundation"] if path in ("README.md","AGENTS.md",".gitignore",".github/workflows/foundation-ci.yml",
                           "tools/apex_foundation.py","tools/apex_foundation_registry.py","tools/apex_knowledge.py","tools/apex_architecture.py",
@@ -214,6 +215,9 @@ class Architecture:
         downstream=self.closure(affected,self.reverse)
         impacted=sorted(affected|set(downstream))
         reasons=[]
+        foreign=sorted(m for m in manifest["modules"] if self.owners[m]["repository"]!=repo)
+        if foreign:
+            reasons.append("MODULE_REPOSITORY_MISMATCH")
         if manifest["base_revision"]!=expected:
             reasons.append("STALE_OR_UNKNOWN_REVISION")
         if unmapped:
@@ -226,7 +230,7 @@ class Architecture:
             reasons.append("CONSUMER_VALIDATION_REQUIRED")
         return {"status":"BLOCKED" if reasons else "NOT_RUN","scope":SCOPE,"repository":repo,
                 "expected_revision":expected,"requested_revision":manifest["base_revision"],
-                "direct_modules":sorted(seeds),"contract_participants_proposed":sorted(contract_participants),
+                "direct_modules":sorted(seeds),"foreign_declared_modules":foreign,"contract_participants_proposed":sorted(contract_participants),
                 "declared_downstream":downstream,"impacted_modules":impacted,
                 "path_matches":path_matches,"unmapped_paths":sorted(unmapped),"reasons":reasons,
                 "validation":[{"module":m,"plan":self.owners[m]["validation"],"status":"NOT_RUN"} for m in impacted],

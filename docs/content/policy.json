@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "relations": {
+    "driver": {
+      "team": {
+        "target": "team",
+        "minimum": 1,
+        "maximum": 1
+      }
+    },
+    "staff": {
+      "team": {
+        "target": "team",
+        "minimum": 1,
+        "maximum": 1
+      }
+    },
+    "team": {
+      "manufacturer": {
+        "target": "manufacturer",
+        "minimum": 1,
+        "maximum": 1
+      },
+      "supplier": {
+        "target": "supplier",
+        "minimum": 1,
+        "maximum": 4
+      }
+    },
+    "manufacturer": {},
+    "supplier": {},
+    "circuit": {},
+    "layout": {
+      "circuit": {
+        "target": "circuit",
+        "minimum": 1,
+        "maximum": 1
+      }
+    },
+    "category": {},
+    "championship": {
+      "category": {
+        "target": "category",
+        "minimum": 1,
+        "maximum": 1
+      }
+    },
+    "season": {
+      "championship": {
+        "target": "championship",
+        "minimum": 1,
+        "maximum": 1
+      },
+      "regulation": {
+        "target": "regulation",
+        "minimum": 1,
+        "maximum": 1
+      },
+      "layout": {
+        "target": "layout",
+        "minimum": 1,
+        "maximum": 30
+      },
+      "team": {
+        "target": "team",
+        "minimum": 1,
+        "maximum": 30
+      }
+    },
+    "regulation": {
+      "category": {
+        "target": "category",
+        "minimum": 1,
+        "maximum": 1
+      }
+    },
+    "vehicle": {
+      "team": {
+        "target": "team",
+        "minimum": 1,
+        "maximum": 1
+      },
+      "component": {
+        "target": "component",
+        "minimum": 1,
+        "maximum": 20
+      },
+      "asset": {
+        "target": "asset",
+        "minimum": 0,
+        "maximum": 10
+      }
+    },
+    "component": {
+      "manufacturer": {
+        "target": "manufacturer",
+        "minimum": 1,
+        "maximum": 1
+      }
+    },
+    "asset": {}
+  },
+  "attributes": {
+    "driver": {
+      "role": [
+        "driver"
+      ]
+    },
+    "staff": {
+      "role": [
+        "engineer",
+        "mechanic",
+        "strategist"
+      ]
+    },
+    "team": {
+      "classification": [
+        "fictional-demo"
+      ]
+    },
+    "manufacturer": {
+      "specialty": [
+        "engine",
+        "chassis",
+        "general"
+      ]
+    },
+    "supplier": {
+      "specialty": [
+        "tyres",
+        "general"
+      ]
+    },
+    "circuit": {
+      "surface": [
+        "asphalt"
+      ]
+    },
+    "layout": {
+      "direction": [
+        "clockwise",
+        "counterclockwise"
+      ]
+    },
+    "category": {
+      "format": [
+        "open-wheel"
+      ]
+    },
+    "championship": {
+      "format": [
+        "single-season-demo"
+      ]
+    },
+    "season": {
+      "calendar": [
+        "fixture-only"
+      ]
+    },
+    "regulation": {
+      "ruleset": [
+        "apex-2012-demo"
+      ]
+    },
+    "vehicle": {
+      "format": [
+        "open-wheel"
+      ]
+    },
+    "component": {
+      "type": [
+        "engine",
+        "tyre",
+        "gearbox",
+        "chassis"
+      ]
+    },
+    "asset": {
+      "media": [
+        "portrait",
+        "model3d",
+        "texture",
+        "audio"
+      ],
+      "availability": [
+        "metadata-only"
+      ]
+    }
+  },
+  "scope": "Synthetic fixtures only; no external asset or content import"
+}

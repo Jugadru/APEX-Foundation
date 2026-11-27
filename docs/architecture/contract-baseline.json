@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": "05f7b7e8766063be560f9e0a49e46957c3cb7702",
+  "revision": "a1e9661a63bec34b138b7fbde88679a34ba71e8a",
   "schemas": {
     "module.v1": {
       "type": "object",
@@ -478,6 +478,268 @@
         "modules",
         "contracts",
         "paths"
+      ],
+      "additionalProperties": false
+    },
+    "dataset-provenance.v1": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "enum": [
+            "historical",
+            "fictional",
+            "estimated",
+            "scientific",
+            "calibrated",
+            "synthetic"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "REF-[0-9]{3,}"
+          },
+          "uniqueItems": true
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "https://[^\\s]+"
+        },
+        "source_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "license_state": {
+          "type": "string",
+          "enum": [
+            "ORIGINAL_FIXTURE",
+            "UNREVIEWED"
+          ]
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "origin",
+        "source",
+        "reference_ids",
+        "source_url",
+        "source_revision",
+        "license_state",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "dataset-manifest.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+        },
+        "previous": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "payload": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blob_sha": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "record_count": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minimum": {
+                "type": "integer"
+              },
+              "maximum": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "unit",
+              "minimum",
+              "maximum"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "origin": {
+              "type": "string",
+              "enum": [
+                "historical",
+                "fictional",
+                "estimated",
+                "scientific",
+                "calibrated",
+                "synthetic"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reference_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "REF-[0-9]{3,}"
+              },
+              "uniqueItems": true
+            },
+            "source_url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "https://[^\\s]+"
+            },
+            "source_revision": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "license_state": {
+              "type": "string",
+              "enum": [
+                "ORIGINAL_FIXTURE",
+                "UNREVIEWED"
+              ]
+            },
+            "limitations": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "origin",
+            "source",
+            "reference_ids",
+            "source_url",
+            "source_revision",
+            "license_state",
+            "limitations"
+          ],
+          "additionalProperties": false
+        },
+        "usage": {
+          "type": "string",
+          "enum": [
+            "TEST_ONLY",
+            "RESEARCH_ONLY"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "previous",
+        "title",
+        "domain",
+        "season",
+        "payload",
+        "blob_sha",
+        "record_count",
+        "fields",
+        "provenance",
+        "usage"
+      ],
+      "additionalProperties": false
+    },
+    "dataset-consumer.v1": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+        },
+        "consumer": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "NOT_RUN",
+            "BLOCKED"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "dataset",
+        "version",
+        "consumer",
+        "revision",
+        "status",
+        "reason"
       ],
       "additionalProperties": false
     }

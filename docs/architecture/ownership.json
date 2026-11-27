@@ -152,6 +152,14 @@
       "boundary": "Tool interpreter",
       "validation": "Exact interpreter and Foundation tests",
       "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "content-registry",
+      "repository": "foundation",
+      "role": "metadata-authority",
+      "boundary": "Content identity, relation and rights metadata; no sporting state or asset promotion",
+      "validation": "Foundation content tests; consumer adoption NOT_RUN",
+      "owner_state": "DECLARED_POLICY"
     }
   ],
   "contracts": [
@@ -396,6 +404,45 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Offline dataset contract; no consumer integration or adoption verified"
+    },
+    {
+      "id": "content-link.v1",
+      "steward": "content-registry",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "presentation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic fixture metadata only; consumer adoption not verified"
+    },
+    {
+      "id": "content-entity.v1",
+      "steward": "content-registry",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "presentation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic fixture metadata only; consumer adoption not verified"
+    },
+    {
+      "id": "content-consumer.v1",
+      "steward": "content-registry",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "presentation"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic fixture metadata only; consumer adoption not verified"
     }
   ]
 }
