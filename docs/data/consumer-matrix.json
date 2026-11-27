@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "dataset": "vehicle-fixture",
+      "version": "1.0.0",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "status": "NOT_RUN",
+      "reason": "No consumer adapter or native compatibility test executed; fixture only."
+    },
+    {
+      "dataset": "vehicle-fixture",
+      "version": "1.0.0",
+      "consumer": "hyper",
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "status": "NOT_RUN",
+      "reason": "No consumer adapter or native compatibility test executed; fixture only."
+    },
+    {
+      "dataset": "vehicle-fixture",
+      "version": "1.1.0",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "status": "NOT_RUN",
+      "reason": "No consumer adapter or native compatibility test executed; fixture only."
+    },
+    {
+      "dataset": "vehicle-fixture",
+      "version": "1.1.0",
+      "consumer": "hyper",
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "status": "NOT_RUN",
+      "reason": "No consumer adapter or native compatibility test executed; fixture only."
+    },
+    {
+      "dataset": "strategy-fixture",
+      "version": "1.0.0",
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "status": "NOT_RUN",
+      "reason": "No consumer adapter or native compatibility test executed; fixture only."
+    },
+    {
+      "dataset": "strategy-fixture",
+      "version": "1.0.0",
+      "consumer": "hyper",
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "status": "NOT_RUN",
+      "reason": "No consumer adapter or native compatibility test executed; fixture only."
+    }
+  ]
+}

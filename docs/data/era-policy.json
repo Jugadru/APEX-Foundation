@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "season": 2012,
+  "source": "docs/references/INFRAESTRUTURA.md",
+  "scope": "Conservative APEX project policy; not exhaustive FIA rules",
+  "allowed": [
+    "none",
+    "v8",
+    "kers",
+    "drs"
+  ],
+  "blocked": [
+    "v6-hybrid",
+    "mgu-h",
+    "modern-cost-cap",
+    "active-aero-2026"
+  ],
+  "unknown": "BLOCKED"
+}

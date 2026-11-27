@@ -92,9 +92,9 @@
     {
       "id": "data-center",
       "repository": "foundation",
-      "role": "planned",
-      "boundary": "Proposed dataset provenance only",
-      "validation": "Future dataset validation; NOT_RUN",
+      "role": "metadata-authority",
+      "boundary": "Dataset provenance, integrity and research fixtures only; no sporting state",
+      "validation": "Foundation dataset tests; exact consumer tests pending",
       "owner_state": "DECLARED_POLICY"
     },
     {
@@ -360,6 +360,42 @@
       "scope": "runtime-proposal",
       "state": "PROPOSED_BINDING",
       "note": "Candidate stewardship only; existing runtime owner must reconcile payload; no new runtime schema"
+    },
+    {
+      "id": "dataset-provenance.v1",
+      "steward": "data-center",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline dataset contract; no consumer integration or adoption verified"
+    },
+    {
+      "id": "dataset-manifest.v1",
+      "steward": "data-center",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline dataset contract; no consumer integration or adoption verified"
+    },
+    {
+      "id": "dataset-consumer.v1",
+      "steward": "data-center",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline dataset contract; no consumer integration or adoption verified"
     }
   ]
 }

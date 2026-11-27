@@ -7,3 +7,5 @@ Leia [README](README.md), [contratos](docs/foundation/README.md), [biblioteca](d
 Antes de integrar: validar catálogos e registry, rodar todos os testes Python, verificar CI no SHA exato, documentar PASS/FAIL/NOT_RUN/INCONCLUSIVE/BLOCKED, manter rollback. Testes do jogo e do Lab pertencem aos respectivos repositórios; mudanças de integração requerem validação no consumidor. CI Foundation não comprova simulação, GPU, Blender ou saves. O responsável autorizou a evolução ampla da Foundation. Manter mudanças coesas por versão, com testes independentes e sem autorização implícita para alterar consumidores. Pesquisa documental não equivale a licença nem autorização de implementação.
 
 Para mudanças arquiteturais, consultar [Architecture Intelligence](docs/architecture/README.md), executar impact/gate com base exata e encaminhar validação ao consumidor. Gate não autoriza execução nem substitui o grafo literal do Lab.
+
+Para datasets, consultar [Data Center](docs/data/README.md); preservar origem, revisão, unidades, política temporal e hash. Fixtures não são dados históricos. Nunca promover automaticamente para runtime.

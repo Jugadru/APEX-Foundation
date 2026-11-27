@@ -1,6 +1,6 @@
-# APEX Foundation v0.1.2
+# APEX Foundation v0.2.0
 
-Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
+Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
 [Contratos e comandos](docs/foundation/README.md) · [Biblioteca de referências](docs/references/README.md) · [Migração e evidências](docs/foundation/MIGRATION.md) · [AGENTS.md](AGENTS.md)
 
@@ -27,3 +27,6 @@ Foundation CI é independente; não substitui FAST esportivo. Sem promoção de 
 
 ## Architecture Intelligence v0.1.2
 [Manual de arquitetura](docs/architecture/README.md) · [Responsabilidades](docs/architecture/ownership.json) · [Inventário de fontes](docs/architecture/source-inventory.json).
+
+## Unified Data Center v0.2.0
+[Manual](docs/data/README.md) · [Catálogo](docs/data/catalog.json) · [Unidades](docs/data/units.json) · [Matriz de consumidores](docs/data/consumer-matrix.json). Somente fixtures sintéticos; nenhuma adoção esportiva.

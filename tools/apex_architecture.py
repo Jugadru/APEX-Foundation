@@ -12,8 +12,8 @@ import apex_knowledge as k
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs" / "architecture"
-VERSION = "0.1.2"
-BASE = "f30c3ecafefc013173035a92482e8b273238e2d4"
+VERSION = "0.2.0"
+BASE = "05f7b7e8766063be560f9e0a49e46957c3cb7702"
 REPOS = {"core2":"Jugadru/APEX-Simulation","hyper":"Jugadru/APEX-Hyper-Engine",
          "lab":"Jugadru/apex-godot-simulation-architect"}
 SCOPE = "Declared dependency graph and candidate ownership; not a runtime import graph"
@@ -197,7 +197,8 @@ class Architecture:
                 raise ValueError("unsafe change path")
             if repo=="foundation":
                 # Foundation is its own metadata repository, not a sporting runtime.
-                mids=(["asset-factory"] if path in ("tools/apex_asset_build.py","tools/apex_blender_scaffold.py","tools/tests/test_apex_asset_build.py") else
+                mids=(["data-center"] if path.startswith(("docs/data/","data/datasets/")) or path in ("tools/apex_data_center.py","tools/tests/test_apex_data_center.py") else
+                      ["asset-factory"] if path in ("tools/apex_asset_build.py","tools/apex_blender_scaffold.py","tools/tests/test_apex_asset_build.py") else
                       ["foundation"] if path in ("README.md","AGENTS.md",".gitignore",".github/workflows/foundation-ci.yml",
                           "tools/apex_foundation.py","tools/apex_foundation_registry.py","tools/apex_knowledge.py","tools/apex_architecture.py",
                           "tools/tests/test_apex_foundation.py","tools/tests/test_apex_foundation_registry.py","tools/tests/test_apex_knowledge.py","tools/tests/test_apex_architecture.py")

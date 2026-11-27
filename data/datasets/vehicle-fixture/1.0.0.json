@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "id": "fixture-a",
+      "year": 2012,
+      "technology": "v8",
+      "values": {
+        "mass_g": 650000,
+        "power_w": 500000,
+        "speed_kmh": 180
+      }
+    },
+    {
+      "id": "fixture-b",
+      "year": 2012,
+      "technology": "kers",
+      "values": {
+        "mass_g": 660000,
+        "power_w": 510000,
+        "speed_kmh": 216
+      }
+    }
+  ]
+}

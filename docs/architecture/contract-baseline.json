@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": "f30c3ecafefc013173035a92482e8b273238e2d4",
+  "revision": "05f7b7e8766063be560f9e0a49e46957c3cb7702",
   "schemas": {
     "module.v1": {
       "type": "object",
@@ -326,6 +326,158 @@
         "license_state",
         "reuse",
         "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "architecture-module.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "repository": {
+          "type": "string",
+          "enum": [
+            "foundation",
+            "core2",
+            "hyper",
+            "lab",
+            "external"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "metadata-authority",
+            "sporting-authority",
+            "experimental-authority",
+            "read-only-consumer",
+            "diagnostic",
+            "staging",
+            "planned",
+            "tool"
+          ]
+        },
+        "boundary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_state": {
+          "type": "string",
+          "enum": [
+            "DECLARED_POLICY"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "role",
+        "boundary",
+        "validation",
+        "owner_state"
+      ],
+      "additionalProperties": false
+    },
+    "architecture-contract.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "steward": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "consumers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "uniqueItems": true
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "metadata",
+            "runtime-proposal"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "PROPOSED_BINDING"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "steward",
+        "consumers",
+        "scope",
+        "state",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "architecture-change.v1": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "enum": [
+            "foundation",
+            "core2",
+            "hyper",
+            "lab"
+          ]
+        },
+        "base_revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "uniqueItems": true
+        },
+        "contracts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "uniqueItems": true
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "repository",
+        "base_revision",
+        "modules",
+        "contracts",
+        "paths"
       ],
       "additionalProperties": false
     }

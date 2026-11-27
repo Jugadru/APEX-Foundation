@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "vehicle-fixture",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Synthetic vehicle fixture",
+      "domain": "vehicle_dynamics",
+      "season": 2012,
+      "payload": "data/datasets/vehicle-fixture/1.0.0.json",
+      "blob_sha": "dad86e0856d499dff11ff59de68e10d69d752d99",
+      "record_count": 2,
+      "fields": [
+        {
+          "id": "mass_g",
+          "unit": "g",
+          "minimum": 1,
+          "maximum": 2000000
+        },
+        {
+          "id": "power_w",
+          "unit": "w",
+          "minimum": 0,
+          "maximum": 2000000
+        },
+        {
+          "id": "speed_kmh",
+          "unit": "kmh",
+          "minimum": 0,
+          "maximum": 500
+        }
+      ],
+      "provenance": {
+        "origin": "synthetic",
+        "source": "Original Foundation test fixture; invented values only",
+        "reference_ids": [],
+        "source_url": null,
+        "source_revision": null,
+        "license_state": "ORIGINAL_FIXTURE",
+        "limitations": "Not real telemetry, historical specification, calibrated model or approved sporting input."
+      },
+      "usage": "TEST_ONLY"
+    },
+    {
+      "id": "vehicle-fixture",
+      "version": "1.1.0",
+      "previous": "1.0.0",
+      "title": "Synthetic vehicle fixture",
+      "domain": "vehicle_dynamics",
+      "season": 2012,
+      "payload": "data/datasets/vehicle-fixture/1.1.0.json",
+      "blob_sha": "2d3650461c28a16f77cca595e71fdbdfcddfd5f4",
+      "record_count": 3,
+      "fields": [
+        {
+          "id": "mass_g",
+          "unit": "g",
+          "minimum": 1,
+          "maximum": 2000000
+        },
+        {
+          "id": "power_w",
+          "unit": "w",
+          "minimum": 0,
+          "maximum": 2000000
+        },
+        {
+          "id": "speed_kmh",
+          "unit": "kmh",
+          "minimum": 0,
+          "maximum": 500
+        }
+      ],
+      "provenance": {
+        "origin": "synthetic",
+        "source": "Original Foundation test fixture; invented values only",
+        "reference_ids": [],
+        "source_url": null,
+        "source_revision": null,
+        "license_state": "ORIGINAL_FIXTURE",
+        "limitations": "Not real telemetry, historical specification, calibrated model or approved sporting input."
+      },
+      "usage": "TEST_ONLY"
+    },
+    {
+      "id": "strategy-fixture",
+      "version": "1.0.0",
+      "previous": null,
+      "title": "Synthetic strategy fixture",
+      "domain": "strategy",
+      "season": 2012,
+      "payload": "data/datasets/strategy-fixture/1.0.0.json",
+      "blob_sha": "57e75f3bcb4c4b9cbf531ec9a3686c2c94f6dd2f",
+      "record_count": 2,
+      "fields": [
+        {
+          "id": "lap_ms",
+          "unit": "ms",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        {
+          "id": "fuel_g",
+          "unit": "g",
+          "minimum": 0,
+          "maximum": 200000
+        },
+        {
+          "id": "tyre_permille",
+          "unit": "permille",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      ],
+      "provenance": {
+        "origin": "synthetic",
+        "source": "Original Foundation test fixture; invented values only",
+        "reference_ids": [],
+        "source_url": null,
+        "source_revision": null,
+        "license_state": "ORIGINAL_FIXTURE",
+        "limitations": "Not real telemetry, historical specification, calibrated model or approved sporting input."
+      },
+      "usage": "TEST_ONLY"
+    }
+  ]
+}
