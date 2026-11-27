@@ -147,6 +147,8 @@ class Config:
             raise ValueError("racecraft prerequisite invariant")
         if values["feature.randomized-seed"] and (values["simulation.mode"]!="exploratory" or values["feature.longitudinal"]):
             raise ValueError("randomized seed invariant")
+        if (values["feature.strategy-preview"] or values["simulation.realism"]=="technical") and not values["diagnostics.telemetry"]:
+            raise ValueError("telemetry prerequisite invariant")
         for rule in self.constraints.values():
             when=rule["when"]
             if values[when["id"]]==when["value"]:

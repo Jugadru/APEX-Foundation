@@ -105,6 +105,20 @@ class ConfigTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.build(self.override("hyper-development","diagnostics.replay",False),constraints=constraints)
 
+    def test_telemetry_invariants_survive_rule_removal(self):
+        constraints=copy.deepcopy(self.constraints)
+        constraints["entries"]=[]
+        for profile,setting,value in (("hyper-production-candidate","simulation.realism","technical"),
+                                      ("hyper-production-candidate","diagnostics.telemetry",False)):
+            if setting=="simulation.realism":
+                with self.assertRaises(ValueError):
+                    self.build(self.override(profile,setting,value),constraints=constraints)
+        p=self.override("hyper-development","diagnostics.telemetry",False)
+        row=next(x for x in p["entries"] if x["id"]=="hyper-development")
+        row["overrides"].append({"id":"feature.strategy-preview","value":True})
+        with self.assertRaises(ValueError):
+            self.build(p,constraints=constraints)
+
     def test_gate(self):
         for consumer,sha in self.config.consumers.items():
             x=self.config.gate("hyper-development","1.0.0",consumer,sha)

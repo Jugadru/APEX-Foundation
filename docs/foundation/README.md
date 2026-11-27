@@ -40,3 +40,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.2.2 — Configuration Management
 [Config manual](../config/README.md): typed settings, exact profile inheritance, constraint validation, diff and rollback planning; no runtime adapter. Fifteen previous schemas preserved.
+
+## v0.3.0 — Persistence & Migration
+[Persistence manual](../persistence/README.md): three additive metadata contracts, fixture envelope checks, in-memory migration and recovery candidate plans. Native save and replay contracts remain deferred.

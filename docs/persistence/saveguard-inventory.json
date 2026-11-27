@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "repository": "Jugadru/APEX-Simulation",
+  "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+  "scope": "Pinned pointers only; existing SaveGuard native execution not performed by Foundation",
+  "paths": [
+    {
+      "path": ".github/workflows/apex-saveguard-ci.yml",
+      "blob_sha": "f9d9dde2bd9e94dfb9f91799a27fc5185cf90a7d",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/.github/workflows/apex-saveguard-ci.yml"
+    },
+    {
+      "path": "docs/APEX_SAVEGUARD_CROSS_VERSION.md",
+      "blob_sha": "26eb3d84caf659b583311116cd57ccd09d1a7d3a",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/docs/APEX_SAVEGUARD_CROSS_VERSION.md"
+    },
+    {
+      "path": "scripts/core/apex_save_migration_0650.gd",
+      "blob_sha": "5cdcff38184ffb9b2f210f7f084823e1813a412a",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/apex_save_migration_0650.gd"
+    },
+    {
+      "path": "tests/ci/apex_saveguard_cross_revision.gd",
+      "blob_sha": "eff9a01472429aa101ec0e4e959bd0281f4ca982",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tests/ci/apex_saveguard_cross_revision.gd"
+    },
+    {
+      "path": "tests/core_0642_save_migration_test.gd",
+      "blob_sha": "ce21085e85d1aa8170fe38b3ed2f18f8bb0eaf67",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tests/core_0642_save_migration_test.gd"
+    },
+    {
+      "path": "tests/soul_staff_0650_migration_test.gd",
+      "blob_sha": "d8863657154a4692b01b9da6943d9813ac94f65e",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tests/soul_staff_0650_migration_test.gd"
+    },
+    {
+      "path": "tools/apex_saveguard_ci.py",
+      "blob_sha": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/apex_saveguard_ci.py"
+    },
+    {
+      "path": "tools/tests/test_apex_saveguard_ci.py",
+      "blob_sha": "d72073c912edf2b65bf65144b4d5901d9043cfcb",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/tests/test_apex_saveguard_ci.py"
+    }
+  ]
+}

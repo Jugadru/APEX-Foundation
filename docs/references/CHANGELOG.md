@@ -31,3 +31,6 @@
 
 ## v0.2.2 — Configuration Management
 - Settings tipados, flags experimentais, constraints, perfis versionados e herança exata, rastreabilidade, diff e rollback planejado, gate bloqueado. Correção Content Registry: impedir duas versões do mesmo alvo lógico na mesma relação; eliminar recomputação de closure por nó. Nenhum consumidor modificado.
+
+## v0.3.0 — Persistence & Migration
+- Três formatos sintéticos, duas migrações allowlisted, envelopes e hashes, proteção de progresso, detecção de corrupção, plano de recuperação sem escrita, oito ponteiros SaveGuard e gate de consumidor. Correção config: invariantes de telemetria independem da remoção de regras. Nenhum save real ou consumidor alterado.

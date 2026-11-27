@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "rename-budget",
+      "from": "1.0.0",
+      "to": "2.0.0",
+      "operation": "rename-budget",
+      "scope": "SYNTHETIC_ONLY",
+      "description": "Rename exact integer budget field without changing value"
+    },
+    {
+      "id": "expand-progress",
+      "from": "2.0.0",
+      "to": "3.0.0",
+      "operation": "expand-progress",
+      "scope": "SYNTHETIC_ONLY",
+      "description": "Move round and points into progress object without changing values"
+    }
+  ]
+}

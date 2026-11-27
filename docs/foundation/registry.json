@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.2.2",
+  "foundation_version": "0.3.0",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.2.2",
+      "version": "0.3.0",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -240,6 +240,20 @@
       ],
       "entrypoints": [
         "tools/apex_config.py"
+      ]
+    },
+    {
+      "id": "persistence-management",
+      "name": "Persistence & Migration",
+      "version": "0.3.0",
+      "maturity": "experimental",
+      "state_owner": "Fixture manifests, migration and recovery plans; no live save authority",
+      "dependencies": [
+        "foundation",
+        "configuration-management"
+      ],
+      "entrypoints": [
+        "tools/apex_persistence.py"
       ]
     }
   ],
@@ -910,6 +924,114 @@
       "restrictions": [
         "No runtime writes, environment variables, secret handling or execution authorization"
       ]
+    },
+    {
+      "id": "persistence.validate",
+      "module": "persistence-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered synthetic fixture metadata"
+      ],
+      "outputs": [
+        "offline persistence report"
+      ],
+      "method": "python3 tools/apex_persistence.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No user saves, filesystem writes, native migration, restore or execution authorization"
+      ]
+    },
+    {
+      "id": "persistence.inspect",
+      "module": "persistence-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered synthetic fixture metadata"
+      ],
+      "outputs": [
+        "offline persistence report"
+      ],
+      "method": "python3 tools/apex_persistence.py inspect FIXTURE",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No user saves, filesystem writes, native migration, restore or execution authorization"
+      ]
+    },
+    {
+      "id": "persistence.plan",
+      "module": "persistence-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered synthetic fixture metadata"
+      ],
+      "outputs": [
+        "offline persistence report"
+      ],
+      "method": "python3 tools/apex_persistence.py plan FIXTURE TARGET",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No user saves, filesystem writes, native migration, restore or execution authorization"
+      ]
+    },
+    {
+      "id": "persistence.simulate",
+      "module": "persistence-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered synthetic fixture metadata"
+      ],
+      "outputs": [
+        "offline persistence report"
+      ],
+      "method": "python3 tools/apex_persistence.py simulate FIXTURE TARGET",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No user saves, filesystem writes, native migration, restore or execution authorization"
+      ]
+    },
+    {
+      "id": "persistence.recovery",
+      "module": "persistence-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered synthetic fixture metadata"
+      ],
+      "outputs": [
+        "offline persistence report"
+      ],
+      "method": "python3 tools/apex_persistence.py recover SCENARIO",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No user saves, filesystem writes, native migration, restore or execution authorization"
+      ]
+    },
+    {
+      "id": "persistence.gate",
+      "module": "persistence-management",
+      "version": "1.0.0",
+      "inputs": [
+        "registered synthetic fixture metadata"
+      ],
+      "outputs": [
+        "offline persistence report"
+      ],
+      "method": "python3 tools/apex_persistence.py gate FIXTURE CONSUMER SHA",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No user saves, filesystem writes, native migration, restore or execution authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -1006,6 +1128,15 @@
     {
       "left": "foundation",
       "left_version": "0.2.2",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Minimum target; exact interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.3.0",
       "right": "python",
       "right_version": "3.10",
       "status": "NOT_RUN",
@@ -1134,6 +1265,18 @@
     },
     {
       "id": "config-constraint.v1",
+      "status": "active"
+    },
+    {
+      "id": "persistence-manifest.v1",
+      "status": "active"
+    },
+    {
+      "id": "persistence-route.v1",
+      "status": "active"
+    },
+    {
+      "id": "persistence-recovery.v1",
       "status": "active"
     }
   ]
