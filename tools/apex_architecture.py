@@ -12,8 +12,8 @@ import apex_knowledge as k
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs" / "architecture"
-VERSION = "0.5.1"
-BASE = "611c176d502f7e5585521eb8ab963dd7d8921dae"
+VERSION = "0.6.0"
+BASE = "60b9fe903a5f1711e4b28152ef18a4b188c6a3ad"
 REPOS = {"core2":"Jugadru/APEX-Simulation","hyper":"Jugadru/APEX-Hyper-Engine",
          "lab":"Jugadru/apex-godot-simulation-architect"}
 SCOPE = "Declared dependency graph and candidate ownership; not a runtime import graph"
@@ -197,7 +197,7 @@ class Architecture:
                 raise ValueError("unsafe change path")
             if repo=="foundation":
                 # Foundation is its own metadata repository, not a sporting runtime.
-                mids=(["integration-gateway"] if path.startswith(("docs/integration/","data/integration/")) or path in ("tools/apex.py","tools/apex_sdk.py","tools/tests/test_apex_sdk.py","tools/apex_reconcile.py","tools/tests/test_apex_reconcile.py") else
+                mids=(["integration-gateway"] if path.startswith(("docs/integration/","data/integration/")) or path in ("tools/apex.py","tools/apex_sdk.py","tools/tests/test_apex_sdk.py","tools/apex_reconcile.py","tools/tests/test_apex_reconcile.py","tools/apex_core2_metadata.py","tools/tests/test_apex_core2_metadata.py") else
                       ["modding"] if path.startswith(("docs/modding/","data/modding/")) or path in ("tools/apex_modding.py","tools/tests/test_apex_modding.py") else
                       ["evidence-center"] if path.startswith(("docs/evidence/","data/evidence/")) or path in ("tools/apex_evidence.py","tools/tests/test_apex_evidence.py") else
                       ["persistence-management"] if path.startswith(("docs/persistence/","data/persistence/")) or path in ("tools/apex_persistence.py","tools/tests/test_apex_persistence.py") else

@@ -23,3 +23,5 @@ Para mods, consultar [Modding Infrastructure](docs/modding/README.md). Validar v
 Para integração, consultar [SDK](docs/integration/README.md) e [Onboarding](docs/integration/ONBOARDING.md). Gateway offline usa rotas explícitas, não executa métodos registrados, não autentica identidades. Separar saúde local de homologação nativa; nunca repinar sem auditoria.
 
 Para reconciliação, consultar docs/integration/RECONCILIATION.md. Comparar Git blobs por revisão, preservar divergências e correções, separar FAST nativo observado da integração Foundation. Não atualizar pins automaticamente.
+
+Para o adaptador Core 2, consultar docs/integration/CORE2_ADAPTER.md. Verificar revisão exata, identidade dos blobs e projeção nativa. Nunca confundir índices de posição com IDs persistentes ou importar automaticamente conteúdo.

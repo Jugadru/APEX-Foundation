@@ -110,6 +110,26 @@ jobs:
           python3 tools/apex.py native-evidence | tee ci-results/native-evidence.log
           python3 tools/apex.py candidates | tee ci-results/source-candidates.log
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
+      - name: Checkout reviewed Core 2 metadata producer (sparse, exact revision)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: Jugadru/APEX-Simulation
+          ref: 561b19d105b3c1c4d19254ee158538095bf5b30f
+          path: .core2-source
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/apex_foundation_metadata.py
+            /data/season_2012.json
+            /data/teams.json
+      - name: Verify real cross-repository Core 2 metadata contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C .core2-source rev-parse HEAD)" = "561b19d105b3c1c4d19254ee158538095bf5b30f"
+          python3 .core2-source/tools/apex_foundation_metadata.py > "$RUNNER_TEMP/core2-metadata.json"
+          python3 tools/apex_core2_metadata.py "$RUNNER_TEMP/core2-metadata.json" \
+            --revision 561b19d105b3c1c4d19254ee158538095bf5b30f --source-root .core2-source | tee ci-results/core2-adapter-verification.json
       - name: Retain validation logs
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9

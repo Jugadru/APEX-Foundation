@@ -50,3 +50,6 @@
 - v0.5.1 corrective review: Python 3.10 failed parsing seven-digit fractional timestamps. Use exact fractional UTC ordering and four new regressions; both CI jobs explicitly verify checkout SHA. Preserve failed run evidence and require fresh green.
 
 - Corrective review 2: 3.10.22 passed 139 tests, 3.14.4 exposed hour-24 ISO normalization. Enforce calendar ranges through explicit datetime construction; keep regression assertions intact.
+
+## v0.6.0 — Core 2 metadata adapter
+- Closed core2-metadata.v1 contract, read-only local receiver and exact source-projection verification; seven regression tests. Consumer native evidence remains separately scoped. Historical pins preserved, no runtime authority transfer.
