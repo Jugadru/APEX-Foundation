@@ -156,9 +156,10 @@ class Evidence:
         return {"status":"BLOCKED","revision":revision,"historical_receipts":matches,
                 "reasons":reasons,"release_authorized":False}
 
-def load():
+def load(*,architecture=None):
     _,schemas=r.load_registry()
-    a.load()
+    if architecture is None:
+        a.load()
     return Evidence(*(k.document(DOCS/name,{"entries"}) for name in
                       ("ci-receipts.json","artifacts.json","benchmarks.json","notes.json")),schemas)
 

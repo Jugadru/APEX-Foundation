@@ -90,6 +90,17 @@ jobs:
           set -e
           test "$conflict_status" -eq 1
           test "$gate_status" -eq 1
+          python3 tools/apex.py doctor | tee ci-results/integration-doctor.log
+          python3 tools/apex.py catalog | tee ci-results/integration-catalog.log
+          python3 tools/apex.py request docs/integration/request.example.json | tee ci-results/integration-request.log
+          python3 tools/apex.py scenario | tee ci-results/integration-scenario.log
+          python3 tools/apex.py drift | tee ci-results/integration-drift.log
+          python3 tools/apex.py debt | tee ci-results/integration-debt.log
+          set +e
+          python3 tools/apex.py plan core2 524bd90a19aeaafe6920b4cdb774c77729d78fbd > ci-results/integration-plan.json
+          plan_status=$?
+          set -e
+          test "$plan_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

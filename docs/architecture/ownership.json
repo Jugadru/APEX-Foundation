@@ -184,6 +184,14 @@
       "boundary": "Read-only historical observations, synthetic artifact verification and comparison; no execution or release",
       "validation": "Foundation evidence tests; existing Labs retain native authority",
       "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "integration-gateway",
+      "repository": "foundation",
+      "role": "metadata-authority",
+      "boundary": "Read-only orchestration, policy and cross-repo readiness; never dispatch or promote",
+      "validation": "Foundation integration tests and independent native consumer validation",
+      "owner_state": "DECLARED_POLICY"
     }
   ],
   "contracts": [
@@ -645,6 +653,58 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Synthetic data-only fixtures; no native mod loader"
+    },
+    {
+      "id": "integration-request.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline gateway metadata; no native API or runtime integration approved"
+    },
+    {
+      "id": "integration-response.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline gateway metadata; no native API or runtime integration approved"
+    },
+    {
+      "id": "integration-repository.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline gateway metadata; no native API or runtime integration approved"
+    },
+    {
+      "id": "integration-debt.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Offline gateway metadata; no native API or runtime integration approved"
     }
   ]
 }

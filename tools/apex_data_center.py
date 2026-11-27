@@ -219,15 +219,15 @@ class DataCenter:
         return {"status":"BLOCKED","dataset":ident,"version":version,"consumer":consumer,"revision":revision,
                 "reasons":reasons,"matrix":entry,"execution_authorized":False,"production_approved":False}
 
-def load():
+def load(*,knowledge=None,architecture=None):
     reg,schemas=r.load_registry()
     r.validate_registry(reg,schemas)
     catalog=k.document(DOCS/"catalog.json",{"entries"})
     units=k.document(DOCS/"units.json",{"units"})
     era=k.document(DOCS/"era-policy.json",{"season","source","scope","allowed","blocked","unknown"})
     matrix=k.document(DOCS/"consumer-matrix.json",{"entries"})
-    knowledge=k.load()
-    architecture=arch.load()
+    knowledge=k.load() if knowledge is None else knowledge
+    architecture=arch.load() if architecture is None else architecture
     consumers={c:architecture.repos[c]["revision"] for c in ("core2","hyper")}
     return DataCenter(catalog,units,era,matrix,schemas,set(knowledge.refs),knowledge.domains,consumers)
 

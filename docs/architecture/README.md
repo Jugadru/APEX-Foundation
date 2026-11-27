@@ -43,3 +43,6 @@ Baseline avançado para v0.3.0, Evidence Center experimental depende da Foundati
 
 ## Atualização v0.4.0
 Baseline avançado para v0.3.1; modding passa de planned para experimental, sem loader nativo. Validação do grafo de módulos passa a percorrer dependências iterativamente.
+
+## Atualização v0.5.0
+Baseline avançado para v0.4.0. Integration Gateway experimental agrega metadados sem substituir autoridades. Observações de novas heads separadas dos pins históricos.

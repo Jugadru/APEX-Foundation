@@ -1,6 +1,6 @@
-# APEX Foundation v0.4.0
+# APEX Foundation v0.5.0
 
-Modding Infrastructure + Artifact & Evidence Center + Persistence & Migration + Configuration Management + Content Registry + Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
+Ecosystem Integration + Modding Infrastructure + Artifact & Evidence Center + Persistence & Migration + Configuration Management + Content Registry + Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
 [Contratos e comandos](docs/foundation/README.md) · [Biblioteca de referências](docs/references/README.md) · [Migração e evidências](docs/foundation/MIGRATION.md) · [AGENTS.md](AGENTS.md)
 
@@ -45,3 +45,6 @@ Foundation CI é independente; não substitui FAST esportivo. Sem promoção de 
 
 ## Modding Infrastructure v0.4.0
 [Manual](docs/modding/README.md) · [Catalog](data/modding/catalog.json) · [Selection](docs/modding/selection.example.json). Synthetic data-only previews; no native loader.
+
+## Ecosystem Integration v0.5.0
+[SDK and unified CLI](docs/integration/README.md) · [Onboarding](docs/integration/ONBOARDING.md) · [Roadmap v1.0](docs/integration/ROADMAP_V1.md) · [Technical debt](docs/integration/debt.json). Native adoption pending.

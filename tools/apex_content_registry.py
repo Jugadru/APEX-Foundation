@@ -219,9 +219,9 @@ class ContentRegistry:
                            "CONSUMER_VALIDATION_"+m["status"] if m["revision"]==revision else "UNKNOWN_EXACT_CONSUMER_REVISION"],
                 "execution_authorized":False,"production_approved":False}
 
-def load():
+def load(*,data=None):
     _,schemas=r.load_registry()
-    data=dc.load()
+    data=dc.load() if data is None else data
     return ContentRegistry(k.document(ROOT/"data/content/catalog.json",{"entries"}),
                            k.document(DOCS/"policy.json",{"relations","attributes","scope"}),
                            k.document(DOCS/"consumer-matrix.json",{"entries"}),

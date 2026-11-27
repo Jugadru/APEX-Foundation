@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "core2",
+      "repository": "Jugadru/APEX-Simulation",
+      "pinned_revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "observed_revision": "524bd90a19aeaafe6920b4cdb774c77729d78fbd",
+      "source_url": "https://github.com/Jugadru/APEX-Simulation/commit/524bd90a19aeaafe6920b4cdb774c77729d78fbd",
+      "observed_on": "2026-11-27"
+    },
+    {
+      "id": "hyper",
+      "repository": "Jugadru/APEX-Hyper-Engine",
+      "pinned_revision": "80faba05374355f31906a630f576036aecca4f56",
+      "observed_revision": "af62f18c41e97a6aa4da8e6f707cc342a03279c9",
+      "source_url": "https://github.com/Jugadru/APEX-Hyper-Engine/commit/af62f18c41e97a6aa4da8e6f707cc342a03279c9",
+      "observed_on": "2026-11-27"
+    },
+    {
+      "id": "lab",
+      "repository": "Jugadru/apex-godot-simulation-architect",
+      "pinned_revision": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "observed_revision": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "source_url": "https://github.com/Jugadru/apex-godot-simulation-architect/commit/e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "observed_on": "2026-11-27"
+    }
+  ]
+}
