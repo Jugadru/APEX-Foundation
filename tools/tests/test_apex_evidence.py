@@ -19,16 +19,49 @@ class EvidenceTests(unittest.TestCase):
             mutate(docs[index])
         return e.Evidence(*docs,self.e.schemas,root=root)
 
+    def test_timestamp_exact_fraction(self):
+        base="2026-11-27T02:06:56"
+        self.assertLess(e.timestamp(base+"Z"),e.timestamp(base+".0000001Z"))
+        self.assertLess(e.timestamp(base+".7631184Z"),e.timestamp(base+".7631185Z"))
+        self.assertEqual(e.timestamp(base+".1Z"),e.timestamp(base+".100000000000000000Z"))
+        self.assertLess(e.timestamp(base+".999999999999999999Z"),e.timestamp("2026-11-27T02:06:57Z"))
+
+    def test_invalid_timestamp(self):
+        for invalid in ("2026-02-30T00:00:00Z","2026-11-27T24:00:00Z",
+                        "2026-11-27T00:00:60Z","2026-11-27T00:60:00Z","2026-11-27T25:00:00Z",
+                        "2026-11-27T00:00:00+00:00","0000-11-27T00:00:00Z",
+                        "2026-11-27T00:00:00.Z","2026-11-27T00:00:00.1234567890123456789Z",None):
+            with self.subTest(value=invalid),self.assertRaises(ValueError):
+                e.timestamp(invalid)
+
+    def test_receipt_submicrosecond_order(self):
+        def mutate(doc):
+            row=doc["entries"][0]
+            row["markers"]=["2026-11-27T02:06:56.0000002Z Python 3.14.4",
+                            "2026-11-27T02:06:56.0000001Z Ran 12 tests in 0.027s",
+                            "2026-11-27T02:06:56.0000003Z OK"]
+        with self.assertRaisesRegex(ValueError,"receipt time ordering"):
+            self.build(0,mutate)
+
+    def test_receipt_history_chronological_not_lexical(self):
+        def mutate(doc):
+            first,second=doc["entries"][:2]
+            first["observed_at"]="2026-11-27T02:30:00.1Z"
+            second["observed_at"]="2026-11-27T02:30:00Z"
+        entries=self.build(0,mutate).history()["entries"]
+        ids=[row["id"] for row in entries]
+        self.assertLess(ids.index("v0.1.1"),ids.index("v0.1.0"))
+
     def test_stats(self):
         s=self.e.stats()
-        self.assertEqual((s["receipts"],s["artifacts"],s["benchmarks"],s["notes"]),(12,1,3,2))
+        self.assertEqual((s["receipts"],s["artifacts"],s["benchmarks"],s["notes"]),(14,1,3,2))
         self.assertEqual(s["status"],"PASS")
         self.assertFalse(s["live_attestation"])
         self.assertEqual(s["fingerprint"],e.load().fingerprint)
 
     def test_history(self):
         h=self.e.history()["entries"]
-        self.assertEqual([x["test_count"] for x in h],[12,24,34,46,60,72,85,85,97,97,111,111])
+        self.assertEqual([x["test_count"] for x in h],[12,24,34,46,60,72,85,85,97,97,111,111,125,125])
         self.assertTrue(all(x["scope"]=="FOUNDATION_PYTHON_ONLY" for x in h))
 
     def test_exact_revision_gate(self):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Offline evidence catalog. Recorded observations are not live attestations."""
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from fractions import Fraction
 import hashlib
 import json
@@ -20,12 +20,19 @@ REPO="Jugadru/APEX-Foundation"
 VERSION="0.3.1"
 MAX_ROWS=1000
 MAX_BYTES=2*1024*1024
-TIME_RE=r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z"
+TIME_RE=r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]{1,18})?Z"
 
 def timestamp(value):
-    if not re.fullmatch(TIME_RE,value):
-        raise ValueError("expected UTC timestamp")
-    return datetime.fromisoformat(value.replace("Z","+00:00"))
+    """Exact UTC ordering key, including submicrosecond fractions on Python 3.10."""
+    if not isinstance(value,str) or not re.fullmatch(TIME_RE,value):
+        raise ValueError("expected UTC timestamp with at most 18 fractional digits")
+    whole,_,digits=value[:-1].partition(".")
+    # Use explicit calendar fields, not interpreter-specific ISO normalization.
+    # datetime constructor rejects hour 24, invalid dates and leap seconds.
+    # Fractions remain exact, including differences below one microsecond.
+    second=datetime(int(whole[0:4]),int(whole[5:7]),int(whole[8:10]),
+                    int(whole[11:13]),int(whole[14:16]),int(whole[17:19]),tzinfo=timezone.utc)
+    return second,Fraction(int(digits),10**len(digits)) if digits else Fraction(0)
 
 def index(doc):
     rows=doc["entries"]
@@ -121,7 +128,7 @@ class Evidence:
 
     def history(self):
         return {"scope":"historical observed CI excerpts, not fresh validation",
-                "entries":sorted(self.receipts.values(),key=lambda x:(x["observed_at"],x["id"])),
+                "entries":sorted(self.receipts.values(),key=lambda x:(timestamp(x["observed_at"]),x["id"])),
                 "release_authorized":False}
 
     def show(self,ident):

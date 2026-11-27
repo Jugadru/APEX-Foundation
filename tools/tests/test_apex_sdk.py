@@ -18,13 +18,13 @@ class SDKTests(unittest.TestCase):
 
     def test_catalog_coverage(self):
         c=self.sdk.catalog()
-        self.assertEqual((c["capabilities"],c["offline_routes"],c["external_only"]),(64,57,7))
+        self.assertEqual((c["capabilities"],c["offline_routes"],c["external_only"]),(67,60,7))
         self.assertTrue(all(not x["execution_authorized"] for x in c["entries"]))
         self.assertEqual(set(s.ROUTES)|set(s.DENIED),set(self.sdk._caps))
 
     def test_doctor(self):
         x=self.sdk.doctor()
-        self.assertEqual((x["status"],x["local_checks"],x["passed"]),("PASS",10,10))
+        self.assertEqual((x["status"],x["local_checks"],x["passed"]),("PASS",11,11))
         self.assertEqual(x["native_readiness"],"BLOCKED")
         self.assertFalse(x["runtime_verified"])
 
@@ -112,6 +112,8 @@ class SDKTests(unittest.TestCase):
         self.assertEqual(x["status"],"BLOCKED")
         self.assertIn("PIN_RECONCILIATION_REQUIRED",x["reasons"])
         self.assertIn("save",x["deferred_contracts"])
+        self.assertEqual(x["historical_native_observations"][0]["scope"],"CORE2_FAST_PUSH")
+        self.assertEqual(x["historical_native_observations"][0]["status"],"PASS")
         self.assertTrue(all(y["status"]=="NOT_RUN" for y in x["validation"]))
         self.assertIn("UNKNOWN_REVISION",self.sdk.plan("core2","0"*40)["reasons"])
         self.assertNotIn("PIN_RECONCILIATION_REQUIRED",self.sdk.plan("core2",row["pinned_revision"])["reasons"])
@@ -132,7 +134,7 @@ class SDKTests(unittest.TestCase):
         with patch.object(self.sdk._service("evidence"),"stats",return_value={"status":"FAIL"}):
             x=self.sdk.doctor()
             self.assertEqual(x["status"],"FAIL")
-            self.assertEqual(x["passed"],9)
+            self.assertEqual(x["passed"],10)
 
     def test_cli_exit_status(self):
         with patch("sys.stdout",new_callable=io.StringIO) as out:

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": "5cc84600b47e55cf32d2f4e5c8a6de260e69be01",
+  "revision": "611c176d502f7e5585521eb8ab963dd7d8921dae",
   "schemas": {
     "module.v1": {
       "type": "object",
@@ -1934,6 +1934,286 @@
         "consumer",
         "revision",
         "requested"
+      ],
+      "additionalProperties": false
+    },
+    "integration-request.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "capability": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "profile": {
+          "type": "string",
+          "enum": [
+            "reader",
+            "planner"
+          ]
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "change": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "repository": {
+              "type": "string",
+              "enum": [
+                "foundation",
+                "core2",
+                "hyper",
+                "lab"
+              ]
+            },
+            "base_revision": {
+              "type": "string",
+              "pattern": "[0-9a-f]{40}"
+            },
+            "modules": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "uniqueItems": true
+            },
+            "contracts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "uniqueItems": true
+            },
+            "paths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "repository",
+            "base_revision",
+            "modules",
+            "contracts",
+            "paths"
+          ],
+          "additionalProperties": false
+        },
+        "selection": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "consumer": {
+              "type": "string",
+              "enum": [
+                "core2",
+                "hyper"
+              ]
+            },
+            "revision": {
+              "type": "string",
+              "pattern": "[0-9a-f]{40}"
+            },
+            "requested": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+                  },
+                  "version": {
+                    "type": "string",
+                    "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "consumer",
+            "revision",
+            "requested"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "capability",
+        "profile",
+        "args",
+        "change",
+        "selection"
+      ],
+      "additionalProperties": false
+    },
+    "integration-response.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "capability": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_RUN",
+            "INCONCLUSIVE",
+            "BLOCKED"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "OFFLINE_ONLY"
+          ]
+        },
+        "result_sha256": {
+          "type": "string",
+          "pattern": "[0-9a-f]{64}"
+        },
+        "execution_authorized": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "capability",
+        "status",
+        "scope",
+        "result_sha256",
+        "execution_authorized"
+      ],
+      "additionalProperties": false
+    },
+    "integration-repository.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper",
+            "lab"
+          ]
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pinned_revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "observed_revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed_on": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "pinned_revision",
+        "observed_revision",
+        "source_url",
+        "observed_on"
+      ],
+      "additionalProperties": false
+    },
+    "integration-debt.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "P0",
+            "P1",
+            "P2"
+          ]
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+          },
+          "uniqueItems": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "NOT_RUN",
+            "BLOCKED"
+          ]
+        },
+        "acceptance": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "owner",
+        "priority",
+        "depends_on",
+        "status",
+        "acceptance"
       ],
       "additionalProperties": false
     }

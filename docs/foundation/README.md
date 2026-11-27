@@ -52,3 +52,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.5.0 — Ecosystem Integration
 [Integration manual](../integration/README.md): four additive contracts, unified SDK, explicit offline routes, local health, repository drift, technical debt and cross-service scenario. All previous schemas preserved.
+
+## v0.5.1 — Revision Reconciliation
+Three additive contracts describe exact source comparisons, scoped native CI observations and candidate source pointers. See ../integration/RECONCILIATION.md. All 32 prior contracts retained.
