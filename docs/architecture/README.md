@@ -34,3 +34,6 @@ Baseline avançado para v0.2.0; Content Registry experimental depende da Foundat
 
 ## Atualização v0.2.2
 Baseline avançado para v0.2.1; Configuration Management experimental depende da Foundation, Data Center e Content Registry. Nenhuma configuração aplicada no consumidor.
+
+## Atualização v0.3.0
+Baseline avançado para v0.2.2; Persistence Management experimental, sem substituir SaveGuard, sem escrever saves. Três novos contratos de metadados.

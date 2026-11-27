@@ -13,3 +13,5 @@ Para datasets, consultar [Data Center](docs/data/README.md); preservar origem, r
 Para conteúdo, consultar [Content Registry](docs/content/README.md). Usar identidades e versões exatas, relações fechadas e direitos explícitos. Fixtures não são conteúdo jogável; assets metadata-only não são arquivos reais.
 
 Para configurações, consultar [Configuration Management](docs/config/README.md). Usar versões exatas, separar ambientes e consumidores, preservar prioridade manual; nenhum perfil autoriza aplicação em runtime.
+
+Para persistência, consultar [Persistence & Migration](docs/persistence/README.md). Não ler ou modificar saves reais; preservar SaveGuard nativo e exigir evidência no consumidor. Migrações Foundation são sintéticas e em memória.

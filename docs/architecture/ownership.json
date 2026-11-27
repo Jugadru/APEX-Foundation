@@ -168,6 +168,14 @@
       "boundary": "Typed settings, versioned profile resolution, constraints and rollback plans only",
       "validation": "Foundation configuration regression tests; native consumer configuration NOT_RUN",
       "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "persistence-management",
+      "repository": "foundation",
+      "role": "metadata-authority",
+      "boundary": "Synthetic offline persistence; SaveGuard remains consumer QA authority",
+      "validation": "Foundation fixture regressions; native SaveGuard required separately",
+      "owner_state": "DECLARED_POLICY"
     }
   ],
   "contracts": [
@@ -487,6 +495,45 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Offline configuration metadata; no consumer mapping or runtime application verified"
+    },
+    {
+      "id": "persistence-manifest.v1",
+      "steward": "persistence-management",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "saveguard"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic offline persistence contract only; native save schema remains deferred"
+    },
+    {
+      "id": "persistence-route.v1",
+      "steward": "persistence-management",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "saveguard"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic offline persistence contract only; native save schema remains deferred"
+    },
+    {
+      "id": "persistence-recovery.v1",
+      "steward": "persistence-management",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "saveguard"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic offline persistence contract only; native save schema remains deferred"
     }
   ]
 }

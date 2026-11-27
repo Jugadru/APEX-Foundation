@@ -58,6 +58,17 @@ jobs:
           gate_status=$?
           set -e
           test "$gate_status" -eq 1
+          python3 tools/apex_persistence.py validate | tee ci-results/persistence.log
+          python3 tools/apex_persistence.py simulate career-baseline 3.0.0 | tee ci-results/persistence-migration.log
+          python3 tools/apex_persistence.py recover corrupt-primary | tee ci-results/persistence-recovery.log
+          set +e
+          python3 tools/apex_persistence.py inspect career-corrupt > ci-results/persistence-corrupt.json
+          corrupt_status=$?
+          python3 tools/apex_persistence.py gate career-baseline core2 9dfc18de49083260b1a9524513b415e1551fdabf > ci-results/persistence-gate.json
+          gate_status=$?
+          set -e
+          test "$corrupt_status" -eq 1
+          test "$gate_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "career-baseline",
+      "version": "1.0.0",
+      "generation": 1,
+      "round": 3,
+      "points": 42,
+      "budget": 6500000,
+      "corrupt": false
+    },
+    {
+      "id": "career-backup",
+      "version": "2.0.0",
+      "generation": 2,
+      "round": 4,
+      "points": 51,
+      "budget": 6400000,
+      "corrupt": false
+    },
+    {
+      "id": "career-primary",
+      "version": "3.0.0",
+      "generation": 3,
+      "round": 5,
+      "points": 62,
+      "budget": 6300000,
+      "corrupt": false
+    },
+    {
+      "id": "career-corrupt",
+      "version": "3.0.0",
+      "generation": 3,
+      "round": 5,
+      "points": 62,
+      "budget": 6300000,
+      "corrupt": true
+    }
+  ]
+}
