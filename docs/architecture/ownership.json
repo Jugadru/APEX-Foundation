@@ -705,6 +705,45 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Offline gateway metadata; no native API or runtime integration approved"
+    },
+    {
+      "id": "source-comparison.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical Git tree comparison and scoped native CI observation; no adapter approval"
+    },
+    {
+      "id": "native-ci-observation.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical Git tree comparison and scoped native CI observation; no adapter approval"
+    },
+    {
+      "id": "source-candidate.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "development-lab"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical Git tree comparison and scoped native CI observation; no adapter approval"
     }
   ]
 }

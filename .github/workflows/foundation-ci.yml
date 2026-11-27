@@ -101,6 +101,9 @@ jobs:
           plan_status=$?
           set -e
           test "$plan_status" -eq 1
+          python3 tools/apex.py reconcile | tee ci-results/reconciliation.log
+          python3 tools/apex.py native-evidence | tee ci-results/native-evidence.log
+          python3 tools/apex.py candidates | tee ci-results/source-candidates.log
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()
@@ -108,4 +111,34 @@ jobs:
         with:
           name: foundation-ci-logs
           path: ci-results/
+          retention-days: 14
+
+  minimum-python:
+    name: Foundation Python 3.10.22
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.10.22'
+      - name: Validate minimum interpreter
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ci-results-minimum
+          python --version | tee ci-results-minimum/python.log
+          python -c 'import sys; assert sys.version_info[:3] == (3, 10, 22)'
+          python tools/apex.py doctor | tee ci-results-minimum/doctor.log
+          python tools/apex.py scenario | tee ci-results-minimum/scenario.log
+          python tools/apex.py reconcile | tee ci-results-minimum/reconciliation.log
+          python -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results-minimum/tests.log
+      - name: Retain minimum interpreter logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: foundation-ci-python310
+          path: ci-results-minimum/
           retention-days: 14

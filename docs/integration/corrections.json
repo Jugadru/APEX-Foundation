@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "saveguard-blob-typo",
+      "group": "core2",
+      "source": "persistence",
+      "path": "tools/tests/test_apex_saveguard_ci.py",
+      "before": "d72073c912edf2b65bf65144b4d5901d9043cfcb",
+      "after": "d72073c912edf2b65bf65144b4d5901d9043bfcb",
+      "reason": "Git tree at historical pinned revision and observed candidate agree; prior transcription error",
+      "source_url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/tests/test_apex_saveguard_ci.py"
+    }
+  ]
+}

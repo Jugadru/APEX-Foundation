@@ -43,3 +43,6 @@
 
 ## v0.5.0 — Foundation Ecosystem Integration
 - SDK/CLI, política estática, contratos de requisição e resposta, diagnóstico, cenário integrado, divergência de revisões, dívida técnica e onboarding/roadmap. Quatro recibos reais adicionais. Loaders reutilizam objetos validados dentro de sessão. Nenhum consumidor modificado.
+
+## v0.5.1 — Revision Reconciliation
+- Compare 85 path/revision pairs, preserve original claims, correct one SaveGuard blob transcription, record native CI scopes and Hyper game candidates. Gateway exposes reconciliation, native evidence and candidates. Add separate exact Python 3.10.22 CI job. No consumer code or historical pins changed.

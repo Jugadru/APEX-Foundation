@@ -17,10 +17,11 @@ import apex_config as config
 import apex_persistence as persistence
 import apex_evidence as evidence
 import apex_modding as modding
+import apex_reconcile as reconcile
 
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/"docs"/"integration"
-VERSION="0.5.0"
+VERSION="0.5.1"
 STATES={"PASS","FAIL","NOT_RUN","INCONCLUSIVE","BLOCKED"}
 # Static code routes. Neither manifests nor request data select Python attributes.
 # Tuple: service, method, min/max positional arguments, profile, structured field.
@@ -82,6 +83,9 @@ ROUTES={
     "integration.scenario":("sdk","scenario",0,0,"planner",None),
     "integration.debt":("sdk","debt_report",0,0,"reader",None),
     "integration.drift":("sdk","drift",0,0,"reader",None),
+    "integration.reconcile":("reconciliation","stats",0,0,"reader",None),
+    "integration.native-evidence":("reconciliation","native_report",0,0,"reader",None),
+    "integration.candidates":("reconciliation","candidate_report",0,0,"reader",None),
 }
 DENIED={
     "lab.request":"OWNER_HOSTED_WORKFLOW_ONLY",
@@ -161,6 +165,8 @@ class FoundationSDK:
                 obj=evidence.load(architecture=self._service("architecture"))
             elif name=="modding":
                 obj=modding.load(registry=self._service("content"))
+            elif name=="reconciliation":
+                obj=reconcile.load(self._schemas,self._snapshots,self._service("architecture"))
             else:
                 raise ValueError("unknown internal service")
             self._services[name]=obj
@@ -265,7 +271,12 @@ class FoundationSDK:
             reasons.append("UNKNOWN_REVISION")
         if deferred:
             reasons.append("DEFERRED_RUNTIME_CONTRACTS")
+        audit=self._service("reconciliation")
+        matches=[x for x in audit.native.values() if x["repository"]==repository and x["revision"]==revision]
+        if revision==row["observed_revision"]:
+            reasons.append("SOURCE_REVIEW_REQUIRED")
         return {"status":"BLOCKED","repository":repository,"requested_revision":revision,
+                "historical_native_observations":[{"id":x["id"],"scope":x["scope"],"status":x["status"],"run_url":x["run_url"]} for x in sorted(matches,key=lambda x:x["id"])],
                 "pinned_revision":row["pinned_revision"],"observed_revision":row["observed_revision"],
                 "modules":modules,"metadata_contracts":[i for i in contracts if i not in deferred],
                 "deferred_contracts":deferred,"reasons":reasons,
@@ -277,7 +288,7 @@ class FoundationSDK:
     def doctor(self):
         checks=[]
         tasks=[("registry",self.registry_report)]
-        for name in ("knowledge","architecture","data","content","config","persistence","evidence","modding"):
+        for name in ("knowledge","architecture","data","content","config","persistence","evidence","modding","reconciliation"):
             tasks.append((name,lambda n=name:self._service(n).stats()))
         tasks.append(("asset-plan",lambda:self.asset_plan("original")))
         for name,fn in tasks:

@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": ".github/workflows/hyper-fast.yml",
+      "blob_sha": "133a639673099641e85ac71bea41fdc0ae77aea6",
+      "purpose": "isolated lab validation",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": ".github/workflows/hyper-game-fast.yml",
+      "blob_sha": "bc492705a7be3956e43cc7849e1100d5d1928aa1",
+      "purpose": "playable game regression workflow",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "docs/BASELINE_ALPHA2.md",
+      "blob_sha": "ebc9c49a9a1360fcacc9a1bb6e5d4a98830edafb",
+      "purpose": "baseline documentation",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "docs/HYPER304_TYRES.md",
+      "blob_sha": "e819c1f16230dde70e765b1789b1504f5d855a03",
+      "purpose": "current tyre evolution documentation",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/project.godot",
+      "blob_sha": "12d3c64aeae93fa391d263b576fa86da75d1f04e",
+      "purpose": "native project",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/scripts/race_engine.gd",
+      "blob_sha": "9aa3092d92097b9430f08790920f7640c1767c9b",
+      "purpose": "sporting authority candidate",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/scripts/core/race_state_codec_0660.gd",
+      "blob_sha": "a2c2f9e6da77948b4610ef35aef97ce96a841959",
+      "purpose": "persistence/replay mapping candidate",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/tests/hyper2/test_evolution.gd",
+      "blob_sha": "17b42ef1644d25eb641460d45b7f979cd2ec73b9",
+      "purpose": "evolution regression",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/tests/hyper2/test_hyper22.gd",
+      "blob_sha": "9f8bff6249088daafbbe072ea7761448c202fa95",
+      "purpose": "longitudinal integration",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/tests/hyper2/test_manual_wet.gd",
+      "blob_sha": "0760eb077b062faa5c7c4c3539c8fdca43456a0e",
+      "purpose": "manual wet fixture",
+      "scope": "TREE_PRESENCE_ONLY"
+    },
+    {
+      "repository": "hyper",
+      "revision": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "path": "game/tests/hyper2/test_replay_quality.gd",
+      "blob_sha": "f7dd017aff2868b0c51e05b894d6237cafc9c79a",
+      "purpose": "replay quality fixture",
+      "scope": "TREE_PRESENCE_ONLY"
+    }
+  ]
+}

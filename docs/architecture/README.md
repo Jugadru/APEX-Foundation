@@ -46,3 +46,6 @@ Baseline avançado para v0.3.1; modding passa de planned para experimental, sem 
 
 ## Atualização v0.5.0
 Baseline avançado para v0.4.0. Integration Gateway experimental agrega metadados sem substituir autoridades. Observações de novas heads separadas dos pins históricos.
+
+## v0.5.1
+Baseline advanced to v0.5.0. Reconciliation independently records old and candidate tree identities; historical pins remain authoritative for existing fixtures. SaveGuard typo correction documented without repinning.

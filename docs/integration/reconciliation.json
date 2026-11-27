@@ -1,0 +1,1195 @@
+{
+  "schema": 1,
+  "observed_on": "2026-11-27",
+  "scope": "Git tree identity comparison only; not functional source audit or authorization",
+  "entries": [
+    {
+      "id": "core2",
+      "repository": "Jugadru/APEX-Simulation",
+      "baseline": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "candidate": "524bd90a19aeaafe6920b4cdb774c77729d78fbd",
+      "baseline_tree": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "candidate_tree": "524bd90a19aeaafe6920b4cdb774c77729d78fbd",
+      "paths": [
+        {
+          "path": ".github/apex-quality-suites.json",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "74949700fcbe227f6454f091cb2463040bd028db"
+            }
+          ],
+          "baseline_blob": "74949700fcbe227f6454f091cb2463040bd028db",
+          "candidate_blob": "e9bb6b18da7d5f7c903cabd244f763889425a1a1",
+          "state": "CHANGED"
+        },
+        {
+          "path": ".github/workflows/apex-saveguard-ci.yml",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "f9d9dde2bd9e94dfb9f91799a27fc5185cf90a7d"
+            }
+          ],
+          "baseline_blob": "f9d9dde2bd9e94dfb9f91799a27fc5185cf90a7d",
+          "candidate_blob": "f9d9dde2bd9e94dfb9f91799a27fc5185cf90a7d",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": ".github/workflows/godot-setup.yml",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "a941b1ca1be6a5d5e9b56a1e2ed6f8f642a570a9"
+            }
+          ],
+          "baseline_blob": "a941b1ca1be6a5d5e9b56a1e2ed6f8f642a570a9",
+          "candidate_blob": "6eb72d6820889822c416bd769cf5f3a34c612479",
+          "state": "CHANGED"
+        },
+        {
+          "path": "AGENTS.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "5b64a4347796e5d471ac5a2c4dcde9579de63862"
+            }
+          ],
+          "baseline_blob": "5b64a4347796e5d471ac5a2c4dcde9579de63862",
+          "candidate_blob": "5b64a4347796e5d471ac5a2c4dcde9579de63862",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "data/season_2012.json",
+          "claims": [
+            {
+              "source": "content",
+              "blob": "23f40c722b691048f512580fd784543c34b5f7ff"
+            }
+          ],
+          "baseline_blob": "23f40c722b691048f512580fd784543c34b5f7ff",
+          "candidate_blob": "23f40c722b691048f512580fd784543c34b5f7ff",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "data/spa_track.json",
+          "claims": [
+            {
+              "source": "content",
+              "blob": "738f1d0f2aa4d167e46ed0ce311aace00bcaf753"
+            }
+          ],
+          "baseline_blob": "738f1d0f2aa4d167e46ed0ce311aace00bcaf753",
+          "candidate_blob": "738f1d0f2aa4d167e46ed0ce311aace00bcaf753",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "data/teams.json",
+          "claims": [
+            {
+              "source": "content",
+              "blob": "3fcf6d998652c3676bdec0fffb546300b61ededc"
+            }
+          ],
+          "baseline_blob": "3fcf6d998652c3676bdec0fffb546300b61ededc",
+          "candidate_blob": "3fcf6d998652c3676bdec0fffb546300b61ededc",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "data/track_physics_2012.json",
+          "claims": [
+            {
+              "source": "content",
+              "blob": "f467b14def47090f4df5b57c70cb33fc7af15551"
+            }
+          ],
+          "baseline_blob": "f467b14def47090f4df5b57c70cb33fc7af15551",
+          "candidate_blob": "f467b14def47090f4df5b57c70cb33fc7af15551",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "data/tyres_2012.json",
+          "claims": [
+            {
+              "source": "content",
+              "blob": "51220782982b4e6ac14f6db0b5004d43fd2db2b3"
+            }
+          ],
+          "baseline_blob": "51220782982b4e6ac14f6db0b5004d43fd2db2b3",
+          "candidate_blob": "51220782982b4e6ac14f6db0b5004d43fd2db2b3",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/APEX_LAB_KNOWLEDGE_INDEX.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "987509befac349a38e647cd87f28d379c4de61ad"
+            }
+          ],
+          "baseline_blob": "987509befac349a38e647cd87f28d379c4de61ad",
+          "candidate_blob": "987509befac349a38e647cd87f28d379c4de61ad",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/APEX_SAVEGUARD_CROSS_VERSION.md",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "26eb3d84caf659b583311116cd57ccd09d1a7d3a"
+            }
+          ],
+          "baseline_blob": "26eb3d84caf659b583311116cd57ccd09d1a7d3a",
+          "candidate_blob": "26eb3d84caf659b583311116cd57ccd09d1a7d3a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "project.godot",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "b690ba1b45e790128f38bfbff9ffc060a50b69a6"
+            }
+          ],
+          "baseline_blob": "b690ba1b45e790128f38bfbff9ffc060a50b69a6",
+          "candidate_blob": "b690ba1b45e790128f38bfbff9ffc060a50b69a6",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/apex_championship_flow.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "82ad297e043029863c6e2d0c61a093eef996028e"
+            },
+            {
+              "source": "knowledge",
+              "blob": "82ad297e043029863c6e2d0c61a093eef996028e"
+            }
+          ],
+          "baseline_blob": "82ad297e043029863c6e2d0c61a093eef996028e",
+          "candidate_blob": "82ad297e043029863c6e2d0c61a093eef996028e",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/apex_garage_screen.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "067637b2d15d1c2b72e973d490887765b245c1e7"
+            },
+            {
+              "source": "knowledge",
+              "blob": "067637b2d15d1c2b72e973d490887765b245c1e7"
+            }
+          ],
+          "baseline_blob": "067637b2d15d1c2b72e973d490887765b245c1e7",
+          "candidate_blob": "067637b2d15d1c2b72e973d490887765b245c1e7",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/championship_2012.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "3275520d26e3c253afccdf4a91d1857a761bcb45"
+            },
+            {
+              "source": "knowledge",
+              "blob": "3275520d26e3c253afccdf4a91d1857a761bcb45"
+            }
+          ],
+          "baseline_blob": "3275520d26e3c253afccdf4a91d1857a761bcb45",
+          "candidate_blob": "3275520d26e3c253afccdf4a91d1857a761bcb45",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/apex_save_migration_0650.gd",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "5cdcff38184ffb9b2f210f7f084823e1813a412a"
+            }
+          ],
+          "baseline_blob": "5cdcff38184ffb9b2f210f7f084823e1813a412a",
+          "candidate_blob": "5cdcff38184ffb9b2f210f7f084823e1813a412a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/component_inventory_0651.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "0bf2d151cefbeb79a2d54c3c6c1dbddef7596e2d"
+            },
+            {
+              "source": "knowledge",
+              "blob": "0bf2d151cefbeb79a2d54c3c6c1dbddef7596e2d"
+            }
+          ],
+          "baseline_blob": "0bf2d151cefbeb79a2d54c3c6c1dbddef7596e2d",
+          "candidate_blob": "0bf2d151cefbeb79a2d54c3c6c1dbddef7596e2d",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_aero_wake_091711.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "bd25b17d214e605eef61e0fcb7284c32583cafd9"
+            }
+          ],
+          "baseline_blob": "bd25b17d214e605eef61e0fcb7284c32583cafd9",
+          "candidate_blob": "bd25b17d214e605eef61e0fcb7284c32583cafd9",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_driver_dynamics_0661.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "1e628765a61384a890c7080d92dbdbc2199527c0"
+            },
+            {
+              "source": "knowledge",
+              "blob": "1e628765a61384a890c7080d92dbdbc2199527c0"
+            }
+          ],
+          "baseline_blob": "1e628765a61384a890c7080d92dbdbc2199527c0",
+          "candidate_blob": "1e628765a61384a890c7080d92dbdbc2199527c0",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_driver_memory_0634.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "785b189592b75f5cbdbb838a009979b750880f93"
+            },
+            {
+              "source": "knowledge",
+              "blob": "785b189592b75f5cbdbb838a009979b750880f93"
+            }
+          ],
+          "baseline_blob": "785b189592b75f5cbdbb838a009979b750880f93",
+          "candidate_blob": "785b189592b75f5cbdbb838a009979b750880f93",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_driver_soul_06694.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "2cd2486895e0f9f1021e232e706cee156bf257bd"
+            },
+            {
+              "source": "knowledge",
+              "blob": "2cd2486895e0f9f1021e232e706cee156bf257bd"
+            }
+          ],
+          "baseline_blob": "2cd2486895e0f9f1021e232e706cee156bf257bd",
+          "candidate_blob": "2cd2486895e0f9f1021e232e706cee156bf257bd",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_driver_traffic_0920.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "5da286d9d020436ca457557281bb235633eda625"
+            },
+            {
+              "source": "knowledge",
+              "blob": "5da286d9d020436ca457557281bb235633eda625"
+            }
+          ],
+          "baseline_blob": "5da286d9d020436ca457557281bb235633eda625",
+          "candidate_blob": "5da286d9d020436ca457557281bb235633eda625",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_engineer_intelligence_066913.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "6e1829682f1986e0b90ba0277a5e325612d2086a"
+            },
+            {
+              "source": "knowledge",
+              "blob": "6e1829682f1986e0b90ba0277a5e325612d2086a"
+            }
+          ],
+          "baseline_blob": "6e1829682f1986e0b90ba0277a5e325612d2086a",
+          "candidate_blob": "6e1829682f1986e0b90ba0277a5e325612d2086a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_independent_racecraft_091710.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "8dc73a11bd960203aede0de1e1e2ccd9a6868b3b"
+            },
+            {
+              "source": "knowledge",
+              "blob": "8dc73a11bd960203aede0de1e1e2ccd9a6868b3b"
+            }
+          ],
+          "baseline_blob": "8dc73a11bd960203aede0de1e1e2ccd9a6868b3b",
+          "candidate_blob": "8dc73a11bd960203aede0de1e1e2ccd9a6868b3b",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_longitudinal_069.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "d00459902664f80c3e24296fe00769ffe1911bad"
+            },
+            {
+              "source": "knowledge",
+              "blob": "d00459902664f80c3e24296fe00769ffe1911bad"
+            }
+          ],
+          "baseline_blob": "d00459902664f80c3e24296fe00769ffe1911bad",
+          "candidate_blob": "b6bd3d89a9b83e964774bd44de38162c37bbeeb5",
+          "state": "CHANGED"
+        },
+        {
+          "path": "scripts/core/race_overtaking_intelligence_066912.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "97a46a11473802e82e539d105d6a88dee3a2c19f"
+            },
+            {
+              "source": "knowledge",
+              "blob": "97a46a11473802e82e539d105d6a88dee3a2c19f"
+            }
+          ],
+          "baseline_blob": "97a46a11473802e82e539d105d6a88dee3a2c19f",
+          "candidate_blob": "97a46a11473802e82e539d105d6a88dee3a2c19f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_pitwall_intelligence_0640.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "14b3aae924c7f1e0b16ae644a51efa2e178c9c0c"
+            },
+            {
+              "source": "knowledge",
+              "blob": "14b3aae924c7f1e0b16ae644a51efa2e178c9c0c"
+            }
+          ],
+          "baseline_blob": "14b3aae924c7f1e0b16ae644a51efa2e178c9c0c",
+          "candidate_blob": "14b3aae924c7f1e0b16ae644a51efa2e178c9c0c",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_pitwall_strategy_0649.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "9b2c25a688d5f1c1dd76233d12a68954695be689"
+            },
+            {
+              "source": "knowledge",
+              "blob": "9b2c25a688d5f1c1dd76233d12a68954695be689"
+            }
+          ],
+          "baseline_blob": "9b2c25a688d5f1c1dd76233d12a68954695be689",
+          "candidate_blob": "9b2c25a688d5f1c1dd76233d12a68954695be689",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_replay_0660.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "0ed92d770b783a3c8fc3e6dad65e3a4921e35685"
+            },
+            {
+              "source": "knowledge",
+              "blob": "0ed92d770b783a3c8fc3e6dad65e3a4921e35685"
+            }
+          ],
+          "baseline_blob": "0ed92d770b783a3c8fc3e6dad65e3a4921e35685",
+          "candidate_blob": "d9ac8fa3e764f6d1e3507ade77e25d145ebef621",
+          "state": "CHANGED"
+        },
+        {
+          "path": "scripts/core/race_space_0655.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "d8cf4abafcb8631afe086df2fee48892339014f0"
+            }
+          ],
+          "baseline_blob": "d8cf4abafcb8631afe086df2fee48892339014f0",
+          "candidate_blob": "d1427138fda7c610a31970d38e806f1dc471df6f",
+          "state": "CHANGED"
+        },
+        {
+          "path": "scripts/core/race_state_codec_0660.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "164e419c0213cd2bfd100410818fa7c7c652d4ea"
+            }
+          ],
+          "baseline_blob": "164e419c0213cd2bfd100410818fa7c7c652d4ea",
+          "candidate_blob": "164e419c0213cd2bfd100410818fa7c7c652d4ea",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_strategy_simulator_06499.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "55adb96d000b3e3547f0c043d7b6875b660c88e9"
+            },
+            {
+              "source": "knowledge",
+              "blob": "55adb96d000b3e3547f0c043d7b6875b660c88e9"
+            }
+          ],
+          "baseline_blob": "55adb96d000b3e3547f0c043d7b6875b660c88e9",
+          "candidate_blob": "55adb96d000b3e3547f0c043d7b6875b660c88e9",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_team_pit_coordination_06497.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "e243f8ab62e5bd882f8f513d1ccfeb73829d969e"
+            },
+            {
+              "source": "knowledge",
+              "blob": "e243f8ab62e5bd882f8f513d1ccfeb73829d969e"
+            }
+          ],
+          "baseline_blob": "e243f8ab62e5bd882f8f513d1ccfeb73829d969e",
+          "candidate_blob": "e243f8ab62e5bd882f8f513d1ccfeb73829d969e",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_team_radio_advice_06689.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "7d853b70bde953deab56b5e134f73499ff63a75a"
+            },
+            {
+              "source": "knowledge",
+              "blob": "7d853b70bde953deab56b5e134f73499ff63a75a"
+            }
+          ],
+          "baseline_blob": "7d853b70bde953deab56b5e134f73499ff63a75a",
+          "candidate_blob": "7d853b70bde953deab56b5e134f73499ff63a75a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_weather.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "dfe2f562db0024aa38209d7f48985513591f7e0d"
+            },
+            {
+              "source": "knowledge",
+              "blob": "dfe2f562db0024aa38209d7f48985513591f7e0d"
+            }
+          ],
+          "baseline_blob": "dfe2f562db0024aa38209d7f48985513591f7e0d",
+          "candidate_blob": "dfe2f562db0024aa38209d7f48985513591f7e0d",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/racecraft_audit_0662.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "44719977e652dfa6673624c507b4fd1800e94e17"
+            },
+            {
+              "source": "knowledge",
+              "blob": "44719977e652dfa6673624c507b4fd1800e94e17"
+            }
+          ],
+          "baseline_blob": "44719977e652dfa6673624c507b4fd1800e94e17",
+          "candidate_blob": "44719977e652dfa6673624c507b4fd1800e94e17",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/staff_contracts.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "65d12bcb1780c6d53bca8da8650af1a2510d8745"
+            },
+            {
+              "source": "knowledge",
+              "blob": "65d12bcb1780c6d53bca8da8650af1a2510d8745"
+            }
+          ],
+          "baseline_blob": "65d12bcb1780c6d53bca8da8650af1a2510d8745",
+          "candidate_blob": "65d12bcb1780c6d53bca8da8650af1a2510d8745",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/staff_market_0648.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "32c260a453a4b4e09f1d0cce23a5eff42962097c"
+            },
+            {
+              "source": "knowledge",
+              "blob": "32c260a453a4b4e09f1d0cce23a5eff42962097c"
+            }
+          ],
+          "baseline_blob": "32c260a453a4b4e09f1d0cce23a5eff42962097c",
+          "candidate_blob": "32c260a453a4b4e09f1d0cce23a5eff42962097c",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/staff_soul_0650.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "b715a87eced4756c394de39eedbfbfed88257e73"
+            },
+            {
+              "source": "knowledge",
+              "blob": "b715a87eced4756c394de39eedbfbfed88257e73"
+            }
+          ],
+          "baseline_blob": "b715a87eced4756c394de39eedbfbfed88257e73",
+          "candidate_blob": "b715a87eced4756c394de39eedbfbfed88257e73",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/garage.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "427403b524a57434cb15713035fc4b008fd5dc6f"
+            },
+            {
+              "source": "knowledge",
+              "blob": "427403b524a57434cb15713035fc4b008fd5dc6f"
+            }
+          ],
+          "baseline_blob": "427403b524a57434cb15713035fc4b008fd5dc6f",
+          "candidate_blob": "427403b524a57434cb15713035fc4b008fd5dc6f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/presentation/apex_hud_pitwall_quick_panel.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "2a65fcaae16cef046fce90ede870b2455ec72362"
+            }
+          ],
+          "baseline_blob": "2a65fcaae16cef046fce90ede870b2455ec72362",
+          "candidate_blob": "2a65fcaae16cef046fce90ede870b2455ec72362",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/presentation/apex_season_preparation_09179.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "dadda040bf86de975e93960360323c27921f767a"
+            },
+            {
+              "source": "knowledge",
+              "blob": "dadda040bf86de975e93960360323c27921f767a"
+            }
+          ],
+          "baseline_blob": "dadda040bf86de975e93960360323c27921f767a",
+          "candidate_blob": "dadda040bf86de975e93960360323c27921f767a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/race_engine.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "1700ca45655756e4a54053dbe9c229ff04a5486b"
+            },
+            {
+              "source": "knowledge",
+              "blob": "1700ca45655756e4a54053dbe9c229ff04a5486b"
+            }
+          ],
+          "baseline_blob": "1700ca45655756e4a54053dbe9c229ff04a5486b",
+          "candidate_blob": "e372f8b5bc032ae7d8d0355f76a3ffc362621116",
+          "state": "CHANGED"
+        },
+        {
+          "path": "tests/ci/apex_saveguard_cross_revision.gd",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "eff9a01472429aa101ec0e4e959bd0281f4ca982"
+            }
+          ],
+          "baseline_blob": "eff9a01472429aa101ec0e4e959bd0281f4ca982",
+          "candidate_blob": "eff9a01472429aa101ec0e4e959bd0281f4ca982",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tests/core_0642_save_migration_test.gd",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "ce21085e85d1aa8170fe38b3ed2f18f8bb0eaf67"
+            }
+          ],
+          "baseline_blob": "ce21085e85d1aa8170fe38b3ed2f18f8bb0eaf67",
+          "candidate_blob": "ce21085e85d1aa8170fe38b3ed2f18f8bb0eaf67",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tests/soul_staff_0650_migration_test.gd",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "d8863657154a4692b01b9da6943d9813ac94f65e"
+            }
+          ],
+          "baseline_blob": "d8863657154a4692b01b9da6943d9813ac94f65e",
+          "candidate_blob": "d8863657154a4692b01b9da6943d9813ac94f65e",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_ci_tiers.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62"
+            },
+            {
+              "source": "knowledge",
+              "blob": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62"
+            }
+          ],
+          "baseline_blob": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62",
+          "candidate_blob": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_architecture.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "7928c310a30ef601debad8342544b2d61944c043"
+            }
+          ],
+          "baseline_blob": "7928c310a30ef601debad8342544b2d61944c043",
+          "candidate_blob": "7928c310a30ef601debad8342544b2d61944c043",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_command.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a"
+            }
+          ],
+          "baseline_blob": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a",
+          "candidate_blob": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_graphics.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "440a7f463d96fa325f8fa0465398fb8bcacc400f"
+            }
+          ],
+          "baseline_blob": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+          "candidate_blob": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_perf_report.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894"
+            },
+            {
+              "source": "knowledge",
+              "blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894"
+            }
+          ],
+          "baseline_blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894",
+          "candidate_blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_release.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "a2d4f2042065dcfabb750b578deac967d36570ee"
+            }
+          ],
+          "baseline_blob": "a2d4f2042065dcfabb750b578deac967d36570ee",
+          "candidate_blob": "a2d4f2042065dcfabb750b578deac967d36570ee",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_pitwall_intelligence.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "bd0a2c7638ccd4f081f1354cd4a74020ddadf272"
+            },
+            {
+              "source": "knowledge",
+              "blob": "bd0a2c7638ccd4f081f1354cd4a74020ddadf272"
+            }
+          ],
+          "baseline_blob": "bd0a2c7638ccd4f081f1354cd4a74020ddadf272",
+          "candidate_blob": "bd0a2c7638ccd4f081f1354cd4a74020ddadf272",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_saveguard_ci.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384"
+            },
+            {
+              "source": "knowledge",
+              "blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384"
+            },
+            {
+              "source": "persistence",
+              "blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384"
+            }
+          ],
+          "baseline_blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+          "candidate_blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_source_inventory.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "1ad6c10585c9b97133d1a9eb9e78f48c8bb1f757"
+            },
+            {
+              "source": "knowledge",
+              "blob": "1ad6c10585c9b97133d1a9eb9e78f48c8bb1f757"
+            }
+          ],
+          "baseline_blob": "1ad6c10585c9b97133d1a9eb9e78f48c8bb1f757",
+          "candidate_blob": "1ad6c10585c9b97133d1a9eb9e78f48c8bb1f757",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/tests/test_apex_saveguard_ci.py",
+          "claims": [
+            {
+              "source": "persistence",
+              "blob": "d72073c912edf2b65bf65144b4d5901d9043cfcb"
+            }
+          ],
+          "baseline_blob": "d72073c912edf2b65bf65144b4d5901d9043bfcb",
+          "candidate_blob": "d72073c912edf2b65bf65144b4d5901d9043bfcb",
+          "state": "BASELINE_MISMATCH"
+        }
+      ]
+    },
+    {
+      "id": "hyper",
+      "repository": "Jugadru/APEX-Hyper-Engine",
+      "baseline": "80faba05374355f31906a630f576036aecca4f56",
+      "candidate": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "baseline_tree": "80faba05374355f31906a630f576036aecca4f56",
+      "candidate_tree": "bc8c161878bbef7f1b3dd24a54711c2518736a88",
+      "paths": [
+        {
+          "path": "AGENTS.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "2646c32a4f0b06fd7a03ace8b440d7e179cb4f30"
+            }
+          ],
+          "baseline_blob": "2646c32a4f0b06fd7a03ace8b440d7e179cb4f30",
+          "candidate_blob": "2646c32a4f0b06fd7a03ace8b440d7e179cb4f30",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "README.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "fd040bde75b23adb22d490d913e7e3570e687def"
+            }
+          ],
+          "baseline_blob": "fd040bde75b23adb22d490d913e7e3570e687def",
+          "candidate_blob": "fd040bde75b23adb22d490d913e7e3570e687def",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/MIGRATION.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "7f2d54995d481d784d2d0613ab5840a131233619"
+            }
+          ],
+          "baseline_blob": "7f2d54995d481d784d2d0613ab5840a131233619",
+          "candidate_blob": "7f2d54995d481d784d2d0613ab5840a131233619",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/PROVENANCE.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "06b59a7d7b8adee33f2f04768589fdcec3f29846"
+            }
+          ],
+          "baseline_blob": "06b59a7d7b8adee33f2f04768589fdcec3f29846",
+          "candidate_blob": "06b59a7d7b8adee33f2f04768589fdcec3f29846",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/ROADMAP.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "652d229468ec08b07e22eb2b4d39221bff2fba83"
+            }
+          ],
+          "baseline_blob": "652d229468ec08b07e22eb2b4d39221bff2fba83",
+          "candidate_blob": "652d229468ec08b07e22eb2b4d39221bff2fba83",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "lab/longitudinal/experimental/hyper22/longitudinal_adapter.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "b675cb382f552481bb0dab8ba9303aec61aa6148"
+            }
+          ],
+          "baseline_blob": "b675cb382f552481bb0dab8ba9303aec61aa6148",
+          "candidate_blob": "b675cb382f552481bb0dab8ba9303aec61aa6148",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "lab/longitudinal/experimental/hyper22/longitudinal_primitives.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "5f61cbdbc6ab63bd322ed5b8cf8f905caaff4d17"
+            }
+          ],
+          "baseline_blob": "5f61cbdbc6ab63bd322ed5b8cf8f905caaff4d17",
+          "candidate_blob": "5f61cbdbc6ab63bd322ed5b8cf8f905caaff4d17",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "lab/longitudinal/project.godot",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "fcde760053dfb1de98036c9facde64617122825a"
+            }
+          ],
+          "baseline_blob": "fcde760053dfb1de98036c9facde64617122825a",
+          "candidate_blob": "fcde760053dfb1de98036c9facde64617122825a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "lab/longitudinal/tests/hyper22_longitudinal_adapter_test.gd",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "4764adf5efed0b890c93ce73a9d05ed6c03d3e5f"
+            }
+          ],
+          "baseline_blob": "4764adf5efed0b890c93ce73a9d05ed6c03d3e5f",
+          "candidate_blob": "4764adf5efed0b890c93ce73a9d05ed6c03d3e5f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/import_alpha2.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "32e0d82539630882b1bd15eb612c01e0849bb335"
+            }
+          ],
+          "baseline_blob": "32e0d82539630882b1bd15eb612c01e0849bb335",
+          "candidate_blob": "32e0d82539630882b1bd15eb612c01e0849bb335",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/tests/test_import_alpha2.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "47eb8a9ee875c5798db87b5386578eb305117d9f"
+            }
+          ],
+          "baseline_blob": "47eb8a9ee875c5798db87b5386578eb305117d9f",
+          "candidate_blob": "47eb8a9ee875c5798db87b5386578eb305117d9f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/tests/test_transfer_alpha2.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "6d942187e597f24e909646ea6a9c9a3cca8d5b60"
+            }
+          ],
+          "baseline_blob": "6d942187e597f24e909646ea6a9c9a3cca8d5b60",
+          "candidate_blob": "6d942187e597f24e909646ea6a9c9a3cca8d5b60",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/transfer_alpha2.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "e55090e42451886f225c92c57654025033b6b9df"
+            }
+          ],
+          "baseline_blob": "e55090e42451886f225c92c57654025033b6b9df",
+          "candidate_blob": "e55090e42451886f225c92c57654025033b6b9df",
+          "state": "UNCHANGED"
+        }
+      ]
+    },
+    {
+      "id": "lab",
+      "repository": "Jugadru/apex-godot-simulation-architect",
+      "baseline": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "candidate": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "baseline_tree": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "candidate_tree": "e3494473d7fc642a0209980802367f4f72dc4a1e",
+      "paths": [
+        {
+          "path": "README.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "07d35e5d094d86d3e556a5f54f010f3fe478d337"
+            }
+          ],
+          "baseline_blob": "07d35e5d094d86d3e556a5f54f010f3fe478d337",
+          "candidate_blob": "07d35e5d094d86d3e556a5f54f010f3fe478d337",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "SKILL.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "3dfb1a9c43dbd8c395ad37ffce807290c9992b28"
+            }
+          ],
+          "baseline_blob": "3dfb1a9c43dbd8c395ad37ffce807290c9992b28",
+          "candidate_blob": "3dfb1a9c43dbd8c395ad37ffce807290c9992b28",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/PRIVATE_ANALYZER_BRIDGE.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "af7308dcb37d8e35d9972d03abba5793a777fd0c"
+            }
+          ],
+          "baseline_blob": "af7308dcb37d8e35d9972d03abba5793a777fd0c",
+          "candidate_blob": "af7308dcb37d8e35d9972d03abba5793a777fd0c",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "docs/TECHNICAL.md",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "7dc537d4ec9fd832be3ca2cef8656e22b8757f3f"
+            }
+          ],
+          "baseline_blob": "7dc537d4ec9fd832be3ca2cef8656e22b8757f3f",
+          "candidate_blob": "7dc537d4ec9fd832be3ca2cef8656e22b8757f3f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/audit_project.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "4a0a268d1eadc7f9d1f79d2ba137a90116da9e4e"
+            }
+          ],
+          "baseline_blob": "4a0a268d1eadc7f9d1f79d2ba137a90116da9e4e",
+          "candidate_blob": "4a0a268d1eadc7f9d1f79d2ba137a90116da9e4e",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/advanced_gdscript_analyzer.py",
+          "claims": [
+            {
+              "source": "architecture",
+              "blob": "29a9c39e061b89f9e15126b265d880a40f3155a9"
+            }
+          ],
+          "baseline_blob": "29a9c39e061b89f9e15126b265d880a40f3155a9",
+          "candidate_blob": "29a9c39e061b89f9e15126b265d880a40f3155a9",
+          "state": "UNCHANGED"
+        }
+      ]
+    },
+    {
+      "id": "core2-upstream",
+      "repository": "Jugadru/APEX-Simulation",
+      "baseline": "884e6c60b4b3ba8ca06a52850ee8ed097b9f7e18",
+      "candidate": "524bd90a19aeaafe6920b4cdb774c77729d78fbd",
+      "baseline_tree": "884e6c60b4b3ba8ca06a52850ee8ed097b9f7e18",
+      "candidate_tree": "524bd90a19aeaafe6920b4cdb774c77729d78fbd",
+      "paths": [
+        {
+          "path": "project.godot",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "b690ba1b45e790128f38bfbff9ffc060a50b69a6"
+            }
+          ],
+          "baseline_blob": "b690ba1b45e790128f38bfbff9ffc060a50b69a6",
+          "candidate_blob": "b690ba1b45e790128f38bfbff9ffc060a50b69a6",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "scripts/core/race_replay_0660.gd",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "115b54535839921b8f00458ad59fb156729a20e6"
+            }
+          ],
+          "baseline_blob": "115b54535839921b8f00458ad59fb156729a20e6",
+          "candidate_blob": "d9ac8fa3e764f6d1e3507ade77e25d145ebef621",
+          "state": "CHANGED"
+        },
+        {
+          "path": "scripts/race_engine.gd",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "3da56220fc0f000311cdeb2dd0e798ec498b5283"
+            }
+          ],
+          "baseline_blob": "3da56220fc0f000311cdeb2dd0e798ec498b5283",
+          "candidate_blob": "e372f8b5bc032ae7d8d0355f76a3ffc362621116",
+          "state": "CHANGED"
+        },
+        {
+          "path": "tools/apex_ci_tiers.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "9b0e643f15a2cc4e7349e7fa9d5d3da8ea3da4dc"
+            }
+          ],
+          "baseline_blob": "9b0e643f15a2cc4e7349e7fa9d5d3da8ea3da4dc",
+          "candidate_blob": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62",
+          "state": "CHANGED"
+        },
+        {
+          "path": "tools/apex_lab_architecture.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "7928c310a30ef601debad8342544b2d61944c043"
+            }
+          ],
+          "baseline_blob": "7928c310a30ef601debad8342544b2d61944c043",
+          "candidate_blob": "7928c310a30ef601debad8342544b2d61944c043",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_command.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a"
+            }
+          ],
+          "baseline_blob": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a",
+          "candidate_blob": "7af0b9e5df4b7d406d92c7f50d915ad6a38aaf9a",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_graphics.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "440a7f463d96fa325f8fa0465398fb8bcacc400f"
+            }
+          ],
+          "baseline_blob": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+          "candidate_blob": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_perf_report.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894"
+            }
+          ],
+          "baseline_blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894",
+          "candidate_blob": "8ee924f35de9e09dae9215eb8d6104a8011dc894",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_lab_release.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "a2d4f2042065dcfabb750b578deac967d36570ee"
+            }
+          ],
+          "baseline_blob": "a2d4f2042065dcfabb750b578deac967d36570ee",
+          "candidate_blob": "a2d4f2042065dcfabb750b578deac967d36570ee",
+          "state": "UNCHANGED"
+        },
+        {
+          "path": "tools/apex_saveguard_ci.py",
+          "claims": [
+            {
+              "source": "upstream",
+              "blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384"
+            }
+          ],
+          "baseline_blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+          "candidate_blob": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+          "state": "UNCHANGED"
+        }
+      ]
+    }
+  ]
+}
