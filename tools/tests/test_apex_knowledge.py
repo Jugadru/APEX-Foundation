@@ -2,6 +2,8 @@ import copy
 from pathlib import Path
 import sys
 import unittest
+import tempfile
+import shutil
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import apex_knowledge as k
 import apex_foundation_registry as r
@@ -82,6 +84,34 @@ class KnowledgeTests(unittest.TestCase):
                 r.check(dict(row,**change),schemas["research-observation.v1"])
         self.assertEqual(self.k.reference("REF-106")["evidence_state"],"DOCUMENT_OBSERVED")
         self.assertEqual(self.k.reference("REF-001")["evidence_state"],"UNVERIFIED")
+
+    def test_inventory_and_audit(self):
+        audit = self.k.audit()
+        self.assertEqual(len(audit["departments"]),7)
+        self.assertEqual(sum(len(x["idea_ids"]) for x in audit["departments"]),120)
+        self.assertFalse(audit["implementation_authorized"])
+        for row in audit["departments"]:
+            self.assertEqual(row["audit_state"],"NOT_RUN")
+            self.assertTrue(row["candidate_files"])
+        self.assertEqual(self.k.plan("IDEA-001")["consumer_audit"],"NOT_RUN")
+        self.assertEqual(len(self.k.audit("physics")["departments"]),1)
+        with self.assertRaises(ValueError):
+            self.k.audit("unknown")
+
+    def test_historical_lock(self):
+        self.assertEqual(k.history_check()["files_checked"],6)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            lock = r.read(k.DOCS/"history-lock.json")
+            for path in lock["files"]:
+                target=root/path
+                target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(k.ROOT/path,target)
+            self.assertEqual(k.history_check(root)["files_checked"],6)
+            path=root/"docs/references/references.json"
+            path.write_bytes(path.read_bytes()+b" ")
+            with self.assertRaises(ValueError):
+                k.history_check(root)
 
     def test_mutated_catalog(self):
         refs=r.read(k.legacy.DOCS/"references.json")

@@ -54,7 +54,44 @@ def document(path, fields):
         raise ValueError("unsupported knowledge schema")
     return v
 
+def history_check(root=ROOT, docs=DOCS):
+    lock = document(docs / "history-lock.json", {"source_revision", "files"})
+    expected = {"docs/references/references.json", "docs/references/possibilities.json",
+                "docs/references/ROADMAP_HYPER.md", "docs/references/domains.json",
+                "docs/references/BIBLIOTECA_198.md", "docs/references/CATALOGO_120.md"}
+    if set(lock["files"]) != expected or not re.fullmatch(r"[0-9a-f]{40}", lock["source_revision"]):
+        raise ValueError("invalid historical lock")
+    for path, blob in lock["files"].items():
+        raw = (root / path).read_bytes()
+        # Git blob ID, not a security signature or claim of external authenticity.
+        actual = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+        if actual != blob:
+            raise ValueError("historical file changed without reviewed lock migration: " + path)
+    return {"source_revision":lock["source_revision"], "files_checked":len(expected)}
+
+def consumer_inventory(departments, docs=DOCS):
+    inv = document(docs / "consumer-inventory.json", {"repository","revision","scope","departments"})
+    if (inv["repository"] != "Jugadru/APEX-Simulation"
+            or not re.fullmatch(r"[0-9a-f]{40}", inv["revision"])
+            or not nonempty(inv["scope"]) or set(inv["departments"]) != set(departments)):
+        raise ValueError("invalid consumer inventory")
+    for rows in inv["departments"].values():
+        if type(rows) is not list or not rows:
+            raise ValueError("empty consumer inventory")
+        seen = set()
+        for row in rows:
+            strict_fields(row, {"path","blob_sha","url"})
+            path = row["path"]
+            if (not re.fullmatch(r"(scripts|tools)/[A-Za-z0-9_./-]+\.(gd|py)",path)
+                    or any(p in ("",".","..") for p in path.split("/"))
+                    or path in seen or not re.fullmatch(r"[0-9a-f]{40}",row["blob_sha"])
+                    or row["url"] != f"https://github.com/{inv['repository']}/blob/{inv['revision']}/{path}"):
+                raise ValueError("invalid consumer path")
+            seen.add(path)
+    return inv
+
 def load():
+    history = history_check()
     refs = document(legacy.DOCS / "references.json", {"source", "entries"})
     ideas = document(legacy.DOCS / "possibilities.json", {"entries"})
     policy = document(DOCS / "policy.json", {"priority_references", "departments", "score", "notice"})
@@ -62,7 +99,11 @@ def load():
     reg, schemas = registry.load_registry()
     registry.validate_registry(reg, schemas)
     domains = registry.read(legacy.DOCS / "domains.json")["domains"]
-    return Knowledge(refs, ideas, policy, obs, reg, schemas, domains)
+    knowledge = Knowledge(refs, ideas, policy, obs, reg, schemas, domains)
+    knowledge.history = history
+    knowledge.inventory = consumer_inventory(knowledge.departments)
+    knowledge.fingerprint = digest({"catalog":knowledge.fingerprint,"history":history,"inventory":knowledge.inventory})
+    return knowledge
 
 class Knowledge:
     def __init__(self, refs, ideas, policy, obs, reg, schemas, domains):
@@ -157,7 +198,10 @@ class Knowledge:
                 "without_url": sum(x["url"] is None for x in self.refs.values()),
                 "document_observed": sum(bool(self.obs[k]) for k in self.refs),
                 "observations": sum(len(v) for v in self.obs.values()),
-                "unlinked_references": sorted(set(self.refs) - set(self.links.keys() & {k for k,v in self.links.items() if v})),
+                "unlinked_references": sorted(set(self.refs) - {k for k,v in self.links.items() if v}),
+                "historical_files_checked": self.history["files_checked"],
+                "consumer_revision": self.inventory["revision"],
+                "consumer_candidate_paths": sum(len(v) for v in self.inventory["departments"].values()),
                 "links": sum(len(v) for v in self.links.values()),
                 "license_approved": 0, "implementation_authorized": False,
                 "duplicates": self.duplicates()}
@@ -220,7 +264,26 @@ class Knowledge:
                          "Review source revisions, license and applicable rights",
                          "Specify contracts, units, baseline and targeted regression",
                          "Request owner review before implementation; preserve rollback"],
-                "fingerprint":self.fingerprint}
+                "consumer_revision":self.inventory["revision"],
+                "consumer_candidates":self.inventory["departments"][idea["record"]["department"]],
+                "consumer_audit":"NOT_RUN", "fingerprint":self.fingerprint}
+
+    def audit(self, department=None):
+        if department is not None and department not in self.departments:
+            raise ValueError("unknown department")
+        rows = []
+        for name, policy in sorted(self.policy["departments"].items()):
+            if department is not None and name != department:
+                continue
+            ids = sorted(k for k,v in self.ideas.items() if v["department"] == name)
+            ref_ids = sorted({r for key in ids for r in self.ideas[key]["references"]})
+            rows.append({"department":name, **policy, "idea_ids":ids, "reference_ids":ref_ids,
+                         "document_observed":[r for r in ref_ids if self.obs[r]],
+                         "missing_url":[r for r in ref_ids if not self.refs[r]["url"]],
+                         "candidate_files":self.inventory["departments"][name], "audit_state":"NOT_RUN"})
+        return {"scope":self.inventory["scope"], "revision":self.inventory["revision"],
+                "implementation_authorized":False, "departments":rows}
+
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -234,6 +297,7 @@ def main(argv=None):
     p.add_argument("--limit",type=int,default=20)
     for name in ("show","plan"):
         sub.add_parser(name).add_argument("id")
+    sub.add_parser("audit").add_argument("--department")
     sub.add_parser("queue").add_argument("--limit",type=int,default=20)
     args = parser.parse_args(argv)
     try:
@@ -246,6 +310,8 @@ def main(argv=None):
             result = k.reference(args.id) if args.id in k.refs else k.idea(args.id)
         elif args.command == "duplicates":
             result = k.duplicates()
+        elif args.command == "audit":
+            result = k.audit(args.department)
         elif args.command == "queue":
             result = k.queue(args.limit)
         else:

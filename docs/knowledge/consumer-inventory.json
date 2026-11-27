@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "repository": "Jugadru/APEX-Simulation",
+  "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+  "scope": "Filename and Git blob inventory only; no implementation audit, runtime proof or adoption authorization",
+  "departments": {
+    "physics": [
+      {
+        "path": "scripts/core/race_longitudinal_069.gd",
+        "blob_sha": "d00459902664f80c3e24296fe00769ffe1911bad",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_longitudinal_069.gd"
+      },
+      {
+        "path": "scripts/core/race_driver_dynamics_0661.gd",
+        "blob_sha": "1e628765a61384a890c7080d92dbdbc2199527c0",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_driver_dynamics_0661.gd"
+      },
+      {
+        "path": "scripts/race_engine.gd",
+        "blob_sha": "1700ca45655756e4a54053dbe9c229ff04a5486b",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/race_engine.gd"
+      }
+    ],
+    "racecraft": [
+      {
+        "path": "scripts/core/race_independent_racecraft_091710.gd",
+        "blob_sha": "8dc73a11bd960203aede0de1e1e2ccd9a6868b3b",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_independent_racecraft_091710.gd"
+      },
+      {
+        "path": "scripts/core/race_overtaking_intelligence_066912.gd",
+        "blob_sha": "97a46a11473802e82e539d105d6a88dee3a2c19f",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_overtaking_intelligence_066912.gd"
+      },
+      {
+        "path": "scripts/core/race_driver_traffic_0920.gd",
+        "blob_sha": "5da286d9d020436ca457557281bb235633eda625",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_driver_traffic_0920.gd"
+      },
+      {
+        "path": "scripts/core/racecraft_audit_0662.gd",
+        "blob_sha": "44719977e652dfa6673624c507b4fd1800e94e17",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/racecraft_audit_0662.gd"
+      }
+    ],
+    "strategy": [
+      {
+        "path": "scripts/core/race_pitwall_intelligence_0640.gd",
+        "blob_sha": "14b3aae924c7f1e0b16ae644a51efa2e178c9c0c",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_pitwall_intelligence_0640.gd"
+      },
+      {
+        "path": "scripts/core/race_pitwall_strategy_0649.gd",
+        "blob_sha": "9b2c25a688d5f1c1dd76233d12a68954695be689",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_pitwall_strategy_0649.gd"
+      },
+      {
+        "path": "scripts/core/race_strategy_simulator_06499.gd",
+        "blob_sha": "55adb96d000b3e3547f0c043d7b6875b660c88e9",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_strategy_simulator_06499.gd"
+      },
+      {
+        "path": "scripts/core/race_weather.gd",
+        "blob_sha": "dfe2f562db0024aa38209d7f48985513591f7e0d",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_weather.gd"
+      },
+      {
+        "path": "scripts/core/race_team_pit_coordination_06497.gd",
+        "blob_sha": "e243f8ab62e5bd882f8f513d1ccfeb73829d969e",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_team_pit_coordination_06497.gd"
+      },
+      {
+        "path": "tools/apex_pitwall_intelligence.py",
+        "blob_sha": "bd0a2c7638ccd4f081f1354cd4a74020ddadf272",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/apex_pitwall_intelligence.py"
+      }
+    ],
+    "soul": [
+      {
+        "path": "scripts/core/race_driver_soul_06694.gd",
+        "blob_sha": "2cd2486895e0f9f1021e232e706cee156bf257bd",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_driver_soul_06694.gd"
+      },
+      {
+        "path": "scripts/core/race_driver_memory_0634.gd",
+        "blob_sha": "785b189592b75f5cbdbb838a009979b750880f93",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_driver_memory_0634.gd"
+      },
+      {
+        "path": "scripts/core/race_engineer_intelligence_066913.gd",
+        "blob_sha": "6e1829682f1986e0b90ba0277a5e325612d2086a",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_engineer_intelligence_066913.gd"
+      },
+      {
+        "path": "scripts/core/staff_soul_0650.gd",
+        "blob_sha": "b715a87eced4756c394de39eedbfbfed88257e73",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/staff_soul_0650.gd"
+      },
+      {
+        "path": "scripts/core/race_team_radio_advice_06689.gd",
+        "blob_sha": "7d853b70bde953deab56b5e134f73499ff63a75a",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_team_radio_advice_06689.gd"
+      }
+    ],
+    "factory": [
+      {
+        "path": "scripts/core/component_inventory_0651.gd",
+        "blob_sha": "0bf2d151cefbeb79a2d54c3c6c1dbddef7596e2d",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/component_inventory_0651.gd"
+      },
+      {
+        "path": "scripts/garage.gd",
+        "blob_sha": "427403b524a57434cb15713035fc4b008fd5dc6f",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/garage.gd"
+      },
+      {
+        "path": "scripts/apex_garage_screen.gd",
+        "blob_sha": "067637b2d15d1c2b72e973d490887765b245c1e7",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/apex_garage_screen.gd"
+      }
+    ],
+    "universe": [
+      {
+        "path": "scripts/championship_2012.gd",
+        "blob_sha": "3275520d26e3c253afccdf4a91d1857a761bcb45",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/championship_2012.gd"
+      },
+      {
+        "path": "scripts/apex_championship_flow.gd",
+        "blob_sha": "82ad297e043029863c6e2d0c61a093eef996028e",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/apex_championship_flow.gd"
+      },
+      {
+        "path": "scripts/core/staff_contracts.gd",
+        "blob_sha": "65d12bcb1780c6d53bca8da8650af1a2510d8745",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/staff_contracts.gd"
+      },
+      {
+        "path": "scripts/core/staff_market_0648.gd",
+        "blob_sha": "32c260a453a4b4e09f1d0cce23a5eff42962097c",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/staff_market_0648.gd"
+      },
+      {
+        "path": "scripts/presentation/apex_season_preparation_09179.gd",
+        "blob_sha": "dadda040bf86de975e93960360323c27921f767a",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/presentation/apex_season_preparation_09179.gd"
+      }
+    ],
+    "quality": [
+      {
+        "path": "tools/apex_ci_tiers.py",
+        "blob_sha": "efafecfd0777a9ff6bc89807dc6afbdaf9564b62",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/apex_ci_tiers.py"
+      },
+      {
+        "path": "tools/apex_saveguard_ci.py",
+        "blob_sha": "5b9987ae1e0540543a7b9f96e4b9c45dd9435384",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/apex_saveguard_ci.py"
+      },
+      {
+        "path": "tools/apex_lab_perf_report.py",
+        "blob_sha": "8ee924f35de9e09dae9215eb8d6104a8011dc894",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/apex_lab_perf_report.py"
+      },
+      {
+        "path": "scripts/core/race_replay_0660.gd",
+        "blob_sha": "0ed92d770b783a3c8fc3e6dad65e3a4921e35685",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/scripts/core/race_replay_0660.gd"
+      },
+      {
+        "path": "tools/apex_source_inventory.py",
+        "blob_sha": "1ad6c10585c9b97133d1a9eb9e78f48c8bb1f757",
+        "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/tools/apex_source_inventory.py"
+      }
+    ]
+  }
+}

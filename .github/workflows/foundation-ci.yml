@@ -26,6 +26,7 @@ jobs:
           python3 tools/apex_foundation_registry.py search REF-001 | tee ci-results/search.log
           python3 tools/apex_knowledge.py validate | tee ci-results/knowledge.log
           python3 tools/apex_knowledge.py queue --limit 20 | tee ci-results/research-queue.log
+          python3 tools/apex_knowledge.py audit | tee ci-results/consumer-audit.log
           python3 tools/apex_knowledge.py plan IDEA-001 | tee ci-results/research-plan.log
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs

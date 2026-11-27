@@ -25,3 +25,6 @@ registry.json maps module responsibility and dependencies at a coarse level; it 
 
 ## Acceptance / rollback
 Validate historical IDs and cross-links, schemas and registry, reject invalid inputs and unknown pairs, run legacy Foundation and Asset Factory unit tests and exact-SHA Foundation CI; consumer integrations still require their own exact-SHA FAST. Native Blender/GLB import and cross-revision SaveGuard are not proven by metadata validation. Logs retained by standalone CI. Source PR and original commits preserved for rollback. Source FAST 45920592893 and 45923094403 passed; standalone validation is separate.
+
+## v0.1.1 — Knowledge Center
+See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 adds a research-observation metadata contract and research-only capabilities. Existing five schemas and compatibility entries remain intact; Python 3.10 exact compatibility is still NOT_RUN. The v0.1.0 section above documents the migrated baseline.
