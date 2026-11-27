@@ -739,5 +739,227 @@
       "reason"
     ],
     "additionalProperties": false
+  },
+  "content-link.v1": {
+    "type": "object",
+    "properties": {
+      "role": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "target": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+      }
+    },
+    "required": [
+      "role",
+      "target",
+      "version"
+    ],
+    "additionalProperties": false
+  },
+  "content-entity.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+      },
+      "previous": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "driver",
+          "staff",
+          "team",
+          "manufacturer",
+          "supplier",
+          "circuit",
+          "layout",
+          "category",
+          "championship",
+          "season",
+          "regulation",
+          "vehicle",
+          "component",
+          "asset"
+        ]
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "season": {
+        "type": "integer"
+      },
+      "technology": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "origin": {
+        "type": "string",
+        "enum": [
+          "synthetic"
+        ]
+      },
+      "rights": {
+        "type": "string",
+        "enum": [
+          "ORIGINAL_FIXTURE"
+        ]
+      },
+      "usage": {
+        "type": "string",
+        "enum": [
+          "TEST_ONLY"
+        ]
+      },
+      "attributes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "uniqueItems": true
+      },
+      "links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "target": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+            }
+          },
+          "required": [
+            "role",
+            "target",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "uniqueItems": true
+      },
+      "datasets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)"
+            },
+            "record": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "record"
+          ],
+          "additionalProperties": false
+        },
+        "uniqueItems": true
+      },
+      "limitations": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "previous",
+      "kind",
+      "name",
+      "season",
+      "technology",
+      "origin",
+      "rights",
+      "usage",
+      "attributes",
+      "links",
+      "datasets",
+      "limitations"
+    ],
+    "additionalProperties": false
+  },
+  "content-consumer.v1": {
+    "type": "object",
+    "properties": {
+      "consumer": {
+        "type": "string",
+        "enum": [
+          "core2",
+          "hyper"
+        ]
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "[0-9a-f]{40}"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "NOT_RUN",
+          "BLOCKED"
+        ]
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "consumer",
+      "revision",
+      "status",
+      "reason"
+    ],
+    "additionalProperties": false
   }
 }

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "consumer": "core2",
+      "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+      "status": "NOT_RUN",
+      "reason": "No native content adapter or compatibility test executed."
+    },
+    {
+      "consumer": "hyper",
+      "revision": "80faba05374355f31906a630f576036aecca4f56",
+      "status": "NOT_RUN",
+      "reason": "No native content adapter or compatibility test executed."
+    }
+  ]
+}

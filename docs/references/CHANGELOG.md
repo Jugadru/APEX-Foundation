@@ -25,3 +25,6 @@
 
 ## v0.2.0 — Unified Data Center
 - Catálogo versionado, seis classes de proveniência, três contratos, dez unidades, conversão racional exata, hashes, política conservadora 2012, diff de registros, gate de consumidor e fixtures originais explicitamente sintéticos. Nenhuma integração esportiva.
+
+## v0.2.1 — Content Registry
+- Identidades, versões exatas, 14 tipos, atributos e relações fechados, grafo, vínculos Data Center, fixtures e inventário de fontes, gate bloqueado. Correções: política temporal não pode perder proibições mínimas; módulo declarado fora do repositório bloqueia gate. Nenhum conteúdo histórico ou asset real importado.

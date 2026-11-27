@@ -41,6 +41,14 @@ jobs:
           gate_status=$?
           set -e
           test "$gate_status" -eq 1
+          python3 tools/apex_content_registry.py validate | tee ci-results/content.log
+          python3 tools/apex_content_registry.py graph vehicle.demo 1.0.0 | tee ci-results/content-graph.log
+          python3 tools/apex_content_registry.py diff driver.demo 1.0.0 1.1.0 | tee ci-results/content-diff.log
+          set +e
+          python3 tools/apex_content_registry.py gate vehicle.demo 1.0.0 core2 9dfc18de49083260b1a9524513b415e1551fdabf > ci-results/content-gate.json
+          gate_status=$?
+          set -e
+          test "$gate_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

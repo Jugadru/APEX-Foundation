@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.2.0",
+  "foundation_version": "0.2.1",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -212,6 +212,20 @@
       "state_owner": "Tool runtime",
       "dependencies": [],
       "entrypoints": []
+    },
+    {
+      "id": "content-registry",
+      "name": "Content Registry",
+      "version": "0.2.1",
+      "maturity": "experimental",
+      "state_owner": "Versioned content identities and links; no runtime state",
+      "dependencies": [
+        "foundation",
+        "data-center"
+      ],
+      "entrypoints": [
+        "tools/apex_content_registry.py"
+      ]
     }
   ],
   "capabilities": [
@@ -665,6 +679,114 @@
       "restrictions": [
         "No runtime writes, external ingestion, data promotion or execution authorization"
       ]
+    },
+    {
+      "id": "content.validate",
+      "module": "content-registry",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned content metadata"
+      ],
+      "outputs": [
+        "offline content report"
+      ],
+      "method": "python3 tools/apex_content_registry.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No game mutation, asset import, external ingestion or execution authorization"
+      ]
+    },
+    {
+      "id": "content.search",
+      "module": "content-registry",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned content metadata"
+      ],
+      "outputs": [
+        "offline content report"
+      ],
+      "method": "python3 tools/apex_content_registry.py search QUERY",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No game mutation, asset import, external ingestion or execution authorization"
+      ]
+    },
+    {
+      "id": "content.inspect",
+      "module": "content-registry",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned content metadata"
+      ],
+      "outputs": [
+        "offline content report"
+      ],
+      "method": "python3 tools/apex_content_registry.py show ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No game mutation, asset import, external ingestion or execution authorization"
+      ]
+    },
+    {
+      "id": "content.graph",
+      "module": "content-registry",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned content metadata"
+      ],
+      "outputs": [
+        "offline content report"
+      ],
+      "method": "python3 tools/apex_content_registry.py graph ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No game mutation, asset import, external ingestion or execution authorization"
+      ]
+    },
+    {
+      "id": "content.diff",
+      "module": "content-registry",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned content metadata"
+      ],
+      "outputs": [
+        "offline content report"
+      ],
+      "method": "python3 tools/apex_content_registry.py diff ID OLD NEW",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No game mutation, asset import, external ingestion or execution authorization"
+      ]
+    },
+    {
+      "id": "content.gate",
+      "module": "content-registry",
+      "version": "1.0.0",
+      "inputs": [
+        "versioned content metadata"
+      ],
+      "outputs": [
+        "offline content report"
+      ],
+      "method": "python3 tools/apex_content_registry.py gate ID VERSION CONSUMER SHA",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No game mutation, asset import, external ingestion or execution authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -743,6 +865,15 @@
     {
       "left": "foundation",
       "left_version": "0.2.0",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Target interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.2.1",
       "right": "python",
       "right_version": "3.10",
       "status": "NOT_RUN",
@@ -847,6 +978,18 @@
     },
     {
       "id": "dataset-consumer.v1",
+      "status": "active"
+    },
+    {
+      "id": "content-link.v1",
+      "status": "active"
+    },
+    {
+      "id": "content-entity.v1",
+      "status": "active"
+    },
+    {
+      "id": "content-consumer.v1",
       "status": "active"
     }
   ]

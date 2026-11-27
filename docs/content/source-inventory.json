@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "repository": "Jugadru/APEX-Simulation",
+  "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+  "scope": "Git tree presence only; no extraction, rights or compatibility review",
+  "paths": [
+    {
+      "path": "data/season_2012.json",
+      "blob_sha": "23f40c722b691048f512580fd784543c34b5f7ff",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/data/season_2012.json"
+    },
+    {
+      "path": "data/spa_track.json",
+      "blob_sha": "738f1d0f2aa4d167e46ed0ce311aace00bcaf753",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/data/spa_track.json"
+    },
+    {
+      "path": "data/teams.json",
+      "blob_sha": "3fcf6d998652c3676bdec0fffb546300b61ededc",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/data/teams.json"
+    },
+    {
+      "path": "data/track_physics_2012.json",
+      "blob_sha": "f467b14def47090f4df5b57c70cb33fc7af15551",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/data/track_physics_2012.json"
+    },
+    {
+      "path": "data/tyres_2012.json",
+      "blob_sha": "51220782982b4e6ac14f6db0b5004d43fd2db2b3",
+      "url": "https://github.com/Jugadru/APEX-Simulation/blob/9dfc18de49083260b1a9524513b415e1551fdabf/data/tyres_2012.json"
+    }
+  ]
+}

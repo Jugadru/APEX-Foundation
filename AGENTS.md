@@ -9,3 +9,5 @@ Antes de integrar: validar catálogos e registry, rodar todos os testes Python, 
 Para mudanças arquiteturais, consultar [Architecture Intelligence](docs/architecture/README.md), executar impact/gate com base exata e encaminhar validação ao consumidor. Gate não autoriza execução nem substitui o grafo literal do Lab.
 
 Para datasets, consultar [Data Center](docs/data/README.md); preservar origem, revisão, unidades, política temporal e hash. Fixtures não são dados históricos. Nunca promover automaticamente para runtime.
+
+Para conteúdo, consultar [Content Registry](docs/content/README.md). Usar identidades e versões exatas, relações fechadas e direitos explícitos. Fixtures não são conteúdo jogável; assets metadata-only não são arquivos reais.
