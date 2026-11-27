@@ -1,0 +1,72 @@
+name: One-time Hub consumer verification (do not merge)
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  consumer:
+    if: github.head_ref == 'verify/hub-1-2-consumer' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      FOUNDATION_SHA: 1c226891f24796d0a14535693d32f626a5b476f5
+      HUB_SHA: 37d09166f117b6256ecd59ece3ad8dcd7c4cff52
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: harness
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 1c226891f24796d0a14535693d32f626a5b476f5
+          path: foundation
+          persist-credentials: false
+      - name: Verify pinned consumer snapshot Git blob hashes
+        working-directory: harness/qa/hub-consumer-smoke
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, subprocess, os
+          source = json.loads(pathlib.Path("source.json").read_text())
+          assert source["sha"] == os.environ["HUB_SHA"]
+          assert source["foundation_sha"] == os.environ["FOUNDATION_SHA"]
+          for path, expected in source["files"].items():
+              actual = subprocess.check_output(["git", "hash-object", "--", path], text=True).strip()
+              assert actual == expected, path
+          print("EXACT_HUB_BLOB_SNAPSHOT_PASS", source["sha"], len(source["files"]))
+          PY
+      - name: Execute real Foundation via exact Hub consumer
+        working-directory: harness/qa/hub-consumer-smoke
+        run: |
+          python3 -m hub.orchestrator run contracts/foundation.example.json \
+            --trusted-checkouts \
+            --checkout foundation "$GITHUB_WORKSPACE/foundation" "$FOUNDATION_SHA" \
+            --registry "$RUNNER_TEMP/registry" --output "$RUNNER_TEMP/consumer-evidence" \
+            > "$RUNNER_TEMP/consumer-report.json"
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess, sys
+          root = pathlib.Path(os.environ["RUNNER_TEMP"])
+          out = root / "consumer-evidence"
+          report = json.loads((out / "report.json").read_text())
+          meta = json.loads((out / "discover/foundation-capabilities.json").read_text())
+          assert report["status"] == "PASS" and len(report["tasks"]) == 2
+          assert meta["foundation_version"] == "0.2.1"
+          assert meta["foundation_sha"] == os.environ["FOUNDATION_SHA"]
+          assert len(meta["capabilities"]) == 31 and not meta["execution_authorized"]
+          assert sum(c["state"] == "ADAPTER_MATCH" for c in meta["capabilities"]) == 1
+          assert all(not c["execution_authorized"] for c in meta["capabilities"])
+          row = json.loads(subprocess.check_output([sys.executable, "-m", "hub.registry", "--registry",
+                            str(root / "registry"), "show", report["session_id"]]))
+          assert row["phase"] == "FINISHED" and row["report"] == report
+          print("REAL_FOUNDATION_CONSUMER_PASS", os.environ["HUB_SHA"], meta["foundation_sha"], len(meta["capabilities"]), report["session_id"])
+          PY
+      - name: Retain private evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: exact-hub-consumer-evidence
+          path: ${{ runner.temp }}/consumer-evidence
+          retention-days: 7
+          if-no-files-found: warn

@@ -1,0 +1,12 @@
+{
+  "repository": "Jugadru/Jugadru-APEX-Lab-Hub",
+  "sha": "37d09166f117b6256ecd59ece3ad8dcd7c4cff52",
+  "files": {
+    "hub/__init__.py": "ea211d5d6d99516ee069aa6322313c9624ba28c1",
+    "hub/orchestrator.py": "f46a9623239982bd2b134ffdab6cb5303fde6e57",
+    "hub/registry.py": "68d4abe388ac156d4779a789c49248d41a6be0d9",
+    "hub/foundation.py": "bbf2f06fc1ab14f54affe6f2cb6a1aeac80aebfb",
+    "contracts/foundation.example.json": "4bc5fa28d0e68eaba0a6d9a5626e2ed7998cc797"
+  },
+  "foundation_sha": "1c226891f24796d0a14535693d32f626a5b476f5"
+}
