@@ -34,3 +34,6 @@
 
 ## v0.3.0 — Persistence & Migration
 - Três formatos sintéticos, duas migrações allowlisted, envelopes e hashes, proteção de progresso, detecção de corrupção, plano de recuperação sem escrita, oito ponteiros SaveGuard e gate de consumidor. Correção config: invariantes de telemetria independem da remoção de regras. Nenhum save real ou consumidor alterado.
+
+## v0.3.1 — Artifact & Evidence Center
+- Oito recibos reais de CI com trechos observados, integridade de fixture local, comparação sintética com escopo compatível, notas e gate bloqueado. Reutiliza artifact.v1. Correção persistence: escopo do principal, checksum registrado e geração confiável em recuperação sintética. Nenhum consumidor alterado.

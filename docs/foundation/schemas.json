@@ -1417,5 +1417,319 @@
       "policy"
     ],
     "additionalProperties": false
+  },
+  "evidence-ci-receipt.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "repository": {
+        "type": "string",
+        "enum": [
+          "Jugadru/APEX-Foundation"
+        ]
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "[0-9a-f]{40}"
+      },
+      "run_id": {
+        "type": "integer"
+      },
+      "job_id": {
+        "type": "integer"
+      },
+      "attempt": {
+        "type": "integer"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "pull_request",
+          "push"
+        ]
+      },
+      "workflow": {
+        "type": "string",
+        "enum": [
+          "APEX Foundation CI"
+        ]
+      },
+      "run_url": {
+        "type": "string",
+        "minLength": 1
+      },
+      "job_url": {
+        "type": "string",
+        "minLength": 1
+      },
+      "observed_at": {
+        "type": "string",
+        "minLength": 1
+      },
+      "conclusion": {
+        "type": "string",
+        "enum": [
+          "success"
+        ]
+      },
+      "python": {
+        "type": "string",
+        "minLength": 1
+      },
+      "test_count": {
+        "type": "integer"
+      },
+      "markers": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "FOUNDATION_PYTHON_ONLY"
+        ]
+      },
+      "source_state": {
+        "type": "string",
+        "enum": [
+          "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "repository",
+      "revision",
+      "run_id",
+      "job_id",
+      "attempt",
+      "event",
+      "workflow",
+      "run_url",
+      "job_url",
+      "observed_at",
+      "conclusion",
+      "python",
+      "test_count",
+      "markers",
+      "scope",
+      "source_state"
+    ],
+    "additionalProperties": false
+  },
+  "evidence-artifact-record.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "artifact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "test",
+              "benchmark",
+              "capture",
+              "model",
+              "report",
+              "build"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "revision": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "producer": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN",
+              "INCONCLUSIVE",
+              "BLOCKED"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "sha256",
+          "revision",
+          "producer",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "path": {
+        "type": "string",
+        "minLength": 1
+      },
+      "size_bytes": {
+        "type": "integer"
+      },
+      "origin": {
+        "type": "string",
+        "enum": [
+          "SYNTHETIC_FIXTURE"
+        ]
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "LOCAL_BYTES_ONLY"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "artifact",
+      "path",
+      "size_bytes",
+      "origin",
+      "scope"
+    ],
+    "additionalProperties": false
+  },
+  "evidence-benchmark.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "[0-9a-f]{40}"
+      },
+      "environment": {
+        "type": "string",
+        "minLength": 1
+      },
+      "harness": {
+        "type": "string",
+        "minLength": 1
+      },
+      "workload": {
+        "type": "string",
+        "minLength": 1
+      },
+      "metric": {
+        "type": "string",
+        "enum": [
+          "duration-us"
+        ]
+      },
+      "samples": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "uniqueItems": false
+      },
+      "origin": {
+        "type": "string",
+        "enum": [
+          "SYNTHETIC_FIXTURE"
+        ]
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "COMPARISON_DEMO_ONLY"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "revision",
+      "environment",
+      "harness",
+      "workload",
+      "metric",
+      "samples",
+      "origin",
+      "scope"
+    ],
+    "additionalProperties": false
+  },
+  "evidence-note.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "decision",
+          "regression"
+        ]
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "[0-9a-f]{40}"
+      },
+      "source_url": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "NOT_RUN",
+          "BLOCKED"
+        ]
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "DOCUMENTED_DECISION",
+          "DOCUMENTED_REGRESSION"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "kind",
+      "revision",
+      "source_url",
+      "title",
+      "description",
+      "status",
+      "scope"
+    ],
+    "additionalProperties": false
   }
 }

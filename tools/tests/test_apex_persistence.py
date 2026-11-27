@@ -77,6 +77,19 @@ class PersistenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.p.recovery(s)
 
+    def test_recovery_scope_and_untrusted_checksum(self):
+        s=self.p.scenario("corrupt-primary")
+        s.update(consumer="hyper",revision=self.p.consumers["hyper"])
+        with self.assertRaises(ValueError):
+            self.p.recovery(s)
+        s=self.p.scenario("corrupt-primary")
+        s["primary"]["expected_sha256"]=p.digest(self.p.fixtures["career-corrupt"])
+        self.assertEqual(self.p.recovery(s)["decision"],"REVIEW_BACKUPS")
+        s=self.p.scenario("corrupt-primary")
+        s["primary"]={"id":"career-baseline","expected_sha256":"0"*64}
+        s["backups"]=[{"id":"career-primary","expected_sha256":self.p.expected["career-primary"]}]
+        self.assertEqual(self.p.recovery(s)["decision"],"NO_VALID_BACKUP")
+
     def test_scope_and_gate(self):
         s=self.p.scenario("corrupt-primary")
         s["revision"]="0"*40

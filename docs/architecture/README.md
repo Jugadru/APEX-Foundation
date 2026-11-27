@@ -37,3 +37,6 @@ Baseline avançado para v0.2.1; Configuration Management experimental depende da
 
 ## Atualização v0.3.0
 Baseline avançado para v0.2.2; Persistence Management experimental, sem substituir SaveGuard, sem escrever saves. Três novos contratos de metadados.
+
+## Atualização v0.3.1
+Baseline avançado para v0.3.0, Evidence Center experimental depende da Foundation; quatro novos contratos de metadados. Labs mantêm responsabilidade nativa.

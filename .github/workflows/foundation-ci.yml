@@ -69,6 +69,15 @@ jobs:
           set -e
           test "$corrupt_status" -eq 1
           test "$gate_status" -eq 1
+          python3 tools/apex_evidence.py validate | tee ci-results/evidence.log
+          python3 tools/apex_evidence.py history | tee ci-results/evidence-history.log
+          python3 tools/apex_evidence.py verify fixture.bytes | tee ci-results/evidence-integrity.log
+          python3 tools/apex_evidence.py compare demo.baseline demo.candidate | tee ci-results/evidence-comparison.log
+          set +e
+          python3 tools/apex_evidence.py gate 47f18184ece6473242b56c695e06512f5ef769d6 > ci-results/evidence-gate.json
+          gate_status=$?
+          set -e
+          test "$gate_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()

@@ -15,9 +15,9 @@ class ArchitectureTests(unittest.TestCase):
 
     def test_coverage(self):
         s=self.arch.stats()
-        self.assertEqual((s["modules"],s["capabilities"],s["active_contracts"],s["deferred_contracts"]),(22,43,21,10))
+        self.assertEqual((s["modules"],s["capabilities"],s["active_contracts"],s["deferred_contracts"]),(23,50,25,10))
         self.assertEqual(s["pinned_external_repositories"],3)
-        self.assertEqual(s["candidate_contract_bindings"],31)
+        self.assertEqual(s["candidate_contract_bindings"],35)
         self.assertFalse(s["runtime_verified"])
         self.assertEqual(s["fingerprint"],a.load().fingerprint)
 
@@ -77,8 +77,8 @@ class ArchitectureTests(unittest.TestCase):
     def test_contract_diff(self):
         report=self.arch.contract_diff()
         self.assertEqual(report["status"],"PASS")
-        self.assertEqual(sum(x["state"]=="UNCHANGED" for x in report["contracts"]),18)
-        self.assertEqual(sum(x["state"]=="ADDED" for x in report["contracts"]),3)
+        self.assertEqual(sum(x["state"]=="UNCHANGED" for x in report["contracts"]),21)
+        self.assertEqual(sum(x["state"]=="ADDED" for x in report["contracts"]),4)
         arch=copy.deepcopy(self.arch)
         arch.schemas["module.v1"]["properties"]["name"]["minLength"]=2
         self.assertEqual(arch.contract_diff()["status"],"BLOCKED")

@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.3.0",
+  "foundation_version": "0.3.1",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -254,6 +254,19 @@
       ],
       "entrypoints": [
         "tools/apex_persistence.py"
+      ]
+    },
+    {
+      "id": "evidence-center",
+      "name": "Artifact & Evidence Center",
+      "version": "0.3.1",
+      "maturity": "experimental",
+      "state_owner": "Offline evidence receipts, integrity and comparisons; no release authority",
+      "dependencies": [
+        "foundation"
+      ],
+      "entrypoints": [
+        "tools/apex_evidence.py"
       ]
     }
   ],
@@ -1032,6 +1045,132 @@
       "restrictions": [
         "No user saves, filesystem writes, native migration, restore or execution authorization"
       ]
+    },
+    {
+      "id": "evidence.validate",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
+    },
+    {
+      "id": "evidence.history",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py history",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
+    },
+    {
+      "id": "evidence.inspect",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py show ID",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
+    },
+    {
+      "id": "evidence.integrity",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py verify ID",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
+    },
+    {
+      "id": "evidence.compare",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py compare BASE CANDIDATE",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
+    },
+    {
+      "id": "evidence.gate",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py gate SHA",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
+    },
+    {
+      "id": "evidence.notes",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "registered evidence metadata"
+      ],
+      "outputs": [
+        "offline evidence report"
+      ],
+      "method": "python3 tools/apex_evidence.py notes",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No CI dispatch, network, artifact promotion, or release authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -1137,6 +1276,15 @@
     {
       "left": "foundation",
       "left_version": "0.3.0",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Minimum target; exact interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.3.1",
       "right": "python",
       "right_version": "3.10",
       "status": "NOT_RUN",
@@ -1277,6 +1425,22 @@
     },
     {
       "id": "persistence-recovery.v1",
+      "status": "active"
+    },
+    {
+      "id": "evidence-ci-receipt.v1",
+      "status": "active"
+    },
+    {
+      "id": "evidence-artifact-record.v1",
+      "status": "active"
+    },
+    {
+      "id": "evidence-benchmark.v1",
+      "status": "active"
+    },
+    {
+      "id": "evidence-note.v1",
       "status": "active"
     }
   ]

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "demo.baseline",
+      "revision": "47f18184ece6473242b56c695e06512f5ef769d6",
+      "environment": "synthetic-host-a",
+      "harness": "synthetic-harness-v1",
+      "workload": "synthetic-fixed-workload-v1",
+      "metric": "duration-us",
+      "samples": [
+        100,
+        105,
+        95,
+        100,
+        100
+      ],
+      "origin": "SYNTHETIC_FIXTURE",
+      "scope": "COMPARISON_DEMO_ONLY"
+    },
+    {
+      "id": "demo.candidate",
+      "revision": "47f18184ece6473242b56c695e06512f5ef769d6",
+      "environment": "synthetic-host-a",
+      "harness": "synthetic-harness-v1",
+      "workload": "synthetic-fixed-workload-v1",
+      "metric": "duration-us",
+      "samples": [
+        110,
+        115,
+        105,
+        110,
+        110
+      ],
+      "origin": "SYNTHETIC_FIXTURE",
+      "scope": "COMPARISON_DEMO_ONLY"
+    },
+    {
+      "id": "demo.other-host",
+      "revision": "47f18184ece6473242b56c695e06512f5ef769d6",
+      "environment": "synthetic-host-b",
+      "harness": "synthetic-harness-v1",
+      "workload": "synthetic-fixed-workload-v1",
+      "metric": "duration-us",
+      "samples": [
+        80,
+        85,
+        75,
+        80,
+        80
+      ],
+      "origin": "SYNTHETIC_FIXTURE",
+      "scope": "COMPARISON_DEMO_ONLY"
+    }
+  ]
+}
