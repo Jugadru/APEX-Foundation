@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.3.1",
+  "foundation_version": "0.4.0",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -178,11 +178,17 @@
     {
       "id": "modding",
       "name": "Modding Framework",
-      "version": null,
-      "maturity": "planned",
-      "state_owner": "Content metadata",
-      "dependencies": [],
-      "entrypoints": []
+      "version": "0.4.0",
+      "maturity": "experimental",
+      "state_owner": "Offline mod manifests and preview plans only",
+      "dependencies": [
+        "foundation",
+        "content-registry",
+        "configuration-management"
+      ],
+      "entrypoints": [
+        "tools/apex_modding.py"
+      ]
     },
     {
       "id": "godot",
@@ -1171,6 +1177,150 @@
       "restrictions": [
         "No CI dispatch, network, artifact promotion, or release authorization"
       ]
+    },
+    {
+      "id": "modding.validate",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.inspect",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py show ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.resolve",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py plan SELECTION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.package",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py package ID VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.zip",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py inspect-zip PATH",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.remove",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py remove SELECTION ID",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.rollback",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py rollback SELECTION ID",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
+    },
+    {
+      "id": "modding.gate",
+      "module": "modding",
+      "version": "1.0.0",
+      "inputs": [
+        "registered mod fixture metadata"
+      ],
+      "outputs": [
+        "offline modding report"
+      ],
+      "method": "python3 tools/apex_modding.py gate SELECTION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No extraction, script execution, installation, file replacement, network or authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -1285,6 +1435,15 @@
     {
       "left": "foundation",
       "left_version": "0.3.1",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Minimum target; exact interpreter not independently tested",
+      "migration": "Test exact interpreter and record evidence"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.4.0",
       "right": "python",
       "right_version": "3.10",
       "status": "NOT_RUN",
@@ -1441,6 +1600,18 @@
     },
     {
       "id": "evidence-note.v1",
+      "status": "active"
+    },
+    {
+      "id": "mod-reference.v1",
+      "status": "active"
+    },
+    {
+      "id": "mod-manifest.v1",
+      "status": "active"
+    },
+    {
+      "id": "mod-selection.v1",
       "status": "active"
     }
   ]

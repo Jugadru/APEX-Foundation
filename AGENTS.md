@@ -17,3 +17,5 @@ Para configurações, consultar [Configuration Management](docs/config/README.md
 Para persistência, consultar [Persistence & Migration](docs/persistence/README.md). Não ler ou modificar saves reais; preservar SaveGuard nativo e exigir evidência no consumidor. Migrações Foundation são sintéticas e em memória.
 
 Para evidências, consultar [Artifact & Evidence Center](docs/evidence/README.md). Exigir SHA exato, distinguir observação histórica de validação atual e nunca inferir PASS de fixture, hash ou arquivo presente. Não promover artefatos nem publicar releases automaticamente.
+
+Para mods, consultar [Modding Infrastructure](docs/modding/README.md). Validar versões, escopo, permissões e conflitos; nunca extrair ou executar pacotes, instalar mods ou modificar arquivos originais por meio desta ferramenta.

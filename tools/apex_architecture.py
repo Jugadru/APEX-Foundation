@@ -12,8 +12,8 @@ import apex_knowledge as k
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs" / "architecture"
-VERSION = "0.3.1"
-BASE = "47f18184ece6473242b56c695e06512f5ef769d6"
+VERSION = "0.4.0"
+BASE = "cfc4ae7bee480d922bf48c1fcba3b37cd8be658f"
 REPOS = {"core2":"Jugadru/APEX-Simulation","hyper":"Jugadru/APEX-Hyper-Engine",
          "lab":"Jugadru/apex-godot-simulation-architect"}
 SCOPE = "Declared dependency graph and candidate ownership; not a runtime import graph"
@@ -197,7 +197,8 @@ class Architecture:
                 raise ValueError("unsafe change path")
             if repo=="foundation":
                 # Foundation is its own metadata repository, not a sporting runtime.
-                mids=(["evidence-center"] if path.startswith(("docs/evidence/","data/evidence/")) or path in ("tools/apex_evidence.py","tools/tests/test_apex_evidence.py") else
+                mids=(["modding"] if path.startswith(("docs/modding/","data/modding/")) or path in ("tools/apex_modding.py","tools/tests/test_apex_modding.py") else
+                      ["evidence-center"] if path.startswith(("docs/evidence/","data/evidence/")) or path in ("tools/apex_evidence.py","tools/tests/test_apex_evidence.py") else
                       ["persistence-management"] if path.startswith(("docs/persistence/","data/persistence/")) or path in ("tools/apex_persistence.py","tools/tests/test_apex_persistence.py") else
                       ["configuration-management"] if path.startswith(("docs/config/","data/config/")) or path in ("tools/apex_config.py","tools/tests/test_apex_config.py") else
                       ["content-registry"] if path.startswith(("docs/content/","data/content/")) or path in ("tools/apex_content_registry.py","tools/tests/test_apex_content_registry.py") else

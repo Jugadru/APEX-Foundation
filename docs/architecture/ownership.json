@@ -124,9 +124,9 @@
     {
       "id": "modding",
       "repository": "foundation",
-      "role": "planned",
-      "boundary": "Proposed metadata; no arbitrary script execution",
-      "validation": "Future scoped modding validation; NOT_RUN",
+      "role": "metadata-authority",
+      "boundary": "Read-only manifest, package inspection and overlay preview; no runtime installation or script execution",
+      "validation": "Foundation modding regressions; consumer mod loader NOT_RUN",
       "owner_state": "DECLARED_POLICY"
     },
     {
@@ -606,6 +606,45 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Historical receipt and fixture metadata; no native producer integration"
+    },
+    {
+      "id": "mod-reference.v1",
+      "steward": "modding",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "content-registry"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic data-only fixtures; no native mod loader"
+    },
+    {
+      "id": "mod-manifest.v1",
+      "steward": "modding",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "content-registry"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic data-only fixtures; no native mod loader"
+    },
+    {
+      "id": "mod-selection.v1",
+      "steward": "modding",
+      "consumers": [
+        "foundation",
+        "core2",
+        "hyper",
+        "content-registry"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Synthetic data-only fixtures; no native mod loader"
     }
   ]
 }

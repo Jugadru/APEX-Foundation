@@ -37,3 +37,6 @@
 
 ## v0.3.1 — Artifact & Evidence Center
 - Oito recibos reais de CI com trechos observados, integridade de fixture local, comparação sintética com escopo compatível, notas e gate bloqueado. Reutiliza artifact.v1. Correção persistence: escopo do principal, checksum registrado e geração confiável em recuperação sintética. Nenhum consumidor alterado.
+
+## v0.4.0 — Modding Infrastructure
+- Manifestos sintéticos, dependências exatas, conflitos, permissões fechadas, preview de rótulos, inspeção ZIP sem extração, remoção/rollback planejados e gate bloqueado. Registry: percurso iterativo de dependências, evitando recursão e visitas redundantes. Nenhum consumidor modificado.

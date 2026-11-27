@@ -1,0 +1,14 @@
+{
+  "consumer": "core2",
+  "revision": "9dfc18de49083260b1a9524513b415e1551fdabf",
+  "requested": [
+    {
+      "id": "demo.season",
+      "version": "1.0.0"
+    },
+    {
+      "id": "demo.rival",
+      "version": "1.0.0"
+    }
+  ]
+}

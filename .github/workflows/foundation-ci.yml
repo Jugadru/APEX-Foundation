@@ -78,6 +78,18 @@ jobs:
           gate_status=$?
           set -e
           test "$gate_status" -eq 1
+          python3 tools/apex_modding.py validate | tee ci-results/modding.log
+          python3 tools/apex_modding.py plan docs/modding/selection.example.json | tee ci-results/modding-plan.log
+          python3 tools/apex_modding.py package demo.driver 1.0.0 | tee ci-results/modding-package.log
+          python3 tools/apex_modding.py remove docs/modding/selection.example.json demo.season | tee ci-results/modding-remove.log
+          set +e
+          python3 tools/apex_modding.py plan docs/modding/conflict.example.json > ci-results/modding-conflict.json
+          conflict_status=$?
+          python3 tools/apex_modding.py gate docs/modding/selection.example.json > ci-results/modding-gate.json
+          gate_status=$?
+          set -e
+          test "$conflict_status" -eq 1
+          test "$gate_status" -eq 1
           python3 -m unittest discover -s tools/tests -p 'test_*.py' -v 2>&1 | tee ci-results/tests.log
       - name: Retain validation logs
         if: always()
