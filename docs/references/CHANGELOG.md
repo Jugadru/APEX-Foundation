@@ -53,3 +53,5 @@
 
 ## v0.6.0 — Core 2 metadata adapter
 - Closed core2-metadata.v1 contract, read-only local receiver and exact source-projection verification; seven regression tests. Consumer native evidence remains separately scoped. Historical pins preserved, no runtime authority transfer.
+
+- Corrective CI review: initial v0.6.0 workflow failed before steps, detailed annotation unavailable. Simplify cross-repository checkout to explicit anonymous Git sparse fetch of the same reviewed SHA; do not weaken acceptance or count initial run as executed tests.
