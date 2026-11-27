@@ -1,0 +1,12 @@
+{
+  "hub": "f12dd55b1e6556b37cb22894e4203bf0529fa248",
+  "provider": "1c226891f24796d0a14535693d32f626a5b476f5",
+  "files": {
+    "hub/__init__.py": "08d83275c5b41b72f1c5904d81686778a1a37d8d",
+    "hub/orchestrator.py": "f46a9623239982bd2b134ffdab6cb5303fde6e57",
+    "hub/registry.py": "68d4abe388ac156d4779a789c49248d41a6be0d9",
+    "hub/foundation.py": "bbf2f06fc1ab14f54affe6f2cb6a1aeac80aebfb",
+    "hub/graphics.py": "efc83641c3852619a8a8211cdbb78a0b0f5b8750",
+    "hub/research.py": "f5f9907d16dd57e933ea057d95e3527b92524d9c"
+  }
+}

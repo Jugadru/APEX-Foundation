@@ -1,0 +1,55 @@
+name: One-time Hub research foundation verification (do not merge)
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  consumer:
+    if: github.head_ref == 'verify/hub-1-6-research' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PROVIDER_SHA: 1c226891f24796d0a14535693d32f626a5b476f5
+      HUB_SHA: f12dd55b1e6556b37cb22894e4203bf0529fa248
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: harness
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 1c226891f24796d0a14535693d32f626a5b476f5
+          path: provider
+          persist-credentials: false
+      - name: Verify exact Hub blobs and real provider
+        working-directory: harness/qa/hub-research-smoke
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,subprocess
+          src=json.loads(pathlib.Path("source.json").read_text())
+          assert src["hub"]==os.environ["HUB_SHA"] and src["provider"]==os.environ["PROVIDER_SHA"]
+          for path,sha in src["files"].items():
+              assert subprocess.check_output(["git","hash-object","--",path],text=True).strip()==sha
+          print("HUB_RESEARCH_EXACT_SNAPSHOT_PASS",src["hub"],len(src["files"]))
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])/"research-evidence"
+          root.mkdir()
+          provider=pathlib.Path(os.environ["GITHUB_WORKSPACE"])/"provider"
+          from hub.research import foundation_packet
+          p=foundation_packet(provider,root/"foundation-packet",["IDEA-033","IDEA-034","REF-105","IDEA-010","IDEA-011","REF-107","IDEA-041","IDEA-045","IDEA-048","REF-106"])
+          assert p["execution_authorized"] is False and p["production_approved"] is False
+          assert len(p["idea_plans"])==7
+          result={"packet":p,"status":"PASS"}
+          print("REAL_FOUNDATION_RESEARCH_PASS",len(p["sources"]),len(p["idea_plans"]))
+          (root/"summary.json").write_text(json.dumps(result,indent=2))
+          PY
+      - name: Retain private evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: hub-research-foundation-evidence
+          path: ${{ runner.temp }}/research-evidence/
+          retention-days: 7
+          if-no-files-found: warn
