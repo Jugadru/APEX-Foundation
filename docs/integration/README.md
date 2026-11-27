@@ -23,3 +23,6 @@ See [Revision Reconciliation](RECONCILIATION.md). Three new offline SDK routes: 
 
 ## v0.6.0
 See [Core 2 metadata adapter](CORE2_ADAPTER.md). Schema available via SDK; explicit checkout verification is standalone and blocked through the gateway.
+
+## v0.6.1 candidate
+See [Independent Hyper adapter](HYPER_ADAPTER.md).

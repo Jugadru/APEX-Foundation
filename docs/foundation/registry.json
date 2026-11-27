@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.6.0",
+  "foundation_version": "0.6.1",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -278,7 +278,7 @@
     {
       "id": "integration-gateway",
       "name": "Foundation Ecosystem Integration",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "maturity": "experimental",
       "state_owner": "Offline SDK, gateway and adoption planning; no native runtime authority",
       "dependencies": [
@@ -294,7 +294,8 @@
         "tools/apex_sdk.py",
         "tools/apex.py",
         "tools/apex_reconcile.py",
-        "tools/apex_core2_metadata.py"
+        "tools/apex_core2_metadata.py",
+        "tools/apex_hyper_metadata.py"
       ]
     }
   ],
@@ -1541,6 +1542,42 @@
       "restrictions": [
         "No network, consumer mutation, runtime authority, save access, automatic import or release authorization"
       ]
+    },
+    {
+      "id": "integration.hyper-contract",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "Hyper laboratory metadata contract or explicit local report and exact checkout"
+      ],
+      "outputs": [
+        "offline schema or independently verified laboratory declarations"
+      ],
+      "method": "python3 tools/apex.py call integration.hyper-contract",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No network, consumer mutation, runtime authority, save access, automatic import or release authorization"
+      ]
+    },
+    {
+      "id": "integration.hyper-verify",
+      "module": "integration-gateway",
+      "version": "1.0.0",
+      "inputs": [
+        "Hyper laboratory metadata contract or explicit local report and exact checkout"
+      ],
+      "outputs": [
+        "offline schema or independently verified laboratory declarations"
+      ],
+      "method": "python3 tools/apex_hyper_metadata.py REPORT --revision SHA --source-root CHECKOUT",
+      "permissions": [
+        "read.local"
+      ],
+      "restrictions": [
+        "No network, consumer mutation, runtime authority, save access, automatic import or release authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -1891,6 +1928,10 @@
     },
     {
       "id": "core2-metadata.v1",
+      "status": "active"
+    },
+    {
+      "id": "hyper-metadata.v1",
       "status": "active"
     }
   ]

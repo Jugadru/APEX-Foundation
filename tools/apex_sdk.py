@@ -21,7 +21,7 @@ import apex_reconcile as reconcile
 
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/"docs"/"integration"
-VERSION="0.6.0"
+VERSION="0.6.1"
 STATES={"PASS","FAIL","NOT_RUN","INCONCLUSIVE","BLOCKED"}
 # Static code routes. Neither manifests nor request data select Python attributes.
 # Tuple: service, method, min/max positional arguments, profile, structured field.
@@ -87,6 +87,7 @@ ROUTES={
     "integration.native-evidence":("reconciliation","native_report",0,0,"reader",None),
     "integration.candidates":("reconciliation","candidate_report",0,0,"reader",None),
     "integration.core2-contract":("sdk","core2_contract",0,0,"reader",None),
+    "integration.hyper-contract":("sdk","hyper_contract",0,0,"reader",None),
 }
 DENIED={
     "lab.request":"OWNER_HOSTED_WORKFLOW_ONLY",
@@ -97,6 +98,7 @@ DENIED={
     "release.test-build":"OWNER_HOSTED_WORKFLOW_ONLY",
     "modding.zip":"EXPLICIT_LOCAL_TOOL_ONLY",
     "integration.core2-verify":"EXPLICIT_LOCAL_TOOL_ONLY",
+    "integration.hyper-verify":"EXPLICIT_LOCAL_TOOL_ONLY",
 }
 NATIVE={
     "core2":["FAST exact candidate SHA","Native SaveGuard baseline/candidate","Read-only metadata mapping and regressions"],
@@ -214,6 +216,11 @@ class FoundationSDK:
     def core2_contract(self):
         return {"status":"PASS","scope":"local schema only","contract":"core2-metadata.v1",
                 "schema":deepcopy(self._schemas["core2-metadata.v1"]),"native_readiness":"BLOCKED",
+                "execution_authorized":False}
+
+    def hyper_contract(self):
+        return {"status":"PASS","scope":"local schema only","contract":"hyper-metadata.v1",
+                "schema":deepcopy(self._schemas["hyper-metadata.v1"]),"native_readiness":"BLOCKED",
                 "execution_authorized":False}
 
     def registry_report(self):

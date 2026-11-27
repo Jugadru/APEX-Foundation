@@ -2661,5 +2661,119 @@
       "body_sha256"
     ],
     "additionalProperties": false
+  },
+  "hyper-metadata.v1": {
+    "type": "object",
+    "properties": {
+      "body": {
+        "type": "object",
+        "properties": {
+          "contract": {
+            "type": "string",
+            "enum": [
+              "hyper-metadata.v1"
+            ]
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "hyper"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "isolated-longitudinal-lab"
+            ]
+          },
+          "revision": {
+            "type": "string",
+            "pattern": "[0-9a-f]{40}"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "enum": [
+                    "lab/longitudinal/experimental/hyper22/longitudinal_adapter.gd",
+                    "lab/longitudinal/experimental/hyper22/longitudinal_primitives.gd",
+                    "lab/longitudinal/tests/hyper22_longitudinal_adapter_test.gd"
+                  ]
+                },
+                "git_blob": {
+                  "type": "string",
+                  "pattern": "[0-9a-f]{40}"
+                },
+                "size_bytes": {
+                  "type": "integer"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "[0-9a-f]{64}"
+                }
+              },
+              "required": [
+                "path",
+                "git_blob",
+                "size_bytes",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "uniqueItems": true
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "adapter_revision": {
+                "type": "string",
+                "pattern": "[a-z0-9_]{1,100}"
+              },
+              "step_us": {
+                "type": "integer"
+              },
+              "max_previews": {
+                "type": "integer"
+              },
+              "rounding_tolerance_um": {
+                "type": "integer"
+              },
+              "max_speed_mps": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "adapter_revision",
+              "step_us",
+              "max_previews",
+              "rounding_tolerance_um",
+              "max_speed_mps"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "contract",
+          "engine",
+          "scope",
+          "revision",
+          "sources",
+          "parameters"
+        ],
+        "additionalProperties": false
+      },
+      "body_sha256": {
+        "type": "string",
+        "pattern": "[0-9a-f]{64}"
+      }
+    },
+    "required": [
+      "body",
+      "body_sha256"
+    ],
+    "additionalProperties": false
   }
 }
