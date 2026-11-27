@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": "4232e91fcf1bb83414145fa42d8945ddb2a7cd9b",
+  "revision": "47f18184ece6473242b56c695e06512f5ef769d6",
   "schemas": {
     "module.v1": {
       "type": "object",
@@ -1225,6 +1225,199 @@
         "requires",
         "forbids",
         "description"
+      ],
+      "additionalProperties": false
+    },
+    "persistence-manifest.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "career-fixture"
+          ]
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "foundation-fixture"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "enum": [
+            "1.0.0",
+            "2.0.0",
+            "3.0.0"
+          ]
+        },
+        "consumer": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "generation": {
+          "type": "integer"
+        },
+        "payload_sha256": {
+          "type": "string",
+          "pattern": "[0-9a-f]{64}"
+        },
+        "usage": {
+          "type": "string",
+          "enum": [
+            "TEST_ONLY"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "format",
+        "version",
+        "consumer",
+        "revision",
+        "season",
+        "generation",
+        "payload_sha256",
+        "usage"
+      ],
+      "additionalProperties": false
+    },
+    "persistence-route.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "from": {
+          "type": "string",
+          "enum": [
+            "1.0.0",
+            "2.0.0"
+          ]
+        },
+        "to": {
+          "type": "string",
+          "enum": [
+            "2.0.0",
+            "3.0.0"
+          ]
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "rename-budget",
+            "expand-progress"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "SYNTHETIC_ONLY"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "from",
+        "to",
+        "operation",
+        "scope",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "persistence-recovery.v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+        },
+        "primary": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+            },
+            "expected_sha256": {
+              "type": "string",
+              "pattern": "[0-9a-f]{64}"
+            }
+          },
+          "required": [
+            "id",
+            "expected_sha256"
+          ],
+          "additionalProperties": false
+        },
+        "backups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*"
+              },
+              "expected_sha256": {
+                "type": "string",
+                "pattern": "[0-9a-f]{64}"
+              }
+            },
+            "required": [
+              "id",
+              "expected_sha256"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        },
+        "consumer": {
+          "type": "string",
+          "enum": [
+            "core2",
+            "hyper"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "[0-9a-f]{40}"
+        },
+        "policy": {
+          "type": "string",
+          "enum": [
+            "EXPLICIT_BACKUP_REVIEW"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "primary",
+        "backups",
+        "consumer",
+        "revision",
+        "policy"
       ],
       "additionalProperties": false
     }

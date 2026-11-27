@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "decision.saveguard-boundary",
+      "kind": "decision",
+      "revision": "47f18184ece6473242b56c695e06512f5ef769d6",
+      "source_url": "https://github.com/Jugadru/APEX-Foundation/blob/47f18184ece6473242b56c695e06512f5ef769d6/docs/persistence/README.md",
+      "title": "Preserve native SaveGuard",
+      "description": "Foundation fixture migration does not replace native compatibility testing or restore player files.",
+      "status": "NOT_RUN",
+      "scope": "DOCUMENTED_DECISION"
+    },
+    {
+      "id": "regression.telemetry-invariant",
+      "kind": "regression",
+      "revision": "87628e51ede34524684e042a9473e13e142196db",
+      "source_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46062129501",
+      "title": "Telemetry prerequisite survives rule removal",
+      "description": "The Foundation regression test was observed passing in the exact candidate CI; no native validation claimed.",
+      "status": "PASS",
+      "scope": "DOCUMENTED_REGRESSION"
+    }
+  ]
+}

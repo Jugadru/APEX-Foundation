@@ -176,6 +176,14 @@
       "boundary": "Synthetic offline persistence; SaveGuard remains consumer QA authority",
       "validation": "Foundation fixture regressions; native SaveGuard required separately",
       "owner_state": "DECLARED_POLICY"
+    },
+    {
+      "id": "evidence-center",
+      "repository": "foundation",
+      "role": "metadata-authority",
+      "boundary": "Read-only historical observations, synthetic artifact verification and comparison; no execution or release",
+      "validation": "Foundation evidence tests; existing Labs retain native authority",
+      "owner_state": "DECLARED_POLICY"
     }
   ],
   "contracts": [
@@ -534,6 +542,70 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Synthetic offline persistence contract only; native save schema remains deferred"
+    },
+    {
+      "id": "evidence-ci-receipt.v1",
+      "steward": "evidence-center",
+      "consumers": [
+        "foundation",
+        "quality-lab",
+        "engineering-lab",
+        "performance-lab",
+        "graphics-lab",
+        "development-lab",
+        "release"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical receipt and fixture metadata; no native producer integration"
+    },
+    {
+      "id": "evidence-artifact-record.v1",
+      "steward": "evidence-center",
+      "consumers": [
+        "foundation",
+        "quality-lab",
+        "engineering-lab",
+        "performance-lab",
+        "graphics-lab",
+        "development-lab",
+        "release"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical receipt and fixture metadata; no native producer integration"
+    },
+    {
+      "id": "evidence-benchmark.v1",
+      "steward": "evidence-center",
+      "consumers": [
+        "foundation",
+        "quality-lab",
+        "engineering-lab",
+        "performance-lab",
+        "graphics-lab",
+        "development-lab",
+        "release"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical receipt and fixture metadata; no native producer integration"
+    },
+    {
+      "id": "evidence-note.v1",
+      "steward": "evidence-center",
+      "consumers": [
+        "foundation",
+        "quality-lab",
+        "engineering-lab",
+        "performance-lab",
+        "graphics-lab",
+        "development-lab",
+        "release"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Historical receipt and fixture metadata; no native producer integration"
     }
   ]
 }

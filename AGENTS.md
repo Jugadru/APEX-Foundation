@@ -15,3 +15,5 @@ Para conteúdo, consultar [Content Registry](docs/content/README.md). Usar ident
 Para configurações, consultar [Configuration Management](docs/config/README.md). Usar versões exatas, separar ambientes e consumidores, preservar prioridade manual; nenhum perfil autoriza aplicação em runtime.
 
 Para persistência, consultar [Persistence & Migration](docs/persistence/README.md). Não ler ou modificar saves reais; preservar SaveGuard nativo e exigir evidência no consumidor. Migrações Foundation são sintéticas e em memória.
+
+Para evidências, consultar [Artifact & Evidence Center](docs/evidence/README.md). Exigir SHA exato, distinguir observação histórica de validação atual e nunca inferir PASS de fixture, hash ou arquivo presente. Não promover artefatos nem publicar releases automaticamente.

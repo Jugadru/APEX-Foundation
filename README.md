@@ -1,6 +1,6 @@
-# APEX Foundation v0.3.0
+# APEX Foundation v0.3.1
 
-Persistence & Migration + Configuration Management + Content Registry + Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
+Artifact & Evidence Center + Persistence & Migration + Configuration Management + Content Registry + Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
 [Contratos e comandos](docs/foundation/README.md) · [Biblioteca de referências](docs/references/README.md) · [Migração e evidências](docs/foundation/MIGRATION.md) · [AGENTS.md](AGENTS.md)
 
@@ -39,3 +39,6 @@ Foundation CI é independente; não substitui FAST esportivo. Sem promoção de 
 
 ## Persistence & Migration v0.3.0
 [Manual](docs/persistence/README.md) · [Routes](docs/persistence/routes.json) · [SaveGuard pointers](docs/persistence/saveguard-inventory.json). Synthetic offline only.
+
+## Artifact & Evidence Center v0.3.1
+[Manual](docs/evidence/README.md) · [CI receipts](docs/evidence/ci-receipts.json) · [Notes](docs/evidence/notes.json). Histórico observado, não atestação atual.

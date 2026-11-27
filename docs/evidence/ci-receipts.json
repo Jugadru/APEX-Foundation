@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "v0.1.0",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "68968d41c6e44972351e8f7886a49c48cc22e973",
+      "run_id": 45926410531,
+      "job_id": 140268628733,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45926410531",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45926410531/job/140268628733",
+      "observed_at": "2026-11-27T02:07:00Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 12,
+      "markers": [
+        "2026-11-27T02:06:56.7631184Z Python 3.14.4",
+        "2026-11-27T02:06:57.0577165Z Ran 12 tests in 0.027s",
+        "2026-11-27T02:06:57.0578036Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.1.1",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "b346ce231dfd83417535504c0cd1512aba6b9683",
+      "run_id": 45927863916,
+      "job_id": 140273356452,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45927863916",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45927863916/job/140273356452",
+      "observed_at": "2026-11-27T02:22:03Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 24,
+      "markers": [
+        "2026-11-27T02:21:58.2211379Z Python 3.14.4",
+        "2026-11-27T02:21:58.6346654Z Ran 24 tests in 0.061s",
+        "2026-11-27T02:21:58.6347336Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.1.2",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "b263ffdd92a75ef8677337580b2a3c5b9a4016ee",
+      "run_id": 45928247304,
+      "job_id": 140274598893,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45928247304",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45928247304/job/140274598893",
+      "observed_at": "2026-11-27T02:25:45Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 34,
+      "markers": [
+        "2026-11-27T02:25:38.7607662Z Python 3.14.4",
+        "2026-11-27T02:25:39.7806863Z Ran 34 tests in 0.170s",
+        "2026-11-27T02:25:39.7807976Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.2.0",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "bd0743fecb4200829ab13d700201fd989cab4f4d",
+      "run_id": 45928572767,
+      "job_id": 140275662654,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45928572767",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/45928572767/job/140275662654",
+      "observed_at": "2026-11-27T02:29:11Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 46,
+      "markers": [
+        "2026-11-27T02:29:04.7979332Z Python 3.14.4",
+        "2026-11-27T02:29:06.4809134Z Ran 46 tests in 0.169s",
+        "2026-11-27T02:29:06.4810078Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.2.1",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "f4e65988134f8e3ba6f04525427b2f514012d2c5",
+      "run_id": 46016834963,
+      "job_id": 140566001514,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46016834963",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46016834963/job/140566001514",
+      "observed_at": "2026-11-27T14:32:34Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 60,
+      "markers": [
+        "2026-11-27T14:32:29.5488473Z Python 3.14.4",
+        "2026-11-27T14:32:30.9687186Z Ran 60 tests in 0.215s",
+        "2026-11-27T14:32:30.9690852Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.2.2",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "db333933de4c2371ecb17bc1cf967de41bf7f1d0",
+      "run_id": 46061221069,
+      "job_id": 140715680500,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46061221069",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46061221069/job/140715680500",
+      "observed_at": "2026-11-27T20:05:49Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 72,
+      "markers": [
+        "2026-11-27T20:05:43.0503692Z Python 3.14.4",
+        "2026-11-27T20:05:45.1721536Z Ran 72 tests in 0.264s",
+        "2026-11-27T20:05:45.1722342Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.3.0",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "87628e51ede34524684e042a9473e13e142196db",
+      "run_id": 46062129501,
+      "job_id": 140718656678,
+      "attempt": 1,
+      "event": "pull_request",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46062129501",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46062129501/job/140718656678",
+      "observed_at": "2026-11-27T20:13:34Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 85,
+      "markers": [
+        "2026-11-27T20:13:27.5071366Z Python 3.14.4",
+        "2026-11-27T20:13:30.9712649Z Ran 85 tests in 0.388s",
+        "2026-11-27T20:13:30.9713375Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    },
+    {
+      "id": "v0.3.0-main",
+      "repository": "Jugadru/APEX-Foundation",
+      "revision": "47f18184ece6473242b56c695e06512f5ef769d6",
+      "run_id": 46062169561,
+      "job_id": 140718788049,
+      "attempt": 1,
+      "event": "push",
+      "workflow": "APEX Foundation CI",
+      "run_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46062169561",
+      "job_url": "https://github.com/Jugadru/APEX-Foundation/actions/runs/46062169561/job/140718788049",
+      "observed_at": "2026-11-27T20:13:58Z",
+      "conclusion": "success",
+      "python": "3.14.4",
+      "test_count": 85,
+      "markers": [
+        "2026-11-27T20:13:50.0707966Z Python 3.14.4",
+        "2026-11-27T20:13:52.8136657Z Ran 85 tests in 0.509s",
+        "2026-11-27T20:13:52.8136905Z OK"
+      ],
+      "scope": "FOUNDATION_PYTHON_ONLY",
+      "source_state": "OBSERVED_GITHUB_METADATA_AND_LOG_EXCERPT"
+    }
+  ]
+}

@@ -80,6 +80,7 @@ class Persistence:
         self.inventory=inventory
         self.fixtures={}
         self.expected={}
+        self.generations={}
         for row in fixtures["entries"]:
             k.strict_fields(row,{"id","version","generation","round","points","budget","corrupt"})
             ident=row["id"]
@@ -92,6 +93,7 @@ class Persistence:
             envelope={"manifest":manifest,"payload":value}
             self.verify(envelope)
             self.expected[ident]=digest(envelope)
+            self.generations[ident]=manifest["generation"]
             if row["corrupt"]:
                 envelope["payload"]["budget_units"]+=1
             self.fixtures[ident]=envelope
@@ -176,11 +178,16 @@ class Persistence:
         primary_id=primary["id"]
         if primary_id not in self.fixtures or scenario["revision"]!=self.consumers[scenario["consumer"]]:
             raise ValueError("unknown recovery fixture or revision")
+        primary_manifest=self.fixtures[primary_id]["manifest"]
+        if primary_manifest["consumer"]!=scenario["consumer"] or primary_manifest["revision"]!=scenario["revision"]:
+            raise ValueError("primary consumer scope mismatch")
         def candidate(row):
             ident=row["id"]
             envelope=self.fixtures[ident]
             m=envelope["manifest"]
             try:
+                if row["expected_sha256"]!=self.expected[ident]:
+                    raise ValueError("untrusted recovery checksum")
                 self.verify(envelope,row["expected_sha256"])
                 if m["consumer"]!=scenario["consumer"] or m["revision"]!=scenario["revision"]:
                     raise ValueError("consumer scope mismatch")
@@ -192,9 +199,9 @@ class Persistence:
             raise ValueError("duplicate or unknown backup")
         if candidate(primary):
             return {"status":"NOT_RUN","decision":"KEEP_VALID_PRIMARY","candidates":[],"restored":False,"execution_authorized":False}
-        generation=self.fixtures[primary_id]["manifest"]["generation"]
-        valid=[x["id"] for x in scenario["backups"] if candidate(x) and self.fixtures[x["id"]]["manifest"]["generation"]<=generation]
-        valid.sort(key=lambda ident:(-self.fixtures[ident]["manifest"]["generation"],ident))
+        generation=self.generations[primary_id]
+        valid=[x["id"] for x in scenario["backups"] if candidate(x) and self.generations[x["id"]]<=generation]
+        valid.sort(key=lambda ident:(-self.generations[ident],ident))
         # Never select automatically, even when only one candidate remains.
         return {"status":"NOT_RUN" if valid else "BLOCKED","decision":"REVIEW_BACKUPS" if valid else "NO_VALID_BACKUP",
                 "candidates":valid,"restored":False,"execution_authorized":False,"native_save_verified":False}

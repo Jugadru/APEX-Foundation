@@ -43,3 +43,6 @@ See [Research Intelligence](../knowledge/README.md). Foundation version 0.1.1 ad
 
 ## v0.3.0 — Persistence & Migration
 [Persistence manual](../persistence/README.md): three additive metadata contracts, fixture envelope checks, in-memory migration and recovery candidate plans. Native save and replay contracts remain deferred.
+
+## v0.3.1 — Artifact & Evidence Center
+[Evidence manual](../evidence/README.md): four additive contracts, historical CI receipts, artifact.v1 reuse, synthetic matched-context comparison and blocked release gate.
