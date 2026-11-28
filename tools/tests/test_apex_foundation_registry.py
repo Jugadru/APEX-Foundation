@@ -15,6 +15,16 @@ class RegistryTest(unittest.TestCase):
     def test_registry(self):
         self.assertEqual(f.validate_registry(self.reg, self.schemas)["status"], "PASS")
 
+    def test_registry_version_compatibility(self):
+        for version in ("0.6.0", "0.6.1"):
+            reg = copy.deepcopy(self.reg)
+            reg["foundation_version"] = version
+            self.assertEqual(f.validate_registry(reg, self.schemas)["status"], "PASS")
+        reg = copy.deepcopy(self.reg)
+        reg["foundation_version"] = "999.0.0"
+        with self.assertRaisesRegex(ValueError, "unsupported registry format"):
+            f.validate_registry(reg, self.schemas)
+
     def test_duplicate_and_cycle(self):
         for mutate in (
             lambda r: r["modules"].append(r["modules"][0]),
