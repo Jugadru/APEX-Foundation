@@ -767,6 +767,17 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Exact isolated longitudinal laboratory declaration projection only; no native runtime authority or sporting parity"
+    },
+    {
+      "id": "native-artifact-receipt.v1",
+      "steward": "evidence-center",
+      "consumers": [
+        "foundation",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Local immutable ZIP consistency audit, not a signed or live attestation; first scope isolated Hyper longitudinal fixture"
     }
   ]
 }
