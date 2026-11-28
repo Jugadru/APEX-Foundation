@@ -756,6 +756,17 @@
       "scope": "metadata",
       "state": "PROPOSED_BINDING",
       "note": "Read-only consumer metadata projection, exact revision identity, no runtime state transfer"
+    },
+    {
+      "id": "hyper-metadata.v1",
+      "steward": "integration-gateway",
+      "consumers": [
+        "foundation",
+        "hyper"
+      ],
+      "scope": "metadata",
+      "state": "PROPOSED_BINDING",
+      "note": "Exact isolated longitudinal laboratory declaration projection only; no native runtime authority or sporting parity"
     }
   ]
 }

@@ -129,6 +129,25 @@ jobs:
           test "$(git -C "$source_dir" rev-parse HEAD)" = "$consumer_sha"
           python3 "$source_dir/tools/apex_foundation_metadata.py" > "$RUNNER_TEMP/core2-metadata.json"
           python3 tools/apex_core2_metadata.py "$RUNNER_TEMP/core2-metadata.json" --revision "$consumer_sha" --source-root "$source_dir" | tee ci-results/core2-adapter-verification.json
+      - name: Verify Hyper integrated metadata from exact public revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          export GIT_TERMINAL_PROMPT=0
+          source_dir="$RUNNER_TEMP/apex-hyper-metadata-source"
+          consumer_sha="67c0f449e31e181a8bcbc8d47040d799463b3cd5"
+          git init -q "$source_dir"
+          git -C "$source_dir" remote add origin https://github.com/Jugadru/APEX-Hyper-Engine.git
+          git -C "$source_dir" config remote.origin.promisor true
+          git -C "$source_dir" config remote.origin.partialclonefilter blob:none
+          git -C "$source_dir" config core.sparseCheckout true
+          git -C "$source_dir" config core.sparseCheckoutCone false
+          printf '%s\n' /tools/apex_hyper_metadata.py /lab/longitudinal/experimental/hyper22/longitudinal_adapter.gd /lab/longitudinal/experimental/hyper22/longitudinal_primitives.gd /lab/longitudinal/tests/hyper22_longitudinal_adapter_test.gd > "$source_dir/.git/info/sparse-checkout"
+          git -C "$source_dir" -c protocol.version=2 fetch --no-tags --depth=1 --filter=blob:none origin "$consumer_sha"
+          git -C "$source_dir" checkout --detach FETCH_HEAD
+          test "$(git -C "$source_dir" rev-parse HEAD)" = "$consumer_sha"
+          python3 "$source_dir/tools/apex_hyper_metadata.py" > "$RUNNER_TEMP/hyper-metadata.json"
+          python3 tools/apex_hyper_metadata.py "$RUNNER_TEMP/hyper-metadata.json" --revision "$consumer_sha" --source-root "$source_dir" | tee ci-results/hyper-adapter-verification.json
       - name: Retain validation logs
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
