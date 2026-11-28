@@ -15,9 +15,9 @@ class ArchitectureTests(unittest.TestCase):
 
     def test_coverage(self):
         s=self.arch.stats()
-        self.assertEqual((s["modules"],s["capabilities"],s["active_contracts"],s["deferred_contracts"]),(24,69,36,10))
+        self.assertEqual((s["modules"],s["capabilities"],s["active_contracts"],s["deferred_contracts"]),(24,71,37,10))
         self.assertEqual(s["pinned_external_repositories"],3)
-        self.assertEqual(s["candidate_contract_bindings"],46)
+        self.assertEqual(s["candidate_contract_bindings"],47)
         self.assertFalse(s["runtime_verified"])
         self.assertEqual(s["fingerprint"],a.load().fingerprint)
 
@@ -74,11 +74,21 @@ class ArchitectureTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.arch.impact(dict(self.example,**change))
 
+    def test_hyper_metadata_ownership(self):
+        binding = self.arch.bindings["hyper-metadata.v1"]
+        self.assertEqual(binding["steward"], "integration-gateway")
+        self.assertEqual(set(binding["consumers"]), {"foundation", "hyper"})
+        self.assertEqual(binding["scope"], "metadata")
+        self.assertEqual(binding["state"], "PROPOSED_BINDING")
+
     def test_contract_diff(self):
         report=self.arch.contract_diff()
         self.assertEqual(report["status"],"PASS")
         self.assertEqual(sum(x["state"]=="UNCHANGED" for x in report["contracts"]),35)
-        self.assertEqual(sum(x["state"]=="ADDED" for x in report["contracts"]),1)
+        self.assertEqual(sum(x["state"]=="ADDED" for x in report["contracts"]),2
+        )
+        self.assertEqual({x["id"] for x in report["contracts"] if x["state"]=="ADDED"},
+                         {"core2-metadata.v1", "hyper-metadata.v1"})
         arch=copy.deepcopy(self.arch)
         arch.schemas["module.v1"]["properties"]["name"]["minLength"]=2
         self.assertEqual(arch.contract_diff()["status"],"BLOCKED")
