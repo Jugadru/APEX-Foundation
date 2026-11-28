@@ -1,4 +1,4 @@
-# APEX Foundation v0.6.1 (candidate)
+# APEX Foundation v0.7.0 (candidate)
 
 Ecosystem Integration + Modding Infrastructure + Artifact & Evidence Center + Persistence & Migration + Configuration Management + Content Registry + Unified Data Center + Architecture Intelligence + Knowledge Center + Shared Contracts & Capability Registry — infraestrutura compartilhada do ecossistema APEX, independente do motor esportivo.
 
@@ -58,3 +58,7 @@ Foundation CI é independente; não substitui FAST esportivo. Sem promoção de 
 ## Independent Hyper adapter v0.6.1
 
 See [Hyper metadata adapter](docs/integration/HYPER_ADAPTER.md). Candidate only.
+
+## Native Evidence Bridge v0.7.0
+
+[Scoped native ZIP verification](docs/evidence/NATIVE_BRIDGE.md) — initial candidate, no release authorization.

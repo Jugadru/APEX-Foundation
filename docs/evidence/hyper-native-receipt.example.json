@@ -1,0 +1,14 @@
+{
+  "contract": "native-artifact-receipt.v1",
+  "repository": "Jugadru/APEX-Hyper-Engine",
+  "scope": "HYPER_ISOLATED_LAB",
+  "revision": "67c0f449e31e181a8bcbc8d47040d799463b3cd5",
+  "event": "push",
+  "run_id": 46138705918,
+  "attempt": 1,
+  "artifact_id": 15259909848,
+  "size_bytes": 1093,
+  "sha256": "65b2a00f3adf148ae9b78b2657280ace3bb571966ee141870c57447f69a5b7d9",
+  "body_sha256": "d5bd02841c7cd5f7f9a063968e2ccd1cdc3079db0ef6bfd98550c297b875cb2f",
+  "native_checks": 24
+}

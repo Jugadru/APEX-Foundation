@@ -1,0 +1,9 @@
+# Native Evidence Bridge — v0.7.0 candidate
+
+First native format: existing Hyper FAST isolated longitudinal artifact. The verifier is offline, never fetches, extracts or executes an archive; it checks exact caller-supplied revision, ZIP byte size/SHA-256, two allowlisted members, bounded decompression and CRC, embedded body digest and native fixture marker/parameters. It reuses the Hyper metadata schema and source declaration validation without running consumer code. Receipt metadata supplied by the caller is not authenticated. PASS is not proof of GitHub origin, live CI, actual source checkout, sporting parity, native execution or release approval. SDK deliberately blocks the explicit local tool in both profiles.
+
+Example observed receipt: `hyper-native-receipt.example.json`, native run 46138705918, integrated producer revision 67c0f449e31e181a8bcbc8d47040d799463b3cd5. Archive SHA and size observed in GitHub API, body digest from exact Foundation run 46138744337, marker from native log. Raw ZIP audit NOT_RUN at this update (local runtime unavailable). No archive bundled or automatically downloaded.
+
+    python3 tools/apex_native_evidence.py docs/evidence/hyper-native-receipt.example.json /path/to/archive.zip --revision 67c0f449e31e181a8bcbc8d47040d799463b3cd5
+
+Nine synthetic regression tests cover byte integrity, bounds, CRC, duplicate and unknown members, scope and revision mismatch, native marker and parameter mismatch, gateway isolation. Existing contracts and evidence catalog remain unchanged. Further candidate work: actual archived artifact verification, Core 2 FAST receipt format, Foundation archive integrity without unsupported identity claims, and scoped cross-producer reporting. Do not promote or merge before exact native artifact evidence and full Foundation CI. Rollback revert independently.

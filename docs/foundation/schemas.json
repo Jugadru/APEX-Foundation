@@ -2775,5 +2775,77 @@
       "body_sha256"
     ],
     "additionalProperties": false
+  },
+  "native-artifact-receipt.v1": {
+    "type": "object",
+    "properties": {
+      "contract": {
+        "type": "string",
+        "enum": [
+          "native-artifact-receipt.v1"
+        ]
+      },
+      "repository": {
+        "type": "string",
+        "enum": [
+          "Jugadru/APEX-Hyper-Engine"
+        ]
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "HYPER_ISOLATED_LAB"
+        ]
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "[0-9a-f]{40}"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "push",
+          "pull_request"
+        ]
+      },
+      "run_id": {
+        "type": "integer"
+      },
+      "attempt": {
+        "type": "integer"
+      },
+      "artifact_id": {
+        "type": "integer"
+      },
+      "size_bytes": {
+        "type": "integer"
+      },
+      "sha256": {
+        "type": "string",
+        "pattern": "[0-9a-f]{64}"
+      },
+      "body_sha256": {
+        "type": "string",
+        "pattern": "[0-9a-f]{64}"
+      },
+      "native_checks": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "contract",
+      "repository",
+      "scope",
+      "revision",
+      "event",
+      "run_id",
+      "attempt",
+      "artifact_id",
+      "size_bytes",
+      "sha256",
+      "body_sha256",
+      "native_checks"
+    ],
+    "additionalProperties": false
   }
 }

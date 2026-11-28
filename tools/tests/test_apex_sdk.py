@@ -18,7 +18,7 @@ class SDKTests(unittest.TestCase):
 
     def test_catalog_coverage(self):
         c=self.sdk.catalog()
-        self.assertEqual((c["capabilities"],c["offline_routes"],c["external_only"]),(71,62,9))
+        self.assertEqual((c["capabilities"],c["offline_routes"],c["external_only"]),(72,62,10))
         self.assertTrue(all(not x["execution_authorized"] for x in c["entries"]))
         self.assertEqual(set(s.ROUTES)|set(s.DENIED),set(self.sdk._caps))
 

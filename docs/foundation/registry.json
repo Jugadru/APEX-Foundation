@@ -1,10 +1,10 @@
 {
-  "foundation_version": "0.6.1",
+  "foundation_version": "0.7.0",
   "modules": [
     {
       "id": "foundation",
       "name": "APEX Foundation",
-      "version": "0.6.1",
+      "version": "0.7.0",
       "maturity": "experimental",
       "state_owner": "Shared metadata only",
       "dependencies": [],
@@ -265,20 +265,21 @@
     {
       "id": "evidence-center",
       "name": "Artifact & Evidence Center",
-      "version": "0.3.1",
+      "version": "0.7.0",
       "maturity": "experimental",
       "state_owner": "Offline evidence receipts, integrity and comparisons; no release authority",
       "dependencies": [
         "foundation"
       ],
       "entrypoints": [
-        "tools/apex_evidence.py"
+        "tools/apex_evidence.py",
+        "tools/apex_native_evidence.py"
       ]
     },
     {
       "id": "integration-gateway",
       "name": "Foundation Ecosystem Integration",
-      "version": "0.6.1",
+      "version": "0.7.0",
       "maturity": "experimental",
       "state_owner": "Offline SDK, gateway and adoption planning; no native runtime authority",
       "dependencies": [
@@ -1578,6 +1579,24 @@
       "restrictions": [
         "No network, consumer mutation, runtime authority, save access, automatic import or release authorization"
       ]
+    },
+    {
+      "id": "evidence.native-archive-verify",
+      "module": "evidence-center",
+      "version": "1.0.0",
+      "inputs": [
+        "Explicit local ZIP and receipt"
+      ],
+      "outputs": [
+        "Scoped archive byte and embedded metadata consistency report"
+      ],
+      "method": "python3 tools/apex_native_evidence.py RECEIPT ZIP --revision SHA",
+      "permissions": [
+        "read.local"
+      ],
+      "restrictions": [
+        "No extraction, network, producer execution, runtime authority, authentication or release authorization"
+      ]
     }
   ],
   "compatibility": [
@@ -1932,6 +1951,10 @@
     },
     {
       "id": "hyper-metadata.v1",
+      "status": "active"
+    },
+    {
+      "id": "native-artifact-receipt.v1",
       "status": "active"
     }
   ]

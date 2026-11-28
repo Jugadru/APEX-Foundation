@@ -21,7 +21,7 @@ import apex_reconcile as reconcile
 
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/"docs"/"integration"
-VERSION="0.6.1"
+VERSION="0.7.0"
 STATES={"PASS","FAIL","NOT_RUN","INCONCLUSIVE","BLOCKED"}
 # Static code routes. Neither manifests nor request data select Python attributes.
 # Tuple: service, method, min/max positional arguments, profile, structured field.
@@ -99,6 +99,7 @@ DENIED={
     "modding.zip":"EXPLICIT_LOCAL_TOOL_ONLY",
     "integration.core2-verify":"EXPLICIT_LOCAL_TOOL_ONLY",
     "integration.hyper-verify":"EXPLICIT_LOCAL_TOOL_ONLY",
+    "evidence.native-archive-verify":"EXPLICIT_LOCAL_TOOL_ONLY",
 }
 NATIVE={
     "core2":["FAST exact candidate SHA","Native SaveGuard baseline/candidate","Read-only metadata mapping and regressions"],
