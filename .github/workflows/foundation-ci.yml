@@ -129,13 +129,13 @@ jobs:
           test "$(git -C "$source_dir" rev-parse HEAD)" = "$consumer_sha"
           python3 "$source_dir/tools/apex_foundation_metadata.py" > "$RUNNER_TEMP/core2-metadata.json"
           python3 tools/apex_core2_metadata.py "$RUNNER_TEMP/core2-metadata.json" --revision "$consumer_sha" --source-root "$source_dir" | tee ci-results/core2-adapter-verification.json
-      - name: Verify Hyper candidate metadata from exact public revision
+      - name: Verify Hyper integrated metadata from exact public revision
         shell: bash
         run: |
           set -euo pipefail
           export GIT_TERMINAL_PROMPT=0
           source_dir="$RUNNER_TEMP/apex-hyper-metadata-source"
-          consumer_sha="7648b83348dec3aa7886e1a986c87d1849a01e1e"
+          consumer_sha="67c0f449e31e181a8bcbc8d47040d799463b3cd5"
           git init -q "$source_dir"
           git -C "$source_dir" remote add origin https://github.com/Jugadru/APEX-Hyper-Engine.git
           git -C "$source_dir" config remote.origin.promisor true
